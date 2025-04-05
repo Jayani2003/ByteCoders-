@@ -1,0 +1,135 @@
+-----------------------------------------------------------------------teclms database creation-------------------------------------------------------------------------
+
+CREATE DATABASE teclms;
+
+USE teclms;
+
+---------------------------------------------------------------------------create tables---------------------------------------------------------------------------------
+
+CREATE TABLE `user` (
+  `User_Id` varchar(10) NOT NULL,
+  `First_Name` varchar(20) NOT NULL,
+  `Last_Name` varchar(20) NOT NULL,
+  `DOB` date NOT NULL,
+  `Telephone` varchar(15) NOT NULL,
+  `Address` varchar(50) NOT NULL,
+  `Email` varchar(70) NOT NULL,
+  `Password` varchar(40) NOT NULL,
+  `Age` int NOT NULL,
+  PRIMARY KEY (`User_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `admin` (
+  `Admin_Id` varchar(10) NOT NULL,
+  PRIMARY KEY (`Admin_Id`),
+  CONSTRAINT `fk_admin_user` FOREIGN KEY (`Admin_Id`) REFERENCES `user` (`User_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
+
+CREATE TABLE `lecturer` (
+  `Lecturer_Id` varchar(10) NOT NULL,
+  `Department` enum('ICT','BST','ET') NOT NULL,
+  `Enrollment_Date` date NOT NULL,
+  `Possition` varchar(50) NOT NULL,
+  PRIMARY KEY (`Lecturer_Id`),
+  CONSTRAINT `fk_lecturer_user` FOREIGN KEY (`Lecturer_Id`) REFERENCES `user` (`User_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `student` (
+  `Student_Id` varchar(10) NOT NULL,
+  `Level` varchar(20) NOT NULL,
+  `Department` enum('ICT','BST','ET') NOT NULL,
+  `Acadamic_Status` varchar(20) NOT NULL,
+  PRIMARY KEY (`Student_Id`),
+  CONSTRAINT `fk_student_user` FOREIGN KEY (`Student_Id`) REFERENCES `user` (`User_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `technical_officer` (
+  `Technical_Id` varchar(10) NOT NULL,
+  `Enrollment_Date` date NOT NULL,
+  PRIMARY KEY (`Technical_Id`),
+  CONSTRAINT `fk_technicalOfficer_user` FOREIGN KEY (`Technical_Id`) REFERENCES `user` (`User_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `attendance` (
+  `AttendanceRecord_Id` varchar(10) NOT NULL,
+  `Session_No` int NOT NULL,
+  `Medical_Status` enum('MC') NOT NULL,
+  `Date` date NOT NULL,
+  `Type` enum('Absent','Present') NOT NULL,
+  PRIMARY KEY (`AttendanceRecord_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `course` (
+  `Course_Id` varchar(10) NOT NULL,
+  `Course_Name` varchar(50) NOT NULL,
+  `Credit_Status` enum('Credit','Non-Credit') NOT NULL,
+  `Credits` int NOT NULL,
+  `Type` enum('GPA','Non-GPA') NOT NULL,
+  PRIMARY KEY (`Course_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `mark` (
+  `MarkRecord_Id` varchar(10) NOT NULL,
+  `Quiz_01` float NOT NULL,
+  `Quiz_02` float NOT NULL,
+  `Quiz_03` float NOT NULL,
+  `Assignment` float NOT NULL,
+  `Mid_Theory` float NOT NULL,
+  `Mid_Practical` float NOT NULL,
+  `Final_Theory` float NOT NULL,
+  `Final_Practical` float NOT NULL,
+  `Grade` char(4) NOT NULL,
+  PRIMARY KEY (`MarkRecord_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `medical` (
+  `MedicalRecord_Id` varchar(10) NOT NULL,
+  `Approval_Status` enum('Approved','Unapproved') NOT NULL,
+  `Submission_Date` date NOT NULL,
+  PRIMARY KEY (`MedicalRecord_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `notice` (
+  `Notice_Id` varchar(10) NOT NULL,
+  `Title` varchar(20) NOT NULL,
+  `Description` varchar(100) NOT NULL,
+  `Date_Posted` date NOT NULL,
+  PRIMARY KEY (`Notice_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `stu_course` (
+  `Student_Id` varchar(10) NOT NULL,
+  `Course_Id` varchar(10) NOT NULL,
+  PRIMARY KEY (`Student_Id`,`Course_Id`),
+  KEY `Course_Id_idx` (`Course_Id`),
+  CONSTRAINT `Course_Id` FOREIGN KEY (`Course_Id`) REFERENCES `course` (`Course_Id`),
+  CONSTRAINT `Student_Id` FOREIGN KEY (`Student_Id`) REFERENCES `student` (`Student_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `techofficer_attendance` (
+  `Technical_Id` varchar(10) NOT NULL,
+  `AttendanceRecord_Id` varchar(10) NOT NULL,
+  PRIMARY KEY (`Technical_Id`,`AttendanceRecord_Id`),
+  KEY `AttendanceRecord_Id_idx` (`AttendanceRecord_Id`),
+  CONSTRAINT `AttendanceRecord_Id` FOREIGN KEY (`AttendanceRecord_Id`) REFERENCES `attendance` (`AttendanceRecord_Id`),
+  CONSTRAINT `Technical_Id` FOREIGN KEY (`Technical_Id`) REFERENCES `technical_officer` (`Technical_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `techofficer_medical` (
+  `Technical_Id` varchar(10) NOT NULL,
+  `MedicalRecord_Id` varchar(10) NOT NULL,
+  PRIMARY KEY (`Technical_Id`,`MedicalRecord_Id`),
+  KEY `MedicalRecord_Id_idx` (`MedicalRecord_Id`),
+  CONSTRAINT `MedicalRecord_Id` FOREIGN KEY (`MedicalRecord_Id`) REFERENCES `medical` (`MedicalRecord_Id`),
+  CONSTRAINT `Technical_Id_Med` FOREIGN KEY (`Technical_Id`) REFERENCES `technical_officer` (`Technical_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `time_table` (
+  `TimeTable_Id` varchar(10) NOT NULL,
+  `Date_Posted` date NOT NULL,
+  `Department` enum('ICT','BST','ET') NOT NULL,
+  PRIMARY KEY (`TimeTable_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
