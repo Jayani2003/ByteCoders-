@@ -1,0 +1,27 @@
+/* Utility */
+.btn {
+    -fx-background-color: #7A0D3A;
+    -fx-padding: 12px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn:hover {
+    -fx-background-color: #5A0929;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 1);
+}
+
+/* Login */
+.login-pane {
+    -fx-background-color: #AC1754;
+}
+
+.login-img-pane {
+    -fx-background-color: #FFFFFF;
+}
+
+.inp-container {
+    -fx-background-color: #e3e3e3;
+}
