@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -49,7 +46,7 @@ public class LoginController implements Initializable {
         try {
 
             if (username.equals("") || password.equals("")) {
-                popUpErrorMessage("Username or Password are Required");
+                popUpErrorMessage("Username and Password are Required");
             } else {
 
 
@@ -106,9 +103,14 @@ public class LoginController implements Initializable {
     }
 
     private void popUpErrorMessage(String error) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Login Error");
         alert.setHeaderText(error);
+        alert.setContentText("Please try again.");
+
+        // Load custom CSS
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/Styles/styles.css").toExternalForm());
         alert.showAndWait();
     }
 
