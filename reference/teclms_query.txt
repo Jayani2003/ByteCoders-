@@ -16,6 +16,10 @@ CREATE TABLE `user` (
   PRIMARY KEY (`User_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+ALTER TABLE user
+ADD User_Image LONGTEXT NOT NULL;
+
+
 -- Admin table (extends user)
 CREATE TABLE `admin` (
   `Admin_Id` varchar(10) NOT NULL,
@@ -141,10 +145,7 @@ CREATE TABLE `time_table` (
   PRIMARY KEY (`TimeTable_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Insert users with bcrypt hashed passwords (cost factor 12)
-INSERT INTO `user` VALUES
--- Admin (password: SecureAdmin@123)
-('AD001', 'Admin', 'User', '1980-01-15', '0770000001', '123 Admin St, Colombo', 'admin@tec.edu', '$2a$12$/1ibXyQ95Zhg6PuXWD5IrOIkgjPdP9/NXdMniuhZBL2aGX0XJmO26', 43),
+
 
 -- Lecturers
 -- Lecturer 1 (password: ICTLecturer#2023)
