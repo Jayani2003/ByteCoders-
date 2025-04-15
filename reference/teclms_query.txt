@@ -16,9 +16,8 @@ CREATE TABLE `user` (
   PRIMARY KEY (`User_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-ALTER TABLE user
-ADD User_Image LONGTEXT NOT NULL;
-
+ALTER TABLE `teclms`.`user` 
+CHANGE COLUMN `User_Image` `User_Image` MEDIUMTEXT NOT NULL ;
 
 -- Admin table (extends user)
 CREATE TABLE `admin` (
@@ -146,61 +145,4 @@ CREATE TABLE `time_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-
--- Lecturers
--- Lecturer 1 (password: ICTLecturer#2023)
-('LEC01', 'John', 'Smith', '1985-05-15', '0771000001', '456 Faculty Rd, Kandy', 'john.smith@tec.edu', '$2a$12$LDx96ZD3dRSZtOqKX4Fvw.DEpxHkA3uzpZwkmZkAOG9xCYVRvdXpC', 38),
--- Lecturer 2 (password: BSTProfessor$456)
-('LEC02', 'Emma', 'Johnson', '1990-08-22', '0771000002', '789 Campus Ave, Galle', 'emma.j@tec.edu', '$2a$12$egojYLfXx8XJJyUM9p6q/.aNLaUtnY4wJQK6i7ppoShl.Loe.lodC', 33),
-
--- Students
--- Student 1 (password: MichaelST001!)
-('ST001', 'Michael', 'Williams', '2000-03-10', '0772000001', '101 Dorm St, Colombo', 'michael.w@tec.edu', '$2a$12$jay41x8noy0xKjPuOxS1T.4mVH7vROc2r1Kc29R5ckzwpNDpSs/FC', 23),
--- Student 2 (password: SarahBST2023)
-('ST002', 'Sarah', 'Brown', '2001-11-30', '0772000002', '202 Student Rd, Kandy', 'sarah.b@tec.edu', '$2a$12$3M.XoLtAKmnDuvsrrfgfIugrOH63crTpA/N9wquciS1cc9FfCd59G', 22),
--- Student 3 (password: DavidET$456)
-('ST003', 'David', 'Jones', '2002-07-18', '0772000003', '303 Campus Ave, Galle', 'david.j@tec.edu', '$2a$12$XPPIkIx7DS1gy/SnqRVM..I1jrm1n/G2WoGr5dTEpSTUHsPGlBwpy', 21),
--- Student 4 (password: LisaICT@789)
-('ST004', 'Lisa', 'Garcia', '2000-04-25', '0772000004', '404 Uni Lane, Colombo', 'lisa.g@tec.edu', '$2a$12$Gi6L1Yy9VcGKHbAPAXAqpefXQ/orjMDHwSkp5ZLnYsJX/2aQ8yQT2', 23),
--- Student 5 (password: RobertTEC2023)
-('ST005', 'Robert', 'Miller', '2001-09-12', '0772000005', '505 College Blvd, Kandy', 'robert.m@tec.edu', '$2a$12$rsSN5TpMAEpg3DK76mMyEe3MQg7ciiKmVT7aOlU0d.xYi7oRa9v6m', 22),
-
--- Technical Officers
--- Tech Officer 1 (password: AmandaTech@123)
-('TEC01', 'Amanda', 'Davis', '1993-12-05', '0773000001', '606 Tech St, Colombo', 'amanda.d@tec.edu', '$2a$12$dFgMEewQu9tn8TtsIiceuuNN/aspOgSasHFW9NLloq2zqulq6cE/G', 30),
--- Tech Officer 2 (password: JamesSupport$456)
-('TEC02', 'James', 'Rodriguez', '1992-02-28', '0773000002', '707 Support Rd, Kandy', 'james.r@tec.edu', '$2a$12$7B.XyBNQpIttI/h05Nu.HeaKCB9EmGmzpbq8lUf4OSdyrTtB8uBCm', 31);
-
--- Insert role-specific data
-INSERT INTO `admin` VALUES ('AD001');
-
-INSERT INTO `lecturer` VALUES
-('LEC01', 'ICT', '2015-06-20', 'Senior Lecturer'),
-('LEC02', 'BST', '2018-03-15', 'Lecturer');
-
-INSERT INTO `student` VALUES
-('ST001', 'Level 4', 'ICT', 'Active'),
-('ST002', 'Level 3', 'BST', 'Active'),
-('ST003', 'Level 4', 'ET', 'Probation'),
-('ST004', 'Level 2', 'ICT', 'Active'),
-('ST005', 'Level 3', 'ET', 'Active');
-
-INSERT INTO `technical_officer` VALUES
-('TEC01', '2019-05-10'),
-('TEC02', '2020-02-18');
-
--- Insert some courses
-INSERT INTO `course` VALUES
-('C001', 'Database Systems', 'Credit', 3, 'GPA'),
-('C002', 'Business Statistics', 'Credit', 2, 'GPA'),
-('C003', 'Electrical Circuits', 'Credit', 4, 'GPA'),
-('C004', 'Professional Ethics', 'Non-Credit', 1, 'Non-GPA');
-
--- Enroll students in courses
-INSERT INTO `stu_course` VALUES
-('ST001', 'C001'), ('ST001', 'C004'),
-('ST002', 'C002'), ('ST002', 'C004'),
-('ST003', 'C003'), ('ST003', 'C004'),
-('ST004', 'C001'), ('ST004', 'C002'),
-('ST005', 'C003'), ('ST005', 'C004');
 
