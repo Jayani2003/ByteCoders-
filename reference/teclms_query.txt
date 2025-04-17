@@ -3,21 +3,19 @@ CREATE DATABASE teclms;
 USE teclms;
 
 -- User table (base table for all user types)
-CREATE TABLE `user` (
-  `User_Id` varchar(10) NOT NULL,
-  `First_Name` varchar(20) NOT NULL,
-  `Last_Name` varchar(20) NOT NULL,
-  `DOB` date NOT NULL,
-  `Telephone` varchar(15) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `Email` varchar(70) NOT NULL,
-  `Password` varchar(150) NOT NULL,
-  `Age` int NOT NULL,
-  PRIMARY KEY (`User_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-ALTER TABLE `teclms`.`user` 
-CHANGE COLUMN `User_Image` `User_Image` MEDIUMTEXT NOT NULL ;
+CREATE TABLE "user" (
+  "User_Id" varchar(10) NOT NULL,
+  "First_Name" varchar(20) NOT NULL,
+  "Last_Name" varchar(20) NOT NULL,
+  "DOB" date NOT NULL,
+  "Telephone" varchar(15) NOT NULL,
+  "Address" varchar(50) NOT NULL,
+  "Email" varchar(70) NOT NULL,
+  "Password" varchar(150) NOT NULL,
+  "Age" int NOT NULL,
+  "User_Image" mediumtext NOT NULL,
+  PRIMARY KEY ("User_Id")
+)
 
 -- Admin table (extends user)
 CREATE TABLE `admin` (
