@@ -24,7 +24,7 @@ public class LoginController implements Initializable {
 
     private Parent root;
 
-    private String username, password, db_uid, db_hash, sql;
+    private String username, password, db_uid, db_hash, db_role, sql;
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
@@ -65,11 +65,24 @@ public class LoginController implements Initializable {
 
                     db_uid = rs.getString("User_Id");
                     db_hash = rs.getString("Password");
+                    db_role = rs.getString("Role");
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
-                        System.out.println("Successfully logged in");
+                        switch (db_role){
+                            case "Admin":
+                                loadDashboard(loginButton, "/Fxml/Admin/AdminDashboard.fxml", "Admin");
+                                break;
+                            case "Lecturer":
+                                loadDashboard(loginButton, "/Fxml/Lecturer/LecDashboard.fxml", "Lecturer");
+                                break;
+                            case "Student":
+                                loadDashboard(loginButton, "/Fxml/Student/StudentDashboard.fxml", "Student");
+                                break;
+                            case "TechnicalOfficer":
+                                loadDashboard(loginButton, "/Fxml/TechnicalOfficer/TODashboard.fxml", "TechnicalOfficer");
+                                break;
+                        }
                     } else {
-                        CustomUi.popUpErrorMessage("Invalid Password or Username", "Login Error", Alert.AlertType.WARNING);
                         CustomUi.popUpErrorMessage("Invalid Password or Username", "Login Error", Alert.AlertType.WARNING);
                     }
 
@@ -79,7 +92,7 @@ public class LoginController implements Initializable {
             }
 
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
