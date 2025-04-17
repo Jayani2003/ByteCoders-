@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="374.0" fitWidth="1063.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/timetablebackground2.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5497d32" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Text fill="#b10e3d" layoutX="245.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table">
+         <font>
+            <Font name="Eras Bold ITC" size="22.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="40.0" layoutY="58.0" prefHeight="312.0" prefWidth="520.0">
+         <children>
+            <ScrollBar layoutX="506.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="-2.3092638912203256E-14" AnchorPane.topAnchor="0.0" />
+            <TableView fx:id="timetable" prefHeight="312.0" prefWidth="506.0">
+              <columns>
+                <TableColumn prefWidth="121.60003662109375" text="Level" />
+                <TableColumn prefWidth="136.0" text="Semester" />
+                  <TableColumn minWidth="0.0" prefWidth="128.0" text="Department" />
+                  <TableColumn prefWidth="121.5999755859375" text="Time Table" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
