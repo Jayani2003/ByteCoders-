@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminNoticeController">
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <Label text="NOTICES" textFill="#ac1754f0" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Cambria Bold Italic" size="34.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                    </BorderPane.margin>
+                </Label>
+            </top>
+            <center>
+                <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="NO" />
+                        <TableColumn prefWidth="113.5" text="TITLE" />
+                        <TableColumn prefWidth="274.0" text="DESCRIPTION" />
+                        <TableColumn prefWidth="136.5" text="DATE" />
+                    </columns>
+                    <BorderPane.margin>
+                        <Insets bottom="-70.0" left="8.0" right="8.0" />
+                    </BorderPane.margin>
+                </TableView>
+            </center>
+            <bottom>
+                <Pane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            </bottom>
+        </BorderPane>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d7db00" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <ImageView fitHeight="400.0" fitWidth="522.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0">
+            <image>
+                <Image url="@../../Images/Book.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>
