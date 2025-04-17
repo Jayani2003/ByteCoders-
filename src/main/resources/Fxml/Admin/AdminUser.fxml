@@ -126,7 +126,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="834.0">
                      <children>
-                        <TableView prefHeight="142.0" prefWidth="1071.0" style="-fx-background-color: #d49fac;">
+                        <TableView fx:id="table" prefHeight="142.0" prefWidth="1071.0" style="-fx-background-color: #d49fac;">
                           <columns>
                             <TableColumn prefWidth="75.0" text="User ID" />
                             <TableColumn prefWidth="75.0" text="User Type" />
