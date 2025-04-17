@@ -1,20 +1,28 @@
 package com.lms.bytecoders.Controllers;
 
 import com.lms.bytecoders.Services.Database;
+import com.lms.bytecoders.Utils.CustomUi;
 import com.lms.bytecoders.Utils.PasswordUtils;
+import com.lms.bytecoders.Utils.SceneHandler;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+
+    private Parent root;
 
     private String username, password, db_uid, db_hash, sql;
     private Connection conn;
@@ -46,9 +54,8 @@ public class LoginController implements Initializable {
         try {
 
             if (username.equals("") || password.equals("")) {
-                popUpErrorMessage("Username and Password are Required");
+                CustomUi.popUpErrorMessage("Username and Password are Required", "Login Error", Alert.AlertType.WARNING);
             } else {
-
 
                 ps = conn.prepareStatement(sql);
                 ps.setString(1, username);
@@ -61,12 +68,13 @@ public class LoginController implements Initializable {
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
                         System.out.println("Successfully logged in");
-                    }else {
-                        popUpErrorMessage("Invalid Password or Username");
+                    } else {
+                        CustomUi.popUpErrorMessage("Invalid Password or Username", "Login Error", Alert.AlertType.WARNING);
+                        CustomUi.popUpErrorMessage("Invalid Password or Username", "Login Error", Alert.AlertType.WARNING);
                     }
 
-                }else {
-                    popUpErrorMessage("User Not Found");
+                } else {
+                    CustomUi.popUpErrorMessage("User Not Found", "Login Error", Alert.AlertType.WARNING);
                 }
             }
 
@@ -84,34 +92,9 @@ public class LoginController implements Initializable {
 
     }
 
-    private void onLogin() {
-        Stage loginStage = (Stage) loginButton.getScene().getWindow();
-        loginStage.close();
+    public void loadDashboard(Node ob, String path, String title) throws IOException {
+        FXMLLoader loader = SceneHandler.createLoader(path);
+        root = loader.load();
+        SceneHandler.switchScene(ob, root, title);
     }
-
-    private void Dashboard(String path) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
-            Stage stage = new Stage();
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-            stage.setTitle("Dashboard");
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("error : " + e + "\nerror-message: " + e.getMessage());
-        }
-    }
-
-    private void popUpErrorMessage(String error) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Login Error");
-        alert.setHeaderText(error);
-        alert.setContentText("Please try again.");
-
-        // Load custom CSS
-        DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("/Styles/styles.css").toExternalForm());
-        alert.showAndWait();
-    }
-
 }
