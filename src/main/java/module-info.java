@@ -15,11 +15,19 @@ module com.lms.bytecoders {
 
     opens com.lms.bytecoders to javafx.fxml;
     opens com.lms.bytecoders.Controllers to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.Admin to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.Lecturer to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.Student to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.TechnicalOfficer to javafx.fxml;
     opens com.lms.bytecoders.Services to javafx.fxml;
     opens com.lms.bytecoders.Models to javafx.fxml;
 
     exports com.lms.bytecoders;
     exports com.lms.bytecoders.Controllers;
+    exports com.lms.bytecoders.Controllers.Admin;
+    exports com.lms.bytecoders.Controllers.Lecturer;
+    exports com.lms.bytecoders.Controllers.Student;
+    exports com.lms.bytecoders.Controllers.TechnicalOfficer;
     exports com.lms.bytecoders.Models;
     exports com.lms.bytecoders.Services;
 

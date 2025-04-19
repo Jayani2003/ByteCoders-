@@ -11,9 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,39 +44,39 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handleLogin(ActionEvent actionEvent) {
-        username = userNameInput.getText().trim();
-        password = passwordInput.getText().trim();
-        conn = Database.Conn();
-        sql = "SELECT User_Id, Password FROM user WHERE Email=?";
+        sql = "SELECT Password, User_Id, Role FROM user WHERE Email=?";
 
         try {
+            username = userNameInput.getText().trim();
+            password = passwordInput.getText().trim();
 
             if (username.equals("") || password.equals("")) {
                 CustomUi.popUpErrorMessage("Username and Password are Required", "Login Error", Alert.AlertType.WARNING);
             } else {
 
+                conn = Database.Conn();
                 ps = conn.prepareStatement(sql);
                 ps.setString(1, username);
 
                 rs = ps.executeQuery();
-                if (rs.next()) {
 
+                if (rs.next()) {
                     db_uid = rs.getString("User_Id");
                     db_hash = rs.getString("Password");
                     db_role = rs.getString("Role");
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
                         switch (db_role){
-                            case "Admin":
+                            case "ADMIN":
                                 loadDashboard(loginButton, "/Fxml/Admin/AdminDashboard.fxml", "Admin");
                                 break;
-                            case "Lecturer":
+                            case "LECTURER":
                                 loadDashboard(loginButton, "/Fxml/Lecturer/LecDashboard.fxml", "Lecturer");
                                 break;
-                            case "Student":
+                            case "STUDENT":
                                 loadDashboard(loginButton, "/Fxml/Student/StudentDashboard.fxml", "Student");
                                 break;
-                            case "TechnicalOfficer":
+                            case "TECHNICAL_OFFICER":
                                 loadDashboard(loginButton, "/Fxml/TechnicalOfficer/TODashboard.fxml", "TechnicalOfficer");
                                 break;
                         }
@@ -108,6 +106,6 @@ public class LoginController implements Initializable {
     public void loadDashboard(Node ob, String path, String title) throws IOException {
         FXMLLoader loader = SceneHandler.createLoader(path);
         root = loader.load();
-        SceneHandler.switchScene(ob, root, title);
+        SceneHandler.switchScene(ob, root,title);
     }
 }
