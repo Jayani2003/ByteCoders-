@@ -1,0 +1,63 @@
+/* Utility */
+.btn {
+    -fx-background-color: #5A0929;
+    -fx-padding: 12px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn:hover {
+    -fx-background-color: #7A0D3A;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 1);
+}
+
+/* Login */
+.login-pane {
+    -fx-background-color: #AC1754;
+}
+
+.login-img-pane {
+    -fx-background-color: #FFFFFF;
+}
+
+.inp-container {
+    -fx-background-color: #e3e3e3;
+}
+
+/* Custom Alert Box */
+.dialog-pane {
+    -fx-background-color: #fefefe;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #AC1754;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Yu Gothic UI Semibold";
+}
+
+.dialog-pane .content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-text-alignment: center;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #5A0929;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: #7A0D3A;
+}

@@ -8,6 +8,11 @@ module com.lms.bytecoders {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires java.sql;
+    requires jbcrypt;
+    requires io.github.cdimascio.dotenv.java;
+
     opens com.lms.bytecoders to javafx.fxml;
     opens com.lms.bytecoders.Controllers to javafx.fxml;
     opens com.lms.bytecoders.Services to javafx.fxml;
