@@ -38,7 +38,7 @@ public class StudentHomeController extends StudentDashboardController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userGreetLabel.setText(BaseController.getFname());
+        userGreetLabel.setText(BaseController.getName());
     }
 
 

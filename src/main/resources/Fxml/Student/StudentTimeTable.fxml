@@ -28,10 +28,10 @@
             <ScrollBar layoutX="506.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="-2.3092638912203256E-14" AnchorPane.topAnchor="0.0" />
             <TableView fx:id="timetable" prefHeight="312.0" prefWidth="506.0">
               <columns>
-                <TableColumn prefWidth="121.60003662109375" text="Level" />
-                <TableColumn prefWidth="136.0" text="Semester" />
-                  <TableColumn minWidth="0.0" prefWidth="128.0" text="Department" />
-                  <TableColumn prefWidth="121.5999755859375" text="Time Table" />
+                <TableColumn fx:id="levelColumn" prefWidth="121.60003662109375" text="Level" />
+                <TableColumn fx:id="semesterColumn" prefWidth="136.0" text="Semester" />
+                  <TableColumn fx:id="departmentColumn" minWidth="0.0" prefWidth="128.0" text="Department" />
+                  <TableColumn fx:id="timetableColumn" prefWidth="121.5999755859375" text="Time Table" />
               </columns>
             </TableView>
          </children>

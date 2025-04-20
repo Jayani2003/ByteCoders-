@@ -68,7 +68,8 @@ public class LoginController implements Initializable {
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
                         BaseController.setUserId(db_uid);
-                        switch (db_role){
+                        BaseController.setDashboardName(db_role);
+                        switch (db_role) {
                             case "ADMIN":
                                 loadDashboard(loginButton, "/Fxml/Admin/AdminDashboard.fxml", "Admin");
                                 break;
@@ -96,7 +97,7 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         } finally {
             try {
-                conn.close();
+                if (conn != null) conn.close();
             } catch (SQLException e) {
                 System.out.println("Error in closing the Connection..." + e.getMessage());
             }
@@ -108,6 +109,6 @@ public class LoginController implements Initializable {
     public void loadDashboard(Node ob, String path, String title) throws IOException {
         FXMLLoader loader = SceneHandler.createLoader(path);
         root = loader.load();
-        SceneHandler.switchScene(ob, root,title);
+        SceneHandler.switchScene(ob, root, title);
     }
 }
