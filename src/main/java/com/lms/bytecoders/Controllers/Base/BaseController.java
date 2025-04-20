@@ -26,16 +26,9 @@ import java.sql.Statement;
 public abstract class BaseController {
     protected Parent root;
     private static String userId;
-
-    public static String getFname() {
-        return Fname;
-    }
-
-    public static void setFname(String fname) {
-        Fname = fname;
-    }
-
-    private static String Fname;
+    private static String uname;
+    private static String DashboardName;
+    protected String linkString;
     protected int id;
     protected String sql, fname, lname;
     protected Connection conn;
@@ -53,6 +46,23 @@ public abstract class BaseController {
     public static String getUserId() {
         return userId;
     }
+
+    public static String getName() {
+        return uname;
+    }
+
+    public static void setName(String name) {
+        uname = name;
+    }
+
+    public static String getDashboardName() {
+        return DashboardName;
+    }
+
+    public static void setDashboardName(String dashboardName) {
+        DashboardName = dashboardName;
+    }
+
 
 
     @FXML
@@ -95,7 +105,7 @@ public abstract class BaseController {
                 try {
                     fname = rs.getString("First_Name");
                     lname = rs.getString("Last_Name");
-                    BaseController.setFname(fname);
+                    BaseController.setName(fname);
                     Uname.setText(fname + " " + lname);
                     byte[] imageData = rs.getBytes("User_Image");
                     setProfilePic(proPic, imageData);

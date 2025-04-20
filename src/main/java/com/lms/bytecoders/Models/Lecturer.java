@@ -4,10 +4,6 @@ import java.time.LocalDate;
 
 public class Lecturer extends User {
 
-    public enum Department {
-        ICT, BST, ET
-    }
-
     private Department department;
     private LocalDate enrollmentDate;
     private String position;

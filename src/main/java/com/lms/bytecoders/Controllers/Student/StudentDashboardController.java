@@ -41,6 +41,7 @@ public class StudentDashboardController extends BaseController implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        dashboardLabel.setText(BaseController.getDashboardName());
         getDashBoardDataFromDB(userProfilePic, userNameLabel);
         navigate(studentNavPane, "/Fxml/Student/StudentHome.fxml");
     }
@@ -60,4 +61,5 @@ public class StudentDashboardController extends BaseController implements Initia
         loadLogin(logOutButton);
         BaseController.setUserId(null);
     }
+
 }

@@ -4,14 +4,6 @@ import java.time.LocalDate;
 
 public class Student extends User {
 
-    public enum Department {
-        ICT, BST, ET
-    }
-
-    public enum Level {
-        I, II, III, IV
-    }
-
     private Level level;
     private Department department;
     private String academicStatus;
