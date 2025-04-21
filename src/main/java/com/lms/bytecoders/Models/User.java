@@ -3,13 +3,6 @@ import java.time.LocalDate;
 
 public class User {
 
-    public enum Role {
-        LECTURER,
-        ADMIN,
-        STUDENT,
-        TECHNICAL_OFFICER
-    }
-
     protected String userId;
     protected String firstName;
     protected String lastName;

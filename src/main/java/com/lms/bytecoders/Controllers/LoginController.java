@@ -1,5 +1,6 @@
 package com.lms.bytecoders.Controllers;
 
+import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Services.Database;
 import com.lms.bytecoders.Utils.CustomUi;
 import com.lms.bytecoders.Utils.PasswordUtils;
@@ -18,15 +19,11 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends BaseController implements Initializable {
 
     private Parent root;
 
-    private String username, password, db_uid, db_hash, db_role, sql;
-    private Connection conn;
-    private PreparedStatement ps;
-    private ResultSet rs;
-
+    private String username, password, db_uid, db_hash, db_role;
 
     @FXML
     private Button loginButton;
@@ -66,20 +63,10 @@ public class LoginController implements Initializable {
                     db_role = rs.getString("Role");
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
-                        switch (db_role){
-                            case "ADMIN":
-                                loadDashboard(loginButton, "/Fxml/Admin/AdminDashboard.fxml", "Admin");
-                                break;
-                            case "LECTURER":
-                                loadDashboard(loginButton, "/Fxml/Lecturer/LecDashboard.fxml", "Lecturer");
-                                break;
-                            case "STUDENT":
-                                loadDashboard(loginButton, "/Fxml/Student/StudentDashboard.fxml", "Student");
-                                break;
-                            case "TECHNICAL_OFFICER":
-                                loadDashboard(loginButton, "/Fxml/TechnicalOfficer/TODashboard.fxml", "TechnicalOfficer");
-                                break;
-                        }
+                        BaseController.setUserId(db_uid);
+                        BaseController.setDashboardName(db_role);
+                        loadDashboard(loginButton);
+
                     } else {
                         CustomUi.popUpErrorMessage("Invalid Password or Username", "Login Error", Alert.AlertType.WARNING);
                     }
@@ -94,18 +81,12 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         } finally {
             try {
-                conn.close();
+                if (conn != null) conn.close();
             } catch (SQLException e) {
                 System.out.println("Error in closing the Connection..." + e.getMessage());
             }
         }
 
 
-    }
-
-    public void loadDashboard(Node ob, String path, String title) throws IOException {
-        FXMLLoader loader = SceneHandler.createLoader(path);
-        root = loader.load();
-        SceneHandler.switchScene(ob, root,title);
     }
 }

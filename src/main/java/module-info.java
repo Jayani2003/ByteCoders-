@@ -12,9 +12,12 @@ module com.lms.bytecoders {
     requires java.sql;
     requires jbcrypt;
     requires io.github.cdimascio.dotenv.java;
+    requires java.desktop;
 
     opens com.lms.bytecoders to javafx.fxml;
     opens com.lms.bytecoders.Controllers to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.Dashboard to javafx.fxml;
+    opens com.lms.bytecoders.Controllers.Base to javafx.fxml;
     opens com.lms.bytecoders.Controllers.Admin to javafx.fxml;
     opens com.lms.bytecoders.Controllers.Lecturer to javafx.fxml;
     opens com.lms.bytecoders.Controllers.Student to javafx.fxml;
@@ -24,6 +27,8 @@ module com.lms.bytecoders {
 
     exports com.lms.bytecoders;
     exports com.lms.bytecoders.Controllers;
+    exports com.lms.bytecoders.Controllers.Dashboard;
+    exports com.lms.bytecoders.Controllers.Base;
     exports com.lms.bytecoders.Controllers.Admin;
     exports com.lms.bytecoders.Controllers.Lecturer;
     exports com.lms.bytecoders.Controllers.Student;
