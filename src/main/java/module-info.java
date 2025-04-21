@@ -13,6 +13,7 @@ module com.lms.bytecoders {
     requires jbcrypt;
     requires io.github.cdimascio.dotenv.java;
     requires java.desktop;
+    requires jdk.jfr;
 
     opens com.lms.bytecoders to javafx.fxml;
     opens com.lms.bytecoders.Controllers to javafx.fxml;
