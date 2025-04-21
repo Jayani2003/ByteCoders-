@@ -34,29 +34,6 @@ public class StudentUpdateProfileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Set combo box items
-        ObservableList<String> list = FXCollections.observableArrayList("Male", "Female","Other");
-        combo.setItems(list);
-
-        //upload image
-        uploadButton.setOnAction(event -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Select Image");
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
-            );
-
-            File selectedFile = fileChooser.showOpenDialog(uploadButton.getScene().getWindow());
-            if (selectedFile != null) {
-                Image image = new Image(selectedFile.toURI().toString());
-                profileImageView.setImage(image);
-
-
-            }
-
-        });
-
-
 
     }
 

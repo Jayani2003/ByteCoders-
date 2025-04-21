@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.util.ResourceBundle;
 
-public class StudentNoticeController extends StudentDashboardController {
+public class StudentNoticeController extends BaseController {
 
     @FXML
     private TableColumn<?, Date> dateColumn;
@@ -31,11 +31,6 @@ public class StudentNoticeController extends StudentDashboardController {
 
     @FXML
     private TableColumn<?, String> titleColumn;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setTable();
-    }
 
     private ObservableList<Notice> getTableData() {
         ObservableList<Notice> notices = FXCollections.observableArrayList();
