@@ -2,18 +2,19 @@ package com.lms.bytecoders.Controllers.Student;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentHomeController extends StudentDashboardController {
+public class StudentHomeController extends BaseController implements Initializable {
 
     @FXML
-    private BorderPane MainPane;
+    private AnchorPane MainPane;
 
     @FXML
     private Pane attendancePane;
@@ -41,35 +42,34 @@ public class StudentHomeController extends StudentDashboardController {
         userGreetLabel.setText(BaseController.getName());
     }
 
-
     @FXML
-    public void navigateToAttendance(MouseEvent event) {
-        navigate(MainPane, "/Fxml/Student/MyAttendance.fxml");
+    void navigateToStuAttendance(MouseEvent event) {
+        navigate(MainPane, "/Fxml/Student/StudentAttendance.fxml");
     }
 
     @FXML
-    public void navigateToCourses(MouseEvent event) {
+    void navigateToStuCourses(MouseEvent event) {
         navigate(MainPane, "/Fxml/Student/StudentCourse.fxml");
     }
 
     @FXML
-    public void navigateToGrades(MouseEvent event) {
+    void navigateToStuGrades(MouseEvent event) {
         navigate(MainPane, "/Fxml/Student/StudentGrades.fxml");
     }
 
     @FXML
-    public void navigateToMedical(MouseEvent event) {
-        navigate(MainPane, "/Fxml/Student/MyMedical.fxml");
+    void navigateToStuMedical(MouseEvent event) {
+        navigate(MainPane, "/Fxml/Student/StudentMedical.fxml");
     }
 
     @FXML
-    public void navigateToTimeTable(MouseEvent event) {
-        navigate(MainPane, "/Fxml/Student/StudentTimeTable.fxml");
-    }
-
-    @FXML
-    public void navigteToNotice(MouseEvent event) {
+    void navigateToStuNotice(MouseEvent event) {
         navigate(MainPane, "/Fxml/Student/StudentNotice.fxml");
+    }
+
+    @FXML
+    void navigateToStuTimeTable(MouseEvent event) {
+        navigate(MainPane, "/Fxml/Student/StudentTimeTable.fxml");
     }
 
 }

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -64,21 +65,76 @@ public abstract class BaseController {
     }
 
 
+    public void loadLogin(Node ob) throws IOException {
+        FXMLLoader loader = SceneHandler.createLoader("/Fxml/Login.fxml");
+        root = loader.load();
+        SceneHandler.switchScene(ob, root, "Login");
+    }
 
+    public void loadDashboard(Node ob) throws IOException {
+        FXMLLoader loader = SceneHandler.createLoader("/Fxml/Dashboard/Dashboard.fxml");
+        root = loader.load();
+        SceneHandler.switchScene(ob, root, "Dashboard");
+    }
     @FXML
-    public void navigate(BorderPane pane, String path) {
+    public void navigate(Pane container, String path) {
         try {
             root = FXMLLoader.load(getClass().getResource(path));
-            pane.setCenter(root);
+            container.getChildren().clear();
+            container.getChildren().add(root);
+
+            if (container instanceof AnchorPane) {
+                AnchorPane.setTopAnchor(root, 0.0);
+                AnchorPane.setRightAnchor(root, 0.0);
+                AnchorPane.setBottomAnchor(root, 0.0);
+                AnchorPane.setLeftAnchor(root, 0.0);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void loadLogin(Node ob) throws IOException {
-        FXMLLoader loader = SceneHandler.createLoader("/Fxml/Login.fxml");
-        root = loader.load();
-        SceneHandler.switchScene(ob, root, "Login");
+    public void navigateToDashboardHome(AnchorPane pane) throws IOException {
+        try {
+            String path = "";
+            switch (BaseController.getDashboardName()) {
+                case "ADMIN":
+                    path = "/Fxml/Admin/AdminHome.fxml";
+                    break;
+                case "LECTURER":
+                    path = "/Fxml/Lecturer/LecHome.fxml";
+                    break;
+                case "STUDENT":
+                    path = "/Fxml/Student/StudentHome.fxml";
+                    break;
+                case "TECHNICAL_OFFICER":
+                    path = "/Fxml/TechnicalOfficer/TOHome.fxml";
+                    break;
+            }
+            navigate(pane, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void navigateToDashboardUpdate(AnchorPane pane) throws IOException {
+        try {
+            String path = "";
+            switch (BaseController.getDashboardName()) {
+                case "LECTURER":
+                    path = "/Fxml/Lecturer/LecUpdateProfile.fxml";
+                    break;
+                case "STUDENT":
+                    path = "/Fxml/Student/StudentUpdateProfile.fxml";
+                    break;
+                case "TECHNICAL_OFFICER":
+                    path = "/Fxml/TechnicalOfficer/TOUpdateProfile.fxml";
+                    break;
+            }
+            navigate(pane, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setProfilePic(Circle proPic, byte[] imgData) {
@@ -117,6 +173,7 @@ public abstract class BaseController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
 }

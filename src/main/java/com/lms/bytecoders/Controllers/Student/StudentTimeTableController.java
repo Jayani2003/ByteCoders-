@@ -1,5 +1,6 @@
 package com.lms.bytecoders.Controllers.Student;
 
+import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Models.Department;
 import com.lms.bytecoders.Models.TimeTable;
 import com.lms.bytecoders.Services.Database;
@@ -19,7 +20,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class StudentTimeTableController extends StudentDashboardController {
+public class StudentTimeTableController extends BaseController {
 
     @FXML
     private TableColumn<?, String> departmentColumn;
@@ -35,11 +36,6 @@ public class StudentTimeTableController extends StudentDashboardController {
 
     @FXML
     private TableColumn<?, Hyperlink> timetableColumn;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setTable();
-    }
 
 private ObservableList<TimeTable> getTableData() {
     ObservableList<TimeTable> timetable_ = FXCollections.observableArrayList();

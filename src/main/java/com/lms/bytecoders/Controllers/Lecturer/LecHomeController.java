@@ -1,4 +1,4 @@
 package com.lms.bytecoders.Controllers.Lecturer;
 
-public class LecDashboardController {
+public class LecHomeController {
 }

@@ -1,14 +1,12 @@
 package com.lms.bytecoders.Controllers.Lecturer;
 
-import com.lms.bytecoders.Controllers.Student.StudentDashboardController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
-public class LecAddMarkController extends StudentDashboardController {
+public class LecAddMarkController {
 
     @FXML
     private AnchorPane LecMainPane ;
