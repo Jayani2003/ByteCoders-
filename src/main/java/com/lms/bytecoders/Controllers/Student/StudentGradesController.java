@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class StudentGradesController extends BaseController implements Initializable {
 
-    private String grade, cname;
+    private String grade, cname, cid;
 
     @FXML
     private AnchorPane MainPane;
@@ -47,6 +47,7 @@ public class StudentGradesController extends BaseController implements Initializ
             conn = Database.Conn();
             sql = """
                             SELECT
+                                c.Course_Id,
                                 c.Course_Name,
                                 m.Grade
                             FROM mark m
@@ -60,9 +61,10 @@ public class StudentGradesController extends BaseController implements Initializ
             rs = ps.executeQuery();
 
             while (rs.next()) {
+                cid = rs.getString("Course_Id");
                 grade = rs.getString("Grade");
                 cname = rs.getString("Course_Name");
-                addGradeToVbox(cname + " : " + grade);
+                addGradeToVbox(cid + " " + cname + " : " + grade);
             }
 
         } catch (Exception e) {
