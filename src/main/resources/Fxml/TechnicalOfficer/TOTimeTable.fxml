@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -9,33 +9,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOTimeTableController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOTimeTableController">
     <children>
-        <ImageView fitHeight="374.0" fitWidth="1063.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="739.0" fitWidth="1243.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/timetablebackground2.jpg" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5497d32" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-        <Text fill="#b10e3d" layoutX="245.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table">
-            <font>
-                <Font name="Eras Bold ITC" size="22.0" />
-            </font>
-        </Text>
-        <AnchorPane layoutX="40.0" layoutY="58.0" prefHeight="312.0" prefWidth="520.0">
-            <children>
-                <ScrollBar layoutX="506.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="-2.3092638912203256E-14" AnchorPane.topAnchor="0.0" />
-                <TableView fx:id="timetable" prefHeight="312.0" prefWidth="506.0">
-                    <columns>
-                        <TableColumn prefWidth="121.60003662109375" text="Level" />
-                        <TableColumn prefWidth="136.0" text="Semester" />
-                        <TableColumn minWidth="0.0" prefWidth="128.0" text="Department" />
-                        <TableColumn prefWidth="121.5999755859375" text="Time Table" />
-                    </columns>
-                </TableView>
-            </children>
-        </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f54cea27" height="645.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <AnchorPane layoutX="27.0" layoutY="80.0" prefHeight="540.0" prefWidth="1119.0" style="-fx-background-color: pink;">
+         <children>
+            <TableView layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="to_level" prefWidth="167.5" text="LEVEL" />
+                <TableColumn fx:id="to_semester" prefWidth="256.5" text="SEMESTER" />
+                  <TableColumn fx:id="to_department" prefWidth="323.0" text="DEPARTMENT" />
+                  <TableColumn fx:id="to_tTable" prefWidth="371.0" text="TIME TABLE" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="476.0" layoutY="14.0" prefHeight="54.0" prefWidth="221.0">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" prefHeight="44.0" prefWidth="191.0" style="-fx-background-color: AC1754;" text="TIME TABLE" textFill="#fffefe">
+               <font>
+                  <Font name="Bauhaus 93" size="39.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
     </children>
 </Pane>

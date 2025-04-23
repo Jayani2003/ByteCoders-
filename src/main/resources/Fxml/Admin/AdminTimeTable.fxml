@@ -8,91 +8,106 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminTimeTableController">
+<AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: FFDEDE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminTimeTableController">
    <children>
-      <ImageView fitHeight="406.0" fitWidth="600.0" layoutY="-3.0">
-         <image>
-            <Image url="@../../Images/timetable.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff81" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1176.0">
          <children>
-            <Button fx:id="filebutton" layoutX="188.0" layoutY="286.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="50.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="add" layoutX="256.0" layoutY="349.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #b91e54;" text="Add" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <ComboBox fx:id="combolevel" layoutX="336.0" layoutY="84.0" prefWidth="150.0" promptText="level" style="-fx-background-color: #d1bcc5;">
-            <items>
-
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Level 1" />
-                  <String fx:value="Level 2" />
-                  <String fx:value="Level 3" />
-                  <String fx:value="Level 4" />
-               </FXCollections>
-
-
-            </items>
-            </ComboBox>
-            <TextField layoutX="336.0" layoutY="288.0" promptText="Upload Image" />
-            <Label layoutX="188.0" layoutY="155.0" text="Semester" textFill="#84144c">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="188.0" layoutY="218.0" text="Department" textFill="#84144c">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="188.0" layoutY="83.0" text="Level" textFill="#84144c">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="combosemester" layoutX="336.0" layoutY="156.0" prefWidth="150.0" promptText="semester" style="-fx-background-color: #d1bcc5;">
-            <items>
-
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Semester 1" />
-                  <String fx:value="Semester 2" />
-
-               </FXCollections>
-
-
-            </items>
-         </ComboBox>
-            <ComboBox fx:id="combodepartment" layoutX="336.0" layoutY="219.0" prefWidth="150.0" promptText="department" style="-fx-background-color: #d1bcc5;">
-            <items>
-
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="ICT" />
-                  <String fx:value="ET" />
-                  <String fx:value="BST" />
-
-               </FXCollections>
-
-
-            </items>
-         </ComboBox>
-            <Text fill="#bf1733" layoutX="233.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table">
-               <font>
-                  <Font name="Eras Bold ITC" size="22.0" />
-               </font>
-            </Text>
+            <ImageView fitHeight="790.0" fitWidth="1176.0" layoutY="-3.0" opacity="0.73">
+               <image>
+                  <Image url="@../../Images/timetable.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="655.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+            <Pane layoutX="173.0" layoutY="49.0" prefHeight="599.0" prefWidth="831.0">
+               <children>
+                  <Button fx:id="filebutton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addButton" layoutX="176.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="ADD" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="combolevel" layoutX="336.0" layoutY="84.0" prefHeight="32.0" prefWidth="290.0" promptText="level" style="-fx-background-color: #d1bcc5;">
+                  <items>
+      
+                           <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Level 1" />
+                        <String fx:value="Level 2" />
+                        <String fx:value="Level 3" />
+                        <String fx:value="Level 4" />
+                     </FXCollections>
+      
+            
+                        </items>
+                  </ComboBox>
+                  <TextField fx:id="upload" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
+                  <Label layoutX="176.0" layoutY="181.0" text="Semester" textFill="#84144c">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="176.0" layoutY="267.0" text="Department" textFill="#84144c">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="176.0" layoutY="84.0" text="Level" textFill="#84144c">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="combosemester" layoutX="336.0" layoutY="172.0" prefHeight="32.0" prefWidth="290.0" promptText="semester" style="-fx-background-color: #d1bcc5;">
+                  <items>
+      
+                           <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Semester 1" />
+                        <String fx:value="Semester 2" />
+      
+                           </FXCollections>
+      
+            
+                        </items>
+               </ComboBox>
+                  <ComboBox fx:id="combodepartment" layoutX="336.0" layoutY="267.0" prefHeight="32.0" prefWidth="290.0" promptText="department" style="-fx-background-color: #d1bcc5;">
+                  <items>
+      
+                           <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="ICT" />
+                        <String fx:value="ET" />
+                        <String fx:value="BST" />
+      
+                           </FXCollections>
+      
+            
+                        </items>
+               </ComboBox>
+                  <Text fill="#bf1733" layoutX="329.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table" wrappingWidth="237.365234375">
+                     <font>
+                        <Font name="Eras Bold ITC" size="34.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="updateButton" layoutX="355.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="UPDATE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteButton" layoutX="533.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="DELETE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
-</Pane>
+</AnchorPane>
