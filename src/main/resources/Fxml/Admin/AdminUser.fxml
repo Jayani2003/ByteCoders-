@@ -57,14 +57,14 @@
                        </FXCollections>
                    </items>
                   </ComboBox>
-                  <TextField layoutX="396.0" layoutY="94.0" promptText="FIRST NAME" />
-                  <TextField layoutX="396.0" layoutY="143.0" promptText="LAST NAME" />
-                  <TextField layoutX="396.0" layoutY="206.0" promptText="USER ID" />
-                  <TextField layoutX="396.0" layoutY="273.0" prefHeight="25.0" prefWidth="156.0" promptText="PASSWORD" />
-                  <TextField layoutX="602.0" layoutY="94.0" promptText="EMAIL" />
-                  <TextField layoutX="605.0" layoutY="143.0" promptText="PHONE NUMBER" />
-                  <TextField layoutX="605.0" layoutY="206.0" promptText="DOB" />
-                  <TextField layoutX="605.0" layoutY="273.0" promptText="ADDRESS" />
+                  <TextField fx:id="fname" layoutX="396.0" layoutY="94.0" promptText="FIRST NAME" />
+                  <TextField fx:id="lname" layoutX="396.0" layoutY="143.0" promptText="LAST NAME" />
+                  <TextField fx:id="userId" layoutX="396.0" layoutY="206.0" promptText="USER ID" />
+                  <TextField fx:id="password" layoutX="396.0" layoutY="273.0" prefHeight="25.0" prefWidth="156.0" promptText="PASSWORD" />
+                  <TextField fx:id="email" layoutX="602.0" layoutY="94.0" promptText="EMAIL" />
+                  <TextField fx:id="p_no" layoutX="605.0" layoutY="143.0" promptText="PHONE NUMBER" />
+                  <TextField fx:id="dob" layoutX="605.0" layoutY="206.0" promptText="DOB" />
+                  <TextField fx:id="address" layoutX="605.0" layoutY="273.0" promptText="ADDRESS" />
                   <Button fx:id="buttonAdd" layoutX="886.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: AC1754;" text="ADD" textFill="#f2efef">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -94,17 +94,17 @@
                            <children>
                               <TableView layoutX="-425.0" prefHeight="260.0" prefWidth="1500.0" style="-fx-background-color: F7A8C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn prefWidth="96.5" text="USER ID" />
-                                  <TableColumn prefWidth="98.0" text="USER TYPE" />
-                                    <TableColumn minWidth="0.0" prefWidth="111.5" text="FIRST NAME" />
-                                    <TableColumn minWidth="0.0" prefWidth="109.0" text="LAST NAME" />
-                                    <TableColumn minWidth="0.0" prefWidth="172.0" text="EMAIL" />
-                                    <TableColumn minWidth="0.0" prefWidth="140.5" text="PHONE NUMBER" />
-                                    <TableColumn minWidth="0.0" prefWidth="107.5" text="GENDER" />
-                                    <TableColumn minWidth="0.0" prefWidth="117.5" text="DATE OF BIRTH" />
-                                    <TableColumn minWidth="0.0" prefWidth="130.0" text="PASSWORD" />
-                                    <TableColumn minWidth="0.0" prefWidth="217.0" text="ADDRESS" />
-                                    <TableColumn prefWidth="164.5" text="USER IMAGE" />
+                                  <TableColumn fx:id="t_userId" prefWidth="96.5" text="USER ID" />
+                                  <TableColumn fx:id="t_combo" prefWidth="98.0" text="USER TYPE" />
+                                    <TableColumn fx:id="t_fname" minWidth="0.0" prefWidth="111.5" text="FIRST NAME" />
+                                    <TableColumn fx:id="t_lname" minWidth="0.0" prefWidth="109.0" text="LAST NAME" />
+                                    <TableColumn fx:id="t_email" minWidth="0.0" prefWidth="172.0" text="EMAIL" />
+                                    <TableColumn fx:id="t_pnumber" minWidth="0.0" prefWidth="140.5" text="PHONE NUMBER" />
+                                    <TableColumn fx:id="t_combo2" minWidth="0.0" prefWidth="107.5" text="GENDER" />
+                                    <TableColumn fx:id="t_dob" minWidth="0.0" prefWidth="117.5" text="DATE OF BIRTH" />
+                                    <TableColumn fx:id="t_password" minWidth="0.0" prefWidth="130.0" text="PASSWORD" />
+                                    <TableColumn fx:id="t_address" minWidth="0.0" prefWidth="217.0" text="ADDRESS" />
+                                    <TableColumn fx:id="t_userImage" prefWidth="164.5" text="USER IMAGE" />
                                 </columns>
                               </TableView>
                            </children>

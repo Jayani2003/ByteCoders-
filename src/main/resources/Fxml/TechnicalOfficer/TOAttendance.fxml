@@ -41,16 +41,16 @@
                                  <padding>
                                     <Insets top="8.0" />
                                  </padding></Label>
-                              <Label layoutX="95.0" layoutY="66.0" prefHeight="19.0" prefWidth="97.0" text="VIEW ID" textFill="#2c2729">
+                              <Label fx:id="stu_id" layoutX="95.0" layoutY="66.0" prefHeight="19.0" prefWidth="97.0" text="student id" textFill="#2c2729">
                                  <font>
                                     <Font name="Algerian" size="16.0" />
                                  </font></Label>
-                              <TextField layoutX="93.0" layoutY="103.0" prefHeight="25.0" prefWidth="260.0" />
+                              <TextField fx:id="tec_StuId_txt" layoutX="93.0" layoutY="103.0" prefHeight="25.0" prefWidth="260.0" />
                               <Button fx:id="searchButton" layoutX="405.0" layoutY="103.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="SEARCH" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font></Button>
-                              <Label layoutX="95.0" layoutY="167.0" text="USER ID" textFill="#2c2729">
+                              <Label layoutX="95.0" layoutY="167.0" text="student id" textFill="#2c2729">
                                  <font>
                                     <Font name="Algerian" size="16.0" />
                                  </font></Label>
@@ -100,9 +100,9 @@
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <DatePicker layoutX="772.0" layoutY="162.0" prefHeight="29.0" prefWidth="218.0" />
-                              <TextField layoutX="310.0" layoutY="160.0" prefHeight="32.0" prefWidth="218.0" />
-                              <TextField layoutX="772.0" layoutY="100.0" prefHeight="32.0" prefWidth="218.0" />
+                              <DatePicker fx:id="tec_date" layoutX="772.0" layoutY="162.0" prefHeight="29.0" prefWidth="218.0" />
+                              <TextField fx:id="tec_stuId2_txt" layoutX="310.0" layoutY="160.0" prefHeight="32.0" prefWidth="218.0" />
+                              <TextField fx:id="tec_course_code" layoutX="772.0" layoutY="100.0" prefHeight="32.0" prefWidth="218.0" />
                               <Button fx:id="buttonUpdate" layoutX="813.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
@@ -113,13 +113,13 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="14.0" prefWidth="162.0">
                            <children>
-                              <TableView prefHeight="317.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="table_lec_type" prefHeight="317.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn prefWidth="122.5" text="ID" />
-                                  <TableColumn prefWidth="216.5" text="COURSE CODE" />
-                                    <TableColumn prefWidth="291.5" text="ATTENDANCE STATUS" />
-                                    <TableColumn prefWidth="269.5" text="TYPE" />
-                                    <TableColumn prefWidth="273.5" text="DATE" />
+                                  <TableColumn fx:id="table_stu_id" prefWidth="122.5" text="ID" />
+                                  <TableColumn fx:id="table_course_code" prefWidth="216.5" text="COURSE CODE" />
+                                    <TableColumn fx:id="table_atten_status" prefWidth="291.5" text="ATTENDANCE STATUS" />
+                                    <TableColumn fx:id="table_lec_type" prefWidth="269.5" text="TYPE" />
+                                    <TableColumn fx:id="table_date" prefWidth="273.5" text="DATE" />
                                 </columns>
                                  <padding>
                                     <Insets right="8.0" />

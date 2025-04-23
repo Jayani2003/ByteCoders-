@@ -28,10 +28,10 @@
          <center>
             <TableView prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="146.5" text="NO" />
-                <TableColumn prefWidth="259.0" text="TITLE" />
-                  <TableColumn prefWidth="473.5" text="DESCRIPTION" />
-                  <TableColumn prefWidth="280.0" text="DATE" />
+                <TableColumn fx:id="no" prefWidth="146.5" text="NO" />
+                <TableColumn fx:id="title" prefWidth="259.0" text="TITLE" />
+                  <TableColumn fx:id="description" prefWidth="473.5" text="DESCRIPTION" />
+                  <TableColumn fx:id="date" prefWidth="216.0" text="DATE" />
               </columns>
                <BorderPane.margin>
                   <Insets left="40.0" right="40.0" />

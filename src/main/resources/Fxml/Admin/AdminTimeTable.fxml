@@ -49,7 +49,7 @@
             
                         </items>
                   </ComboBox>
-                  <TextField layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
+                  <TextField fx:id="upload" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
                   <Label layoutX="176.0" layoutY="181.0" text="Semester" textFill="#84144c">
                      <font>
                         <Font name="System Bold" size="22.0" />

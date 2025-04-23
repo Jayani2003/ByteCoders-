@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -22,73 +19,60 @@
         </ImageView>
         <AnchorPane prefHeight="645.0" prefWidth="572.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff97" height="645.0" stroke="TRANSPARENT" strokeType="INSIDE" width="572.0" />
-                <Button fx:id="uploadButton" layoutX="224.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #e49acb;" text="Upload Image" textFill="WHITE">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9a3d253" height="645.0" stroke="TRANSPARENT" strokeType="INSIDE" width="572.0" />
+                <Button fx:id="uploadButton" layoutX="212.0" layoutY="456.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #e49acb;" text="Upload Image" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
-                <Label layoutX="167.0" layoutY="429.0" text="Name" textFill="#86093d">
-                    <font>
-                        <Font name="System Bold" size="19.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="name" layoutX="256.0" layoutY="431.0" prefHeight="25.0" prefWidth="209.0" promptText="name" />
-                <ImageView fx:id="profileImageView" fitHeight="209.0" fitWidth="211.0" layoutX="192.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="profileImageView" fitHeight="303.0" fitWidth="308.0" layoutX="142.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/toupdateicon.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="updateButton" layoutX="181.0" layoutY="532.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="235.0" style="-fx-background-color: #b91b53;" text="UPDATE" textFill="WHITE">
+                <Button fx:id="updateButton" layoutX="154.0" layoutY="534.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #b91b53;" text="UPDATE" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Label layoutX="155.0" layoutY="22.0" prefHeight="40.0" prefWidth="286.0" text="UPDATEE PROFILE" textFill="#b91b53">
+                <Label layoutX="142.0" layoutY="21.0" prefHeight="62.0" prefWidth="314.0" text="UPDATE PROFILE" textFill="#b91b53">
                     <font>
-                        <Font name="Bodoni MT Black" size="25.0" />
+                        <Font name="Bodoni MT Black" size="28.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="671.0" layoutY="25.0" prefHeight="536.0" prefWidth="465.0">
+        <AnchorPane layoutX="623.0" layoutY="37.0" prefHeight="571.0" prefWidth="501.0">
             <children>
-
-                <ComboBox fx:id="combo" layoutX="130.0" layoutY="175.0" prefHeight="25.0" prefWidth="235.0" promptText="gender" style="-fx-background-color: #ffffff;">
-                    <items>
-
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Male" />
-                            <String fx:value="Female" />
-                            <String fx:value="Other" />
-                        </FXCollections>
-
-
-                    </items>
-                </ComboBox>
-
-                <TextField fx:id="email" layoutX="130.0" layoutY="72.0" prefHeight="25.0" prefWidth="235.0" promptText="email" />
-                <TextField fx:id="phoneNumber" layoutX="131.0" layoutY="276.0" prefHeight="25.0" prefWidth="235.0" promptText="07x xxxx xxx" />
-                <Label layoutX="6.0" layoutY="72.0" text="Email" textFill="#86093d">
+                <TextField fx:id="phoneNumber" layoutX="200.0" layoutY="344.0" prefHeight="25.0" prefWidth="209.0" promptText="07x xxxx xxx" />
+                <Label layoutX="22.0" layoutY="250.0" text="ADDRESS" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="6.0" layoutY="175.0" text="Gender" textFill="#86093d">
+                <Label layoutX="22.0" layoutY="343.0" text="PHONE NUMBER" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="6.0" layoutY="276.0" text="Phone Number" textFill="#86093d">
+            <TextField fx:id="address" layoutX="200.0" layoutY="251.0" prefHeight="25.0" prefWidth="209.0" promptText="address" />
+                <TextField fx:id="fname" layoutX="200.0" layoutY="56.0" prefHeight="25.0" prefWidth="209.0" promptText="first name" />
+            <TextField fx:id="fname" layoutX="200.0" layoutY="154.0" prefHeight="25.0" prefWidth="209.0" promptText="last name" />
+                <Label layoutX="19.0" layoutY="55.0" text="FIRST NAME" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Button fx:id="clearButton" layoutX="149.0" layoutY="408.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="197.0" style="-fx-background-color: #b91b53;" text="CLEAR" textFill="WHITE">
+                <Button fx:id="clearButton" layoutX="129.0" layoutY="494.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #b91b53;" text="CLEAR" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
+            <Label layoutX="22.0" layoutY="153.0" text="LAST NAME" textFill="#86093d">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>

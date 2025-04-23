@@ -13,7 +13,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: PINK;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecStuAttendanceController">
    <children>
       <SplitPane dividerPositions="0.3405909797822706" orientation="VERTICAL" prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -48,11 +47,11 @@
                <children>
                   <TableView prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="205.0" text="STUDENT ID" />
-                      <TableColumn minWidth="0.0" prefWidth="210.5" text="COURSE CODE" />
-                        <TableColumn prefWidth="237.5" text="LECTURE TYPE" />
-                        <TableColumn prefWidth="249.5" text="PERCENTAGE" />
-                        <TableColumn prefWidth="258.5" text="ELIGIBILITY" />
+                      <TableColumn fx:id="stu_id" prefWidth="205.0" text="STUDENT ID" />
+                      <TableColumn fx:id="cou_id" minWidth="0.0" prefWidth="210.5" text="COURSE CODE" />
+                        <TableColumn fx:id="lec_type" prefWidth="237.5" text="LECTURE TYPE" />
+                        <TableColumn fx:id="percentage" prefWidth="249.5" text="PERCENTAGE" />
+                        <TableColumn fx:id="eligibility" prefWidth="258.5" text="ELIGIBILITY" />
                     </columns>
                      <padding>
                         <Insets left="5.0" right="5.0" />

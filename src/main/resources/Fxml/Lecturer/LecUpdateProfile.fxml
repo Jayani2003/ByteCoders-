@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -12,85 +9,70 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1164.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecUpdateProfileController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentUpdateProfileController">
     <children>
-        <ImageView fitHeight="661.0" fitWidth="1164.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="726.0" fitWidth="1342.0" layoutX="-112.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/tobackground.jpg" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cf367d4b" height="655.0" layoutX="-6.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="1172.0" />
-        <AnchorPane prefHeight="400.0" prefWidth="265.0">
+        <AnchorPane prefHeight="645.0" prefWidth="572.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff97" height="655.0" layoutX="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="521.0" />
-                <Button fx:id="uploadButton" layoutX="208.0" layoutY="369.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #e49acb;" text="Upload Image" textFill="WHITE">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9a3d253" height="645.0" stroke="TRANSPARENT" strokeType="INSIDE" width="572.0" />
+                <Button fx:id="uploadButton" layoutX="212.0" layoutY="456.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #e49acb;" text="Upload Image" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
-                <Label layoutX="88.0" layoutY="437.0" text="Name" textFill="#86093d">
-                    <font>
-                        <Font name="System Bold" size="18.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="name" layoutX="171.0" layoutY="438.0" prefHeight="25.0" prefWidth="271.0" promptText="name" />
-                <ImageView fx:id="profileImageView" fitHeight="271.0" fitWidth="463.0" layoutX="127.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="profileImageView" fitHeight="303.0" fitWidth="308.0" layoutX="142.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/toupdateicon.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="add" layoutX="161.0" layoutY="520.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="203.0" style="-fx-background-color: #b91b53;" text="Add" textFill="WHITE">
+                <Button fx:id="updateButton" layoutX="154.0" layoutY="534.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #b91b53;" text="UPDATE" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Text fx:id="title" fill="#bf1439" layoutX="48.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Update Profile">
+                <Label layoutX="142.0" layoutY="21.0" prefHeight="62.0" prefWidth="314.0" text="UPDATE PROFILE" textFill="#b91b53">
                     <font>
-                        <Font name="Eras Bold ITC" size="33.0" />
+                        <Font name="Bodoni MT Black" size="28.0" />
                     </font>
-                </Text>
+                </Label>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="582.0" layoutY="14.0" prefHeight="495.0" prefWidth="426.0">
+        <AnchorPane layoutX="623.0" layoutY="37.0" prefHeight="571.0" prefWidth="501.0">
             <children>
-
-                <ComboBox fx:id="combo" layoutX="160.0" layoutY="177.0" prefHeight="25.0" prefWidth="279.0" promptText="gender" style="-fx-background-color: #ffffff;">
-                    <items>
-
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Male" />
-                            <String fx:value="Female" />
-                            <String fx:value="Other" />
-                        </FXCollections>
-
-
-                    </items>
-                </ComboBox>
-
-                <TextField fx:id="email" layoutX="153.0" layoutY="74.0" prefHeight="25.0" prefWidth="286.0" promptText="email" />
-                <TextField fx:id="phonenumber" layoutX="160.0" layoutY="276.0" prefHeight="25.0" prefWidth="279.0" promptText="07x xxxx xxx" />
-                <Label layoutX="40.0" layoutY="73.0" text="Email" textFill="#86093d">
+                <TextField fx:id="phoneNumber" layoutX="200.0" layoutY="344.0" prefHeight="25.0" prefWidth="209.0" promptText="07x xxxx xxx" />
+                <Label layoutX="22.0" layoutY="250.0" text="ADDRESS" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="40.0" layoutY="176.0" text="Gender" textFill="#86093d">
+                <Label layoutX="22.0" layoutY="343.0" text="PHONE NUMBER" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="9.0" layoutY="275.0" text="Phone Number" textFill="#86093d">
+                <TextField fx:id="address" layoutX="200.0" layoutY="251.0" prefHeight="25.0" prefWidth="209.0" promptText="address" />
+                <TextField fx:id="fname" layoutX="200.0" layoutY="56.0" prefHeight="25.0" prefWidth="209.0" promptText="first name" />
+                <TextField fx:id="lname" layoutX="200.0" layoutY="154.0" prefHeight="25.0" prefWidth="209.0" promptText="last name" />
+                <Label layoutX="22.0" layoutY="55.0" text="FIRST NAME" textFill="#86093d">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Button fx:id="clear" layoutX="101.0" layoutY="382.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: #b91b53;" text="Clear" textFill="WHITE">
+                <Button fx:id="clearButton" layoutX="129.0" layoutY="494.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #b91b53;" text="CLEAR" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
+                <Label layoutX="22.0" layoutY="153.0" text="LAST NAME" textFill="#86093d">
+                    <font>
+                        <Font name="System Bold" size="19.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
     </children>

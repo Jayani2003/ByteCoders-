@@ -46,13 +46,13 @@
                     <children>
                         <TableView prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                        <TableColumn prefWidth="140.5" text="STUDENT ID" />
-                        <TableColumn prefWidth="166.0" text="COURSE CODE" />
-                        <TableColumn prefWidth="169.0" text="QUIZZES" />
-                                <TableColumn prefWidth="182.0" text="ASSIGNMENTS" />
-                                <TableColumn minWidth="0.0" prefWidth="169.5" text="MID EXAMS" />
-                                <TableColumn prefWidth="162.5" text="CA MARKS" />
-                                <TableColumn prefWidth="166.5" text="ELIGIBILITY" />
+                        <TableColumn fx:id="stu_id" prefWidth="140.5" text="STUDENT ID" />
+                        <TableColumn fx:id="course_code" prefWidth="166.0" text="COURSE CODE" />
+                        <TableColumn fx:id="quizzes" prefWidth="169.0" text="QUIZZES" />
+                                <TableColumn fx:id="assignments" prefWidth="182.0" text="ASSIGNMENTS" />
+                                <TableColumn fx:id="mid_exam" minWidth="0.0" prefWidth="169.5" text="MID EXAMS" />
+                                <TableColumn fx:id="ca_marks" prefWidth="162.5" text="CA MARKS" />
+                                <TableColumn fx:id="eligibility" prefWidth="166.5" text="ELIGIBILITY" />
                             </columns>
                             <padding>
                                 <Insets left="5.0" right="5.0" />

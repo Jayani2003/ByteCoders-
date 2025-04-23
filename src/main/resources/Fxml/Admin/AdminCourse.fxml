@@ -58,12 +58,12 @@
                                             <font>
                                                 <Font name="Algerian" size="17.0" />
                                             </font></Label>
-                                        <Button fx:id="buttonAdd" layoutX="200.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
+                                        <Button fx:id="buttonAdd" layoutX="100.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
                                             <font>
                                                 <Font name="Britannic Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="buttonClear" layoutX="502.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
+                                        <Button fx:id="buttonClear" layoutX="616.0" layoutY="262.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
                                             <font>
                                                 <Font name="Britannic Bold" size="16.0" />
                                             </font>
@@ -83,35 +83,20 @@
                                     <Font name="Algerian" size="17.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="buttonDelete" layoutX="824.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="DELETE" textFill="#faf9f9">
+                              <Button fx:id="buttonDelete" layoutX="882.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="DELETE" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <TextField layoutX="750.0" layoutY="110.0" prefHeight="25.0" prefWidth="218.0" />
-                              <TextField layoutX="750.0" layoutY="160.0" prefHeight="25.0" prefWidth="218.0" />
-                              <ComboBox fx:id="comboBox2" layoutX="270.0" layoutY="148.0" prefHeight="25.0" prefWidth="218.0" promptText="choose " style="-fx-background-color: white;">
-                                 <items>
-                                    <FXCollections fx:factory="observableArrayList">
-                                        <String fx:value="Data Structures and Algorithms" />
-                                        <String fx:value="Object Oriented Programming" />
-                                        <String fx:value="Web Technologies" />
-                                        <String fx:value="Object Oriented Analysis and Design" />
-                                        <String fx:value="E-Commerce Implementation, Management and Security" />
-                                    </FXCollections>
-                                 </items>
-                              </ComboBox>
-                              <ComboBox fx:id="comboBox1" layoutX="270.0" layoutY="104.0" prefHeight="25.0" prefWidth="218.0" promptText="choose " style="-fx-background-color: white;">
-                                 <items>
-                                    <FXCollections fx:factory="observableArrayList">
-                                        <String fx:value="ICT2113" />
-                                        <String fx:value="ICT2122" />
-                                        <String fx:value="ICT2133" />
-                                        <String fx:value="ICT2142" />
-                                        <String fx:value="ICT2152" />
-                                    </FXCollections>
-                                 </items>
-                              </ComboBox>
+                              <TextField fx:id="week" layoutX="750.0" layoutY="110.0" prefHeight="25.0" prefWidth="218.0" />
+                              <TextField fx:id="lecturer" layoutX="750.0" layoutY="160.0" prefHeight="25.0" prefWidth="218.0" />
+                              <TextField fx:id="name" layoutX="270.0" layoutY="148.0" prefHeight="25.0" prefWidth="218.0" />
+                              <TextField fx:id="code" layoutX="270.0" layoutY="104.0" prefHeight="25.0" prefWidth="218.0" />
+                              <Button fx:id="buttonUpdate" layoutX="351.0" layoutY="261.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
+                                 <font>
+                                    <Font name="Britannic Bold" size="16.0" />
+                                 </font>
+                              </Button>
 
                                     </children>
                                 </AnchorPane>
@@ -119,11 +104,11 @@
                                     <children>
                                         <TableView prefHeight="309.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                                <TableColumn prefWidth="191.0" text="COURSE CODE" />
-                                                <TableColumn prefWidth="232.5" text="COURSE NAME" />
-                                                <TableColumn prefWidth="266.5" text="COURSE TYPE" />
-                                                <TableColumn prefWidth="230.5" text="WEEKS" />
-                                                <TableColumn minWidth="0.5" prefWidth="243.0" text="LECTURER ID" />
+                                                <TableColumn fx:id="c_code" prefWidth="191.0" text="COURSE CODE" />
+                                                <TableColumn fx:id="c_name" prefWidth="232.5" text="COURSE NAME" />
+                                                <TableColumn fx:id="c_type" prefWidth="266.5" text="COURSE TYPE" />
+                                                <TableColumn fx:id="c_week" prefWidth="230.5" text="WEEKS" />
+                                                <TableColumn fx:id="c_lecturer" minWidth="0.5" prefWidth="243.0" text="LECTURER ID" />
                                             </columns>
                                             <padding>
                                                 <Insets right="8.0" />
