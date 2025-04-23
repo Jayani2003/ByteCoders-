@@ -290,14 +290,10 @@ VALUES ('TO0001', '2015-08-15', 'ICT'),
 
 INSERT INTO course (Course_Id, Course_Name, Credit_Status, Credits, Type, T_Hours, P_Hours)
 VALUES ('ICT2113', 'Data Structures and Algorithms', 'CREDIT', 3, 'PRACTICAL_THEORY', 4, 2),
-       ('ICT2133', '  Object Oriented Programming Practicum', 'CREDIT', 3, 'PRACTICAL_THEORY', 4, 2);
-
-INSERT INTO course (Course_Id, Course_Name, Credit_Status, Credits, Type, T_Hours)
-VALUES ('ICT2122', 'Object Oriented Programming', 'CREDIT', 2, 'THEORY', 2),
-       ('ICT2152', 'E-Commerce Implementation, Management and Security', 'CREDIT', 2, 'THEORY', 2);
-
-INSERT INTO course (Course_Id, Course_Name, Credit_Status, Credits, Type, P_Hours)
-VALUES ('ICT2142', 'Object Oriented Analysis and Design', 'CREDIT', 2, 'PRACTICAL', 2);
+       ('ICT2133', '  Object Oriented Programming Practicum', 'CREDIT', 3, 'PRACTICAL_THEORY', 4, 2),
+       ('ICT2122', 'Object Oriented Programming', 'CREDIT', 2, 'THEORY', 2, 0),
+       ('ICT2152', 'E-Commerce Implementation, Management and Security', 'CREDIT', 2, 'THEORY', 2, 0),
+       ('ICT2142', 'Object Oriented Analysis and Design', 'CREDIT', 2, 'PRACTICAL', 0, 2);
 
 INSERT INTO lecture_course (Lecturer_Id, Course_Id)
 VALUES
