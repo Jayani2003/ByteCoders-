@@ -47,12 +47,12 @@
                     <children>
                         <TableView prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn prefWidth="151.0" text="STUDENT ID" />
-                                <TableColumn prefWidth="186.0" text="COURSE CODE" />
-                                <TableColumn prefWidth="213.0" text="FINAL EXAM MARKS" />
-                                <TableColumn prefWidth="200.5" text="GRADE" />
-                                <TableColumn minWidth="0.0" prefWidth="203.5" text="CGPA" />
-                                <TableColumn prefWidth="203.0" text="SGPA" />
+                                <TableColumn fx:id="stu_id" prefWidth="151.0" text="STUDENT ID" />
+                                <TableColumn fx:id="c_code" prefWidth="186.0" text="COURSE CODE" />
+                                <TableColumn fx:id="finam_exam_marks" prefWidth="213.0" text="FINAL EXAM MARKS" />
+                                <TableColumn fx:id="grade" prefWidth="200.5" text="GRADE" />
+                                <TableColumn fx:id="cgpa" minWidth="0.0" prefWidth="203.5" text="CGPA" />
+                                <TableColumn fx:id="sgpa" prefWidth="203.0" text="SGPA" />
                             </columns>
                             <padding>
                                 <Insets left="5.0" right="5.0" />
