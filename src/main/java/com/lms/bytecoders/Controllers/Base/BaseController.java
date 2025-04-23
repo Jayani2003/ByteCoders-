@@ -19,10 +19,7 @@ import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public abstract class BaseController {
     protected Parent root;
@@ -76,6 +73,7 @@ public abstract class BaseController {
         root = loader.load();
         SceneHandler.switchScene(ob, root, "Dashboard");
     }
+
     @FXML
     public void navigate(Pane container, String path) {
         try {
@@ -172,8 +170,13 @@ public abstract class BaseController {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println("Error in closing the Connection..." + e.getMessage());
+            }
         }
-
-
     }
+
 }
