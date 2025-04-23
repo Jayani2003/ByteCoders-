@@ -10,10 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminNoticeController">
+<AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminNoticeController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -27,42 +26,43 @@
             </Label>
          </top>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="NO" />
-                <TableColumn prefWidth="113.5" text="TITLE" />
-                  <TableColumn prefWidth="274.0" text="DESCRIPTION" />
-                  <TableColumn prefWidth="136.5" text="DATE" />
+                <TableColumn prefWidth="146.5" text="NO" />
+                <TableColumn prefWidth="259.0" text="TITLE" />
+                  <TableColumn prefWidth="473.5" text="DESCRIPTION" />
+                  <TableColumn prefWidth="280.0" text="DATE" />
               </columns>
                <BorderPane.margin>
-                  <Insets left="8.0" right="8.0" />
+                  <Insets left="40.0" right="40.0" />
                </BorderPane.margin>
             </TableView>
          </center>
          <bottom>
-            <Pane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="buttonAdd" layoutX="135.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="249.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="ADD" textFill="WHITE">
+                     <font>
+                        <Font name="Britannic Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonUpdate" layoutX="454.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: AC1754; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;" text="UPDATE" textFill="WHITE">
+                     <font>
+                        <Font name="Britannic Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonDelete" layoutX="800.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="251.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="DELETE" textFill="WHITE">
+                     <font>
+                        <Font name="Britannic Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
          </bottom>
       </BorderPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d7db00" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <ImageView fitHeight="400.0" fitWidth="522.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0">
+      <ImageView fitHeight="483.0" fitWidth="531.0" layoutX="635.0" layoutY="78.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="635.0">
          <image>
             <Image url="@../../Images/Book.png" />
          </image>
       </ImageView>
-      <Button fx:id="buttonView" layoutX="232.0" layoutY="342.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="136.0" style="-fx-background-color: AC1754; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;" text="VIEW" textFill="WHITE">
-         <font>
-            <Font name="Britannic Bold" size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonAdd" layoutX="64.0" layoutY="342.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="136.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="ADD" textFill="WHITE">
-         <font>
-            <Font name="Britannic Bold" size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonDelete" layoutX="400.0" layoutY="342.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="136.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="DELETE" textFill="WHITE">
-         <font>
-            <Font name="Britannic Bold" size="17.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

@@ -53,10 +53,10 @@
                 </Text>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="557.0" layoutY="14.0" prefHeight="495.0" prefWidth="426.0">
+        <AnchorPane layoutX="582.0" layoutY="14.0" prefHeight="495.0" prefWidth="426.0">
             <children>
 
-                <ComboBox fx:id="combo" layoutX="160.0" layoutY="177.0" prefHeight="25.0" prefWidth="182.0" promptText="gender" style="-fx-background-color: #ffffff;">
+                <ComboBox fx:id="combo" layoutX="160.0" layoutY="177.0" prefHeight="25.0" prefWidth="279.0" promptText="gender" style="-fx-background-color: #ffffff;">
                     <items>
 
                         <FXCollections fx:factory="observableArrayList">
@@ -69,8 +69,8 @@
                     </items>
                 </ComboBox>
 
-                <TextField fx:id="email" layoutX="160.0" layoutY="87.0" prefHeight="25.0" prefWidth="286.0" promptText="email" />
-                <TextField fx:id="phonenumber" layoutX="160.0" layoutY="276.0" promptText="07x xxxx xxx" />
+                <TextField fx:id="email" layoutX="153.0" layoutY="74.0" prefHeight="25.0" prefWidth="286.0" promptText="email" />
+                <TextField fx:id="phonenumber" layoutX="160.0" layoutY="276.0" prefHeight="25.0" prefWidth="279.0" promptText="07x xxxx xxx" />
                 <Label layoutX="40.0" layoutY="73.0" text="Email" textFill="#86093d">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -86,7 +86,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Button fx:id="clear" layoutX="192.0" layoutY="368.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: #b91b53;" text="Clear" textFill="WHITE">
+                <Button fx:id="clear" layoutX="101.0" layoutY="382.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: #b91b53;" text="Clear" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
