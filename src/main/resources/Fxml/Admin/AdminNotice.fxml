@@ -26,12 +26,12 @@
             </Label>
          </top>
          <center>
-            <TableView prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="to_Table" prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="no" prefWidth="146.5" text="NO" />
-                <TableColumn fx:id="title" prefWidth="259.0" text="TITLE" />
-                  <TableColumn fx:id="description" prefWidth="473.5" text="DESCRIPTION" />
-                  <TableColumn fx:id="date" prefWidth="216.0" text="DATE" />
+                <TableColumn fx:id="to_No" prefWidth="146.5" text="NO" />
+                <TableColumn fx:id="to_Title" prefWidth="259.0" text="TITLE" />
+                  <TableColumn fx:id="to_Description" prefWidth="473.5" text="DESCRIPTION" />
+                  <TableColumn fx:id="to_Date" prefWidth="216.0" text="DATE" />
               </columns>
                <BorderPane.margin>
                   <Insets left="40.0" right="40.0" />
