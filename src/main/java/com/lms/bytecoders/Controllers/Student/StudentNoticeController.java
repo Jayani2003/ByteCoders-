@@ -6,6 +6,7 @@ import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.util.ResourceBundle;
 
-public class StudentNoticeController extends BaseController {
+public class StudentNoticeController extends BaseController implements Initializable {
 
     @FXML
     private TableColumn<?, Date> dateColumn;
@@ -32,6 +33,11 @@ public class StudentNoticeController extends BaseController {
     @FXML
     private TableColumn<?, String> titleColumn;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setTable();
+    }
+
     private ObservableList<Notice> getTableData() {
         ObservableList<Notice> notices = FXCollections.observableArrayList();
         sql = "SELECT * FROM notice";
@@ -45,7 +51,7 @@ public class StudentNoticeController extends BaseController {
                 notices.add(new Notice(rs.getString("Notice_Id"), rs.getString("Title"), rs.getString("Description"), rs.getDate("Date_Posted")));
             }
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
@@ -66,6 +72,4 @@ public class StudentNoticeController extends BaseController {
 
         noticeTable.setItems(getTableData());
     }
-
-
 }
