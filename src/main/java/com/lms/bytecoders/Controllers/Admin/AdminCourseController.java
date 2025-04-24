@@ -34,14 +34,5 @@ public class AdminCourseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        ObservableList<String> listlevel3 = FXCollections.observableArrayList("THEORY", "PRACTICAL");
-        comboBox3.setItems(listlevel3);
-
-        ObservableList<String> listlevel2 = FXCollections.observableArrayList("THEORY", "PRACTICAL");
-        comboBox2.setItems(listlevel3);
-
-        ObservableList<String> listlevel1 = FXCollections.observableArrayList("ICT2113", "ICT2122", "ICT2133", "ICT2142", "ICT2152");
-        comboBox1.setItems(listlevel3);
-
     }
 }
