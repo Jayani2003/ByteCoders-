@@ -12,8 +12,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminNoticeController">
+<AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TONoticeController">
     <children>
+        <ImageView fitHeight="625.0" fitWidth="667.0" layoutX="523.0" layoutY="7.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="523.0">
+            <image>
+                <Image url="@../../Images/Book.png" />
+            </image>
+        </ImageView>
         <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <Label prefHeight="61.0" prefWidth="151.0" text="NOTICES" textFill="#ac1754f0" BorderPane.alignment="CENTER">
@@ -26,7 +31,7 @@
                 </Label>
             </top>
             <center>
-                <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <TableView fx:id="to_Table" opacity="0.65" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="to_No" prefWidth="154.0" text="NO" />
                         <TableColumn fx:id="to_Title" minWidth="0.0" prefWidth="279.0" text="TITLE" />
@@ -43,10 +48,5 @@
             </bottom>
         </BorderPane>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d7db00" height="655.0" layoutY="-5.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
-        <ImageView fitHeight="625.0" fitWidth="667.0" layoutX="523.0" layoutY="7.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="523.0">
-            <image>
-                <Image url="@../../Images/Book.png" />
-            </image>
-        </ImageView>
     </children>
 </AnchorPane>

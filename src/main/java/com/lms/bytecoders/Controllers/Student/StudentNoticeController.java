@@ -6,66 +6,72 @@ import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class StudentNoticeController extends BaseController {
+public class StudentNoticeController extends BaseController implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadNoticesFromDB();
+    }
 
     @FXML
-    private TableColumn<?, Date> dateColumn;
+    private TableView<Notice> to_Table;
 
     @FXML
-    private TableColumn<?, String> descriptionColumn;
+    private TableColumn<Notice, String> to_No;
 
     @FXML
-    private TableColumn<?, String> noticeIdColumn;
+    private TableColumn<Notice, String> to_Title;
 
     @FXML
-    private TableView<Notice> noticeTable;
+    private TableColumn<Notice, String> to_Description;
 
     @FXML
-    private TableColumn<?, String> titleColumn;
+    private TableColumn<Notice, LocalDate> to_Date;
 
-    private ObservableList<Notice> getTableData() {
-        ObservableList<Notice> notices = FXCollections.observableArrayList();
-        sql = "SELECT * FROM notice";
+    private ObservableList<Notice> noticeList = FXCollections.observableArrayList();
 
-        try {
-            conn = Database.Conn();
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
+//    @FXML
+//    public void initialize() {
+//        loadNoticesFromDB();
+//    }
 
+    public void loadNoticesFromDB() {
+        try (Connection conn = Database.Conn()) {
+            String sql = "SELECT * FROM notice";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            int count = 1;
             while (rs.next()) {
-                notices.add(new Notice(rs.getString("Notice_Id"), rs.getString("Title"), rs.getString("Description"), rs.getDate("Date_Posted")));
+                String id = String.valueOf(count++);
+                String title = rs.getString("Title");
+                String description = rs.getString("Description");
+                LocalDate datePosted = rs.getDate("Date_Posted").toLocalDate();
+
+                noticeList.add(new Notice(id, title, description, datePosted));
             }
 
-        }catch (SQLException e) {
+            to_No.setCellValueFactory(new PropertyValueFactory<>("noticeId")); // match your Notice model
+            to_Title.setCellValueFactory(new PropertyValueFactory<>("title"));
+            to_Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+            to_Date.setCellValueFactory(new PropertyValueFactory<>("datePosted"));
+
+            to_Table.setItems(noticeList);
+
+        } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                System.out.println("Error in closing the Connection..." + e.getMessage());
-            }
         }
-
-        return notices;
     }
-
-    private void setTable() {
-        noticeIdColumn.setCellValueFactory(new PropertyValueFactory<>("noticeId"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("datePosted"));
-
-        noticeTable.setItems(getTableData());
-    }
-
-
 }
