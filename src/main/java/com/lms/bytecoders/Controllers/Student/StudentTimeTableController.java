@@ -7,6 +7,7 @@ import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,7 +21,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class StudentTimeTableController extends BaseController {
+public class StudentTimeTableController extends BaseController implements Initializable {
 
     @FXML
     private TableColumn<?, String> departmentColumn;
@@ -37,50 +38,54 @@ public class StudentTimeTableController extends BaseController {
     @FXML
     private TableColumn<?, Hyperlink> timetableColumn;
 
-private ObservableList<TimeTable> getTableData() {
-    ObservableList<TimeTable> timetable_ = FXCollections.observableArrayList();
-    sql = "SELECT * FROM time_table";
 
-    try {
-        conn = Database.Conn();
-        st = conn.createStatement();
-        rs = st.executeQuery(sql);
-
-        while (rs.next()) {
-            Department dep = Department.valueOf(rs.getString("department"));
-            linkString = rs.getString("Timetable");
-            Hyperlink link = new Hyperlink(rs.getString("Timetable"));
-            link.setOnAction(event -> {
-                try {
-                    Desktop.getDesktop().browse(new URI(linkString));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-            timetable_.add(new TimeTable(rs.getString("Level"), rs.getString("Semester"), link, dep));
-        }
-
-    }catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            if (conn != null) conn.close();
-        } catch (SQLException e) {
-            System.out.println("Error in closing the Connection..." + e.getMessage());
-        }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setTable();
     }
 
-    return timetable_;
-}
+    private ObservableList<TimeTable> getTableData() {
+        ObservableList<TimeTable> timetable_ = FXCollections.observableArrayList();
+        sql = "SELECT * FROM time_table";
 
-private void setTable() {
-    departmentColumn.setCellValueFactory(new PropertyValueFactory<>("Department"));
-    levelColumn.setCellValueFactory(new PropertyValueFactory<>("Level"));
-    semesterColumn.setCellValueFactory(new PropertyValueFactory<>("Semester"));
-    timetableColumn.setCellValueFactory(new PropertyValueFactory<>("Timetable"));
+        try {
+            conn = Database.Conn();
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
 
-    timetable.setItems(getTableData());
-}
+            while (rs.next()) {
+                Department dep = Department.valueOf(rs.getString("department"));
+                linkString = rs.getString("Timetable");
+                Hyperlink link = new Hyperlink(rs.getString("Timetable"));
+                link.setOnAction(event -> {
+                    try {
+                        Desktop.getDesktop().browse(new URI(linkString));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+                timetable_.add(new TimeTable(rs.getString("Level"), rs.getString("Semester"), link, dep));
+            }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println("Error in closing the Connection..." + e.getMessage());
+            }
+        }
 
+        return timetable_;
+    }
+
+    private void setTable() {
+        departmentColumn.setCellValueFactory(new PropertyValueFactory<>("Department"));
+        levelColumn.setCellValueFactory(new PropertyValueFactory<>("Level"));
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("Semester"));
+        timetableColumn.setCellValueFactory(new PropertyValueFactory<>("Timetable"));
+
+        timetable.setItems(getTableData());
+    }
 }
