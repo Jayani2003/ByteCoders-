@@ -13,12 +13,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.*;
 
 public abstract class BaseController {
@@ -175,6 +174,26 @@ public abstract class BaseController {
                 if (conn != null) conn.close();
             } catch (SQLException e) {
                 System.out.println("Error in closing the Connection..." + e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    public void setProfilePicUpload(Circle profilePic) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(profilePic.getScene().getWindow());
+        if (selectedFile != null) {
+            Image image = new Image(((java.io.File) selectedFile).toURI().toString());
+            profilePic.setFill(new ImagePattern(image));
+            try {
+                is = new FileInputStream(selectedFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
         }
     }
