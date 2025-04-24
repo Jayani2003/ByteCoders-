@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -29,7 +31,7 @@
                         <Font name="Yu Gothic UI Semibold" size="24.0" />
                     </font>
                 </Label>
-                <TableView layoutX="131.0" layoutY="169.0" opacity="0.75" prefHeight="447.0" prefWidth="869.0">
+                <TableView fx:id="mediTbl" layoutX="131.0" layoutY="169.0" opacity="0.75" prefHeight="447.0" prefWidth="869.0">
                     <columns>
                         <TableColumn fx:id="mediIDTbl" prefWidth="129.6666717529297" sortable="false" text="Medical ID" />
                         <TableColumn fx:id="mediCourseCodeTbl" minWidth="0.0" prefWidth="172.3333282470703" text="Course Code" />
@@ -43,7 +45,15 @@
                   <Font name="Yu Gothic UI Semibold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="mediTypeDrop" layoutX="278.0" layoutY="108.0" prefWidth="150.0" />
+            <ComboBox fx:id="mediTypeDrop" layoutX="278.0" layoutY="108.0" prefWidth="150.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="ALL" />
+                        <String fx:value="APPROVED" />
+                        <String fx:value="NOT APPROVED" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
             </children>
         </Pane>
     </children>
