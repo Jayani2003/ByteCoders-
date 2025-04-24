@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOTimeTableController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentTimeTableController">
     <children>
         <ImageView fitHeight="739.0" fitWidth="1243.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -20,12 +20,12 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f54cea27" height="645.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
         <AnchorPane layoutX="27.0" layoutY="80.0" prefHeight="540.0" prefWidth="1119.0" style="-fx-background-color: pink;">
             <children>
-                <TableView layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TableView fx:id="timetable" layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn fx:id="level" prefWidth="167.5" text="LEVEL" />
-                        <TableColumn fx:id="semester" prefWidth="256.5" text="SEMESTER" />
-                        <TableColumn fx:id="department" prefWidth="323.0" text="DEPARTMENT" />
-                        <TableColumn fx:id="timetable" prefWidth="371.0" text="TIME TABLE" />
+                        <TableColumn fx:id="levelColumn" prefWidth="167.5" text="LEVEL" />
+                        <TableColumn fx:id="semesterColumn" prefWidth="256.5" text="SEMESTER" />
+                        <TableColumn fx:id="departmentColumn" prefWidth="323.0" text="DEPARTMENT" />
+                        <TableColumn fx:id="timetableColumn" prefWidth="371.0" text="TIME TABLE" />
                     </columns>
                 </TableView>
             </children>
