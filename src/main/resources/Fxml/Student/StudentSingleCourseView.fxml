@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Fxml.Student.StudentSingleCourseView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="stuCourseMainPane" prefHeight="645.0" prefWidth="1164.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentSingleCourseViewController">
+    <children>
+        <Pane prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: #f7c3d6;">
+            <children>
+                <ImageView fitHeight="645.0" fitWidth="1171.0" layoutX="-7.0" opacity="0.4" pickOnBounds="true">
+                    <image>
+                        <Image url="@../../Images/studentCourseBG.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="422.0" fitWidth="423.0" layoutX="373.0" layoutY="105.0" opacity="0.79" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Images/timetable.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="singleCourseHeading" layoutX="371.0" layoutY="35.0" textFill="#ac1754">
+                    <font>
+                        <Font name="Cambria Bold" size="33.0" />
+                    </font>
+                </Label>
+            <Label fx:id="singleCourseID" layoutX="108.0" layoutY="125.0" text="Course ID : " textFill="#ac1754">
+               <font>
+                  <Font name="Cambria Bold" size="33.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>
