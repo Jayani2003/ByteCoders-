@@ -26,30 +26,27 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="655.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
             <Pane layoutX="173.0" layoutY="49.0" prefHeight="599.0" prefWidth="831.0">
                <children>
-                  <Button fx:id="filebutton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
+                  <Button fx:id="filebutton" onAction="#handleFileButton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addButton" layoutX="176.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="ADD" textFill="WHITE">
+                  <Button fx:id="addButton" onAction="#handleAddButton" layoutX="176.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="ADD" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
                   <ComboBox fx:id="combolevel" layoutX="336.0" layoutY="84.0" prefHeight="32.0" prefWidth="290.0" promptText="level" style="-fx-background-color: #d1bcc5;">
-                  <items>
-      
-                           <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Level 1" />
-                        <String fx:value="Level 2" />
-                        <String fx:value="Level 3" />
-                        <String fx:value="Level 4" />
-                     </FXCollections>
-      
-            
-                        </items>
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Level 1" />
+                           <String fx:value="Level 2" />
+                           <String fx:value="Level 3" />
+                           <String fx:value="Level 4" />
+                        </FXCollections>
+                     </items>
                   </ComboBox>
-                  <TextField fx:id="upload" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
+                  <TextField fx:id="fileTextField" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
                   <Label layoutX="176.0" layoutY="181.0" text="Semester" textFill="#84144c">
                      <font>
                         <Font name="System Bold" size="22.0" />
@@ -66,41 +63,33 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="combosemester" layoutX="336.0" layoutY="172.0" prefHeight="32.0" prefWidth="290.0" promptText="semester" style="-fx-background-color: #d1bcc5;">
-                  <items>
-      
-                           <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Semester 1" />
-                        <String fx:value="Semester 2" />
-      
-                           </FXCollections>
-      
-            
-                        </items>
-               </ComboBox>
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Semester 1" />
+                           <String fx:value="Semester 2" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
                   <ComboBox fx:id="combodepartment" layoutX="336.0" layoutY="267.0" prefHeight="32.0" prefWidth="290.0" promptText="department" style="-fx-background-color: #d1bcc5;">
-                  <items>
-      
-                           <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="ICT" />
-                        <String fx:value="ET" />
-                        <String fx:value="BST" />
-      
-                           </FXCollections>
-      
-            
-                        </items>
-               </ComboBox>
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="ICT" />
+                           <String fx:value="ET" />
+                           <String fx:value="BST" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
                   <Text fill="#bf1733" layoutX="329.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table" wrappingWidth="237.365234375">
                      <font>
                         <Font name="Eras Bold ITC" size="34.0" />
                      </font>
                   </Text>
-                  <Button fx:id="updateButton" layoutX="355.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="UPDATE" textFill="WHITE">
+                  <Button fx:id="updateButton" onAction="#handleUpdateButton" layoutX="355.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="UPDATE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="deleteButton" layoutX="533.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="DELETE" textFill="WHITE">
+                  <Button fx:id="deleteButton" onAction="#handleDeleteButton" layoutX="533.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="DELETE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

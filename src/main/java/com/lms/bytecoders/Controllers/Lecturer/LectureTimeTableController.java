@@ -80,10 +80,10 @@ public class LectureTimeTableController extends BaseController implements Initia
     }
 
     private void setTable() {
-        departmentColumn.setCellValueFactory(new PropertyValueFactory<>("Department"));
-        levelColumn.setCellValueFactory(new PropertyValueFactory<>("Level"));
-        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("Semester"));
-        timetableColumn.setCellValueFactory(new PropertyValueFactory<>("Timetable"));
+        departmentColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
+        levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        timetableColumn.setCellValueFactory(new PropertyValueFactory<>("timetable"));
 
         timetable.setItems(getTableData());
     }
