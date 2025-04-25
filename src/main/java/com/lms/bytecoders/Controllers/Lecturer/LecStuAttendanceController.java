@@ -19,7 +19,7 @@ public class LecStuAttendanceController implements Initializable {
     private Label studentId;
 
     @FXML
-    private TextField textLable;
+    private TextField textLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

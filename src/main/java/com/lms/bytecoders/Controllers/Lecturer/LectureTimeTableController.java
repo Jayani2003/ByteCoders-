@@ -1,4 +1,4 @@
-package com.lms.bytecoders.Controllers.Student;
+package com.lms.bytecoders.Controllers.Lecturer;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Models.Department;
@@ -14,14 +14,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.awt.*;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class StudentTimeTableController extends BaseController implements Initializable {
+public class LectureTimeTableController extends BaseController implements Initializable {
 
     @FXML
     private TableColumn<?, String> departmentColumn;
