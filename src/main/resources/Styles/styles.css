@@ -63,7 +63,6 @@
 }
 
 /* Courses Tab */
-
 .course-tab {
     -fx-font-family: 'Segoe UI Semibold';
     -fx-font-size: 16px;
@@ -92,4 +91,74 @@
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0.3, 3, 5);
+}
+
+/* Material Card */
+
+.material-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+    -fx-padding: 15px;
+    -fx-spacing: 15px;
+    -fx-cursor: hand;
+}
+
+.material-card .title-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.material-card .description-text {
+    -fx-font-size: 16px;
+    -fx-wrap-text: true;
+    -fx-max-width: 300px;
+}
+
+.material-card .date-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+.material-card .open-button {
+    -fx-background-color: #ac1754;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 16px;
+}
+
+.material-card .open-button:hover {
+    -fx-background-color: #c91a6a;
+    -fx-cursor: hand;
+}
+
+/* Pressed effect for button */
+.material-card .open-button:pressed {
+    -fx-background-color: #8a1248;
+}
+
+.material-card:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Grade Label */
+.grades-label {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+    -fx-padding: 15px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-alignment: CENTER_LEFT;
+    -fx-wrap-text: true;
+    -fx-cursor: hand;
+}
+
+.grades-label:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-background-color: #f8f8f8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 12, 0, 0, 0);
 }
