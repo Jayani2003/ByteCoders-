@@ -1,50 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentNoticeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOTimeTableController">
     <children>
-        <ImageView fitHeight="625.0" fitWidth="667.0" layoutX="523.0" layoutY="7.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="523.0">
+        <ImageView fitHeight="739.0" fitWidth="1243.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Images/Book.png" />
+                <Image url="@../../Images/timetablebackground2.jpg" />
             </image>
         </ImageView>
-        <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <Label prefHeight="61.0" prefWidth="151.0" text="NOTICES" textFill="#ac1754f0" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font name="Cambria Bold Italic" size="34.0" />
-                    </font>
-                    <BorderPane.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                    </BorderPane.margin>
-                </Label>
-            </top>
-            <center>
-                <TableView fx:id="to_Table" opacity="0.74" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f54cea27" height="645.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+        <AnchorPane layoutX="27.0" layoutY="80.0" prefHeight="540.0" prefWidth="1119.0" style="-fx-background-color: pink;">
+            <children>
+                <TableView layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn fx:id="to_No" prefWidth="154.0" text="NO" />
-                        <TableColumn fx:id="to_Title" minWidth="0.0" prefWidth="279.0" text="TITLE" />
-                        <TableColumn fx:id="to_Description" prefWidth="496.5" text="DESCRIPTION" />
-                        <TableColumn fx:id="to_Date" prefWidth="229.5" text="DATE" />
+                        <TableColumn fx:id="level" prefWidth="167.5" text="LEVEL" />
+                        <TableColumn fx:id="semester" prefWidth="256.5" text="SEMESTER" />
+                        <TableColumn fx:id="department" prefWidth="323.0" text="DEPARTMENT" />
+                        <TableColumn fx:id="timetable" prefWidth="371.0" text="TIME TABLE" />
                     </columns>
-                    <BorderPane.margin>
-                        <Insets bottom="-70.0" left="25.0" right="25.0" />
-                    </BorderPane.margin>
                 </TableView>
-            </center>
-            <bottom>
-                <Pane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-            </bottom>
-        </BorderPane>
+            </children>
+        </AnchorPane>
+        <Pane layoutX="476.0" layoutY="14.0" prefHeight="54.0" prefWidth="221.0">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="44.0" prefWidth="191.0" style="-fx-background-color: AC1754;" text="TIME TABLE" textFill="#fffefe">
+                    <font>
+                        <Font name="Bauhaus 93" size="39.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
     </children>
-</AnchorPane>
+</Pane>
