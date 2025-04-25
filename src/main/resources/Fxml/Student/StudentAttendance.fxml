@@ -8,7 +8,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="MainPane" prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: PINK;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentAttendanceController">
@@ -47,6 +46,5 @@
                 <Image url="@../../Images/attendance1.png" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafafa00" height="647.0" stroke="BLACK" strokeType="INSIDE" width="1164.0" />
     </children>
 </AnchorPane>

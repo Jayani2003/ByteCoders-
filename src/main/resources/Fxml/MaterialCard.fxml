@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="root" stylesheets="@../Styles/styles.css" styleClass="material-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.MaterialCardController">
+
+    <VBox styleClass="content-vbox" alignment="CENTER_LEFT" spacing="5">
+        <Label fx:id="titleLabel" styleClass="title-label"/>
+        <Text fx:id="descriptionText" styleClass="description-text" wrappingWidth="300"/>
+        <Label fx:id="dateLabel" styleClass="date-label"/>
+    </VBox>
+
+    <Button fx:id="openButton" onAction="#navigateToLink" styleClass="open-button" text="Open"/>
+</HBox>

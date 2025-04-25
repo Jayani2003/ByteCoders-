@@ -1,6 +1,7 @@
 package com.lms.bytecoders.Controllers;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
+import com.lms.bytecoders.Controllers.TechnicalOfficer.TOTimeTableController;
 import com.lms.bytecoders.Services.Database;
 import com.lms.bytecoders.Utils.CustomUi;
 import com.lms.bytecoders.Utils.PasswordUtils;
@@ -61,6 +62,7 @@ public class LoginController extends BaseController implements Initializable {
                     db_uid = rs.getString("User_Id");
                     db_hash = rs.getString("Password");
                     db_role = rs.getString("Role");
+
 
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
                         BaseController.setUserId(db_uid);

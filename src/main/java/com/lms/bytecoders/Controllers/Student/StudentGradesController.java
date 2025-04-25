@@ -4,11 +4,11 @@ import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Services.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.FlowPane;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class StudentGradesController extends BaseController implements Initializable {
 
-    private String grade, cname, cid;
+    private String grade, cname, cid, content;
 
     @FXML
     private AnchorPane MainPane;
@@ -25,24 +25,21 @@ public class StudentGradesController extends BaseController implements Initializ
     private Label gpaLabel;
 
     @FXML
-    private VBox vBoxGrades;
-
-    @FXML
-    private ScrollPane sPane;
+    private FlowPane flowPaneGrades;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setUpGrades();
-    }
-
-    public void setUpGrades() {
-        vBoxGrades.setAlignment(Pos.TOP_CENTER);
-        vBoxGrades.setFillWidth(true);
-        vBoxGrades.setSpacing(15);
         getStudentGrades();
     }
 
     public void getStudentGrades() {
+
+        flowPaneGrades.setOrientation(Orientation.VERTICAL);
+        flowPaneGrades.setHgap(20);
+        flowPaneGrades.setVgap(20);
+        flowPaneGrades.setAlignment(Pos.CENTER);
+        flowPaneGrades.getChildren().clear();
+
         try {
             conn = Database.Conn();
             sql = """
@@ -64,7 +61,14 @@ public class StudentGradesController extends BaseController implements Initializ
                 cid = rs.getString("Course_Id");
                 grade = rs.getString("Grade");
                 cname = rs.getString("Course_Name");
-                addGradeToVbox(cid + " " + cname + " : " + grade);
+                content = cid + " " + cname + " : " + grade;
+
+                Label label = new Label(content);
+                label.getStyleClass().add("grades-label");
+                label.setAlignment(Pos.CENTER);
+                label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
+                flowPaneGrades.getChildren().add(label);
             }
 
         } catch (Exception e) {
@@ -77,24 +81,5 @@ public class StudentGradesController extends BaseController implements Initializ
             }
         }
 
-    }
-
-    public void addGradeToVbox(String content) {
-        Label label = new Label(content);
-        label.setStyle("""
-                                  -fx-padding: 10 20;
-                                  -fx-font-size: 18px;
-                                  -fx-background-color: linear-gradient(to bottom right, #ef6a96, #f595ae);
-                                  -fx-text-fill: white;
-                                  -fx-font-weight: 600;
-                                  -fx-border-radius: 12px;
-                                  -fx-background-radius: 12px;
-                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 2, 2);
-                                  -fx-cursor: hand
-                """);
-        label.setAlignment(Pos.CENTER);
-        label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-
-        vBoxGrades.getChildren().add(label);
     }
 }
