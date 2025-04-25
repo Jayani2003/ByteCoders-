@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPane" prefHeight="645.0" prefWidth="1164.0" stylesheets="@../../Styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Student.StudentCourseController">
+<AnchorPane fx:id="MainPane" prefHeight="645.0" prefWidth="1164.0" stylesheets="@../../Styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LectureCoursesController">
     <children>
         <Pane prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: #f7c3d6;">
             <children>
 
-                <ImageView fitHeight="645.0" fitWidth="1164.0" pickOnBounds="true" opacity="0.4">
+                <ImageView fitHeight="645.0" fitWidth="1164.0" opacity="0.4" pickOnBounds="true">
                     <image>
                         <Image url="@../../Images/studentCourseBG.jpg" />
                     </image>
@@ -25,14 +25,13 @@
                     </image>
                 </ImageView>
 
-                <Label layoutX="382.0" layoutY="35.0" text="STUDENT COURSE DETAILS" textFill="#ac1754">
+                <Label layoutX="382.0" layoutY="38.0" text="LECTURE COURSE DETAILS" textFill="#ac1754">
                     <font>
                         <Font name="Cambria Bold" size="33.0" />
                     </font>
                 </Label>
 
-                <FlowPane fx:id="coursesPane" layoutX="186.0" layoutY="100.0" prefHeight="500.0" prefWidth="800.0"
-                          hgap="20" vgap="20" alignment="TOP_CENTER"/>
+                <FlowPane fx:id="coursesPane" alignment="TOP_CENTER" hgap="20" layoutX="186.0" layoutY="100.0" prefHeight="500.0" prefWidth="800.0" vgap="20" />
             </children>
         </Pane>
     </children>

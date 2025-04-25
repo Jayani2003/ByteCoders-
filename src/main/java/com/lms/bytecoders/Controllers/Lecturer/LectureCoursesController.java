@@ -1,4 +1,4 @@
-package com.lms.bytecoders.Controllers.Student;
+package com.lms.bytecoders.Controllers.Lecturer;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Services.Database;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class StudentCourseController extends BaseController implements Initializable {
+public class LectureCoursesController extends BaseController implements Initializable {
 
     @FXML
     private FlowPane coursesPane;
@@ -39,8 +39,8 @@ public class StudentCourseController extends BaseController implements Initializ
             String sql = """
                             SELECT c.Course_Id, c.Course_Name
                             FROM course c
-                            JOIN stu_course sc ON c.Course_Id = sc.Course_Id
-                            WHERE sc.Student_Id = ?;
+                            JOIN lecture_course lc ON c.Course_Id = lc.Course_Id
+                            WHERE lc.Lecturer_Id = ?;
                     """;
             ps = conn.prepareStatement(sql);
             ps.setString(1, BaseController.getUserId());
@@ -53,7 +53,7 @@ public class StudentCourseController extends BaseController implements Initializ
                 courseLabel.setWrapText(true);
 
                 courseLabel.setOnMouseClicked(event -> {
-                    navigate(MainPane, "/Fxml/Student/StudentSingleCourseView.fxml");
+                    navigate(MainPane, "/Fxml/Lecturer/LecAddMaterial.fxml");
                 });
 
                 coursesPane.getChildren().add(courseLabel);
