@@ -40,20 +40,20 @@
                         <TableColumn fx:id="mediStatusTbl" prefWidth="133.5" text="Status" />
                     </columns>
                 </TableView>
-            <Label layoutX="132.0" layoutY="108.0" text="Select Type">
-               <font>
-                  <Font name="Yu Gothic UI Semibold" size="18.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="mediTypeDrop" layoutX="278.0" layoutY="108.0" prefWidth="150.0">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="ALL" />
-                        <String fx:value="APPROVED" />
-                        <String fx:value="NOT APPROVED" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
+                <Label layoutX="132.0" layoutY="108.0" text="Select Type">
+                    <font>
+                        <Font name="Yu Gothic UI Semibold" size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="mediTypeDrop" layoutX="278.0" layoutY="108.0" prefWidth="150.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="ALL" />
+                            <String fx:value="APPROVED" />
+                            <String fx:value="NOT APPROVED" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
             </children>
         </Pane>
     </children>
