@@ -267,5 +267,104 @@ public abstract class BaseController {
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+    
+    public double getAttendanceWithoutMedical(String uid, String cid, Connection conn){
+        ResultSet rs_, rs__ = null;
+        PreparedStatement ps_ = null;
+        float theory_count = 0;
+        float practical_count = 0;
+        float prt_hours = 0;
+        float p_hours = 0;
+        float t_hours = 0;
+        float max_hours = 0;
+        String attendanceType;
+        try {
+            sql = "SELECT P_Hours, T_Hours FROM course WHERE Course_Id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cid);
+            rs__ = ps.executeQuery();
+
+            if (rs__.next()) {
+                p_hours = rs__.getInt("P_Hours");
+                t_hours = rs__.getInt("T_Hours");
+                max_hours = (p_hours * 15) + (t_hours * 15);
+
+                try {
+                    sql = "SELECT * FROM attendance WHERE Student_Id = ? AND Course_Id = ? AND Status = ?";
+                    ps_ = conn.prepareStatement(sql);
+                    ps_.setString(1, uid);
+                    ps_.setString(2, cid);
+                    ps_.setString(3, "PRESENT");
+                    rs_ = ps_.executeQuery();
+
+                    while(rs_.next()) {
+                        attendanceType = rs_.getString("Type");
+                        if (attendanceType.equals("PRACTICAL")) {
+                            practical_count += 1;
+                        }else{
+                            theory_count += 1;
+                        }
+                    }
+                    prt_hours = (theory_count * t_hours) + (practical_count * p_hours);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals((prt_hours / max_hours) * 100);
+    }
+public double getAttendanceWithMedical(String uid, String cid, Connection conn){
+        ResultSet rs_, rs__ = null;
+        PreparedStatement ps_ = null;
+        float theory_count = 0;
+        float practical_count = 0;
+        float prt_hours = 0;
+        float p_hours = 0;
+        float t_hours = 0;
+        float max_hours = 0;
+        String attendanceType;
+        try {
+            sql = "SELECT P_Hours, T_Hours FROM course WHERE Course_Id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cid);
+            rs__ = ps.executeQuery();
+
+            if (rs__.next()) {
+                p_hours = rs__.getInt("P_Hours");
+                t_hours = rs__.getInt("T_Hours");
+                max_hours = (p_hours * 15) + (t_hours * 15);
+
+                try {
+                    sql = "SELECT * FROM attendance WHERE Student_Id = ? AND Course_Id = ? AND (Status = ? or Status = ?)";
+                    ps_ = conn.prepareStatement(sql);
+                    ps_.setString(1, uid);
+                    ps_.setString(2, cid);
+                    ps_.setString(3, "PRESENT");
+                    ps_.setString(4, "MC");
+                    rs_ = ps_.executeQuery();
+
+                    while(rs_.next()) {
+                        attendanceType = rs_.getString("Type");
+                        if (attendanceType.equals("PRACTICAL")) {
+                            practical_count += 1;
+                        }else{
+                            theory_count += 1;
+                        }
+                    }
+                    prt_hours = (theory_count * t_hours) + (practical_count * p_hours);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals((prt_hours / max_hours) * 100);
+    }
+
 
 }

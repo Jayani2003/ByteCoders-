@@ -26,11 +26,6 @@
                         <Image url="@../../Images/timetable.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="534.0" layoutY="44.0" text="Medicals">
-                    <font>
-                        <Font name="Yu Gothic UI Semibold" size="24.0" />
-                    </font>
-                </Label>
                 <TableView fx:id="mediTbl" layoutX="131.0" layoutY="169.0" opacity="0.75" prefHeight="447.0" prefWidth="869.0">
                     <columns>
                         <TableColumn fx:id="mediIDTbl" prefWidth="129.6666717529297" sortable="false" text="Medical ID" />
@@ -40,11 +35,6 @@
                         <TableColumn fx:id="mediStatusTbl" prefWidth="133.5" text="Status" />
                     </columns>
                 </TableView>
-                <Label layoutX="132.0" layoutY="108.0" text="Select Type">
-                    <font>
-                        <Font name="Yu Gothic UI Semibold" size="18.0" />
-                    </font>
-                </Label>
                 <ComboBox fx:id="mediTypeDrop" layoutX="278.0" layoutY="108.0" prefWidth="150.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -54,6 +44,16 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
+            <Label layoutX="354.0" layoutY="31.0" text="STUDENT MEDICAL DETAILS" textFill="#ac1754">
+               <font>
+                  <Font name="Cambria Bold" size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="190.0" layoutY="113.0" text="Select Type">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>

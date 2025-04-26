@@ -56,7 +56,7 @@ public class LecStuGPAController extends BaseController implements Initializable
     }
 
     private ObservableList<StudentGPA> getTableData() {
-        ObservableList<StudentGPA> timetable_ = FXCollections.observableArrayList();
+        ObservableList<StudentGPA> studentGPAData = FXCollections.observableArrayList();
         sql = "SELECT * FROM student";
 
         try {
@@ -68,7 +68,7 @@ public class LecStuGPAController extends BaseController implements Initializable
                 student_id = rs_.getString("Student_Id");
                 student_sgpa = calcSGPA(student_id, conn);
                 student_cgpa = calcSGPA(student_id, conn);
-                timetable_.add(new StudentGPA(student_id, student_sgpa, student_cgpa));
+                studentGPAData.add(new StudentGPA(student_id, student_sgpa, student_cgpa));
             }
 
         } catch (SQLException e) {
@@ -81,7 +81,7 @@ public class LecStuGPAController extends BaseController implements Initializable
             }
         }
 
-        return timetable_;
+        return studentGPAData;
     }
 
     private void setTable() {
