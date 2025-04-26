@@ -56,9 +56,9 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureGradesPane" layoutX="401.0" layoutY="419.0" onMouseClicked="#navigateToLectureGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureGradesGPAPane" layoutX="401.0" layoutY="419.0" onMouseClicked="#navigateToLectureGPAGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
-                <Label layoutX="52.0" layoutY="22.0" text="Grades">
+                <Label layoutX="24.0" layoutY="22.0" text="Grades/GPA">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>

@@ -14,16 +14,21 @@
                 <Image url="@../../Images/tobackground.jpg" />
             </image>
         </ImageView>
-      <Label fx:id="gpaLabel" alignment="CENTER" layoutX="716.0" layoutY="120.0" prefHeight="75.0" prefWidth="184.0" text="GPA" textFill="#ac1754">
+      <Label fx:id="sgpaLabel" alignment="CENTER" layoutX="716.0" layoutY="120.0" prefHeight="75.0" prefWidth="184.0" text="SGPA" textFill="#ac1754">
          <font>
             <Font name="Yu Gothic UI Semibold" size="28.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="493.0" layoutY="53.0" prefHeight="75.0" prefWidth="184.0" text="Grades" textFill="#ac1754">
+      <Label alignment="CENTER" layoutX="495.0" layoutY="53.0" prefHeight="75.0" prefWidth="184.0" text="Grades" textFill="#ac1754">
          <font>
             <Font name="Yu Gothic UI Semibold" size="40.0" />
          </font>
       </Label>
       <FlowPane fx:id="flowPaneGrades" layoutX="278.0" layoutY="195.0" prefHeight="449.0" prefWidth="608.0" />
+      <Label fx:id="cgpaLabel" alignment="CENTER" layoutX="248.0" layoutY="120.0" prefHeight="75.0" prefWidth="184.0" text="SGPA" textFill="#ac1754">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="28.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
