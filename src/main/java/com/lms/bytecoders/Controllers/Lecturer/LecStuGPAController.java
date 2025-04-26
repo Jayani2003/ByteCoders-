@@ -1,7 +1,7 @@
 package com.lms.bytecoders.Controllers.Lecturer;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
-import com.lms.bytecoders.Models.Student;
+import com.lms.bytecoders.Models.StudentGPA;
 import com.lms.bytecoders.Models.StudentGrade;
 import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
@@ -23,31 +23,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class LecStuGradesController extends BaseController implements Initializable {
-
-    private String student_id, course_code, student_grade;
+public class LecStuGPAController extends BaseController implements Initializable {
+    private String student_id;
+    private double student_sgpa, student_cgpa;
     private ResultSet rs_;
-
-    @FXML
-    private AnchorPane MainPane;
 
     @FXML
     private Button backBtn;
 
     @FXML
-    private TableColumn<?, String> courseCodeColumn;
+    private AnchorPane MainPane;
 
     @FXML
     private TextField searchBox;
 
     @FXML
-    private TableColumn<?, String> stuGradeColumn;
+    private TableColumn<?, Double> stuCGPAColumn;
 
     @FXML
     private TableColumn<?, String> stuIdColumn;
 
     @FXML
-    private TableView<StudentGrade> studentGradesTable;
+    private TableColumn<?, Double> stuSGPAColumn;
+
+    @FXML
+    private TableView<StudentGPA> studentGPATable;
 
 
     @Override
@@ -55,18 +55,9 @@ public class LecStuGradesController extends BaseController implements Initializa
         setTable();
     }
 
-    private ObservableList<StudentGrade> getTableData() {
-        ObservableList<StudentGrade> timetable_ = FXCollections.observableArrayList();
-        sql = """
-            SELECT
-                c.Course_Id,
-                m.Grade,
-                s.Student_Id,
-                c.Credits
-            FROM mark m
-            JOIN course c ON m.Course_Id = c.Course_Id
-            JOIN student s ON m.Student_Id = s.Student_Id
-        """;
+    private ObservableList<StudentGPA> getTableData() {
+        ObservableList<StudentGPA> timetable_ = FXCollections.observableArrayList();
+        sql = "SELECT * FROM student";
 
         try {
             conn = Database.Conn();
@@ -75,9 +66,9 @@ public class LecStuGradesController extends BaseController implements Initializa
 
             while (rs_.next()) {
                 student_id = rs_.getString("Student_Id");
-                course_code = rs_.getString("Course_Id");
-                student_grade = rs_.getString("Grade");
-                timetable_.add(new StudentGrade(student_id, course_code, student_grade));
+                student_sgpa = calcSGPA(student_id, conn);
+                student_cgpa = calcSGPA(student_id, conn);
+                timetable_.add(new StudentGPA(student_id, student_sgpa, student_cgpa));
             }
 
         } catch (SQLException e) {
@@ -94,25 +85,23 @@ public class LecStuGradesController extends BaseController implements Initializa
     }
 
     private void setTable() {
-        courseCodeColumn.setCellValueFactory(new PropertyValueFactory<>("course_code"));
-        stuGradeColumn.setCellValueFactory(new PropertyValueFactory<>("student_grade"));
+        stuCGPAColumn.setCellValueFactory(new PropertyValueFactory<>("student_cgpa"));
         stuIdColumn.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        stuSGPAColumn.setCellValueFactory(new PropertyValueFactory<>("student_sgpa"));
 
-        studentGradesTable.setItems(getTableData());
+        studentGPATable.setItems(getTableData());
 
         // filtered list
-        FilteredList<StudentGrade> filteredData = new FilteredList<>(studentGradesTable.getItems(), e -> true);
+        FilteredList<StudentGPA> filteredData = new FilteredList<>(studentGPATable.getItems(), e -> true);
         searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(StudentGrade -> {
+            filteredData.setPredicate(StudentGPA -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
                 String keyWord = newValue.toLowerCase();
 
-                if (StudentGrade.getStudent_id().toLowerCase().contains(keyWord)) {
-                    return true;
-                } else if (StudentGrade.getCourse_code().toLowerCase().contains(keyWord)) {
+                if (StudentGPA.getStudent_id().toLowerCase().contains(keyWord)) {
                     return true;
                 } else {
                     return false;
@@ -120,9 +109,9 @@ public class LecStuGradesController extends BaseController implements Initializa
             });
         });
 
-        SortedList<StudentGrade> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(studentGradesTable.comparatorProperty());
-        studentGradesTable.setItems(sortedData);
+        SortedList<StudentGPA> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(studentGPATable.comparatorProperty());
+        studentGPATable.setItems(sortedData);
     }
 
     @FXML
@@ -131,3 +120,4 @@ public class LecStuGradesController extends BaseController implements Initializa
     }
 
 }
+

@@ -4,6 +4,7 @@ import com.lms.bytecoders.Services.Database;
 import com.lms.bytecoders.Utils.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -18,6 +19,8 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.*;
 
 public abstract class BaseController {
@@ -196,6 +199,73 @@ public abstract class BaseController {
                 e.printStackTrace();
             }
         }
+    }
+
+    public double calcSGPA(String Student_Id, Connection conn) {
+        double totalCredits = 0;
+        double totalPoints = 0;
+        try {
+            sql = """
+                            SELECT
+                                c.Course_Id,
+                                c.Course_Name,
+                                m.Grade,
+                                c.Credits
+                            FROM mark m
+                                JOIN
+                            course c ON m.Course_Id = c.Course_Id
+                            WHERE m.Student_Id = ?;
+                    """;
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(1, Student_Id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String grade = rs.getString("Grade");
+                double point = getPoint(grade);
+                double credit = Double.parseDouble(rs.getString("Credits"));
+                totalCredits += credit;
+                totalPoints += (point * credit);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals(totalPoints / totalCredits);
+    }
+
+    public double getPoint(String grade) {
+        if (grade.equals("A+") || grade.equals("A")) {
+            return 4.0;
+        } else if (grade.equals("A-")) {
+            return 3.7;
+        } else if (grade.equals("B+")) {
+            return 3.3;
+        } else if (grade.equals("B")) {
+            return 3.0;
+        } else if (grade.equals("B-")) {
+            return 2.7;
+        } else if (grade.equals("C+")) {
+            return 2.3;
+        } else if (grade.equals("C")) {
+            return 2.0;
+        } else if (grade.equals("C-")) {
+            return 1.7;
+        } else if (grade.equals("D+")) {
+            return 1.3;
+        } else if (grade.equals("D")) {
+            return 1.0;
+        } else {
+            return 0.0;
+        }
+    }
+
+    public static double roundToTwoDecimals(double value) {
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
 }

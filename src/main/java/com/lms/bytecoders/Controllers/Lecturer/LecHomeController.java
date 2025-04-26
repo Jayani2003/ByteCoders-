@@ -26,7 +26,7 @@ public class LecHomeController  extends BaseController implements Initializable 
     private Pane lectureEligibilityPane;
 
     @FXML
-    private Pane lectureGradesPane;
+    private Pane lectureGradesGPAPane;
 
     @FXML
     private Pane lectureMarksPane;
@@ -64,8 +64,8 @@ public class LecHomeController  extends BaseController implements Initializable 
     }
 
     @FXML
-    void navigateToLectureGrades(MouseEvent event) {
-        navigate(MainPane, "/Fxml/Lecturer/LecStuGrades.fxml");
+    void navigateToLectureGPAGrades(MouseEvent event) {
+        navigate(MainPane, "/Fxml/Lecturer/LecGPAGrades.fxml");
     }
 
     @FXML
