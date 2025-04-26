@@ -8,7 +8,7 @@ public class Notice {
     private String description;
     private Date datePosted;
 
-    public Notice(String title, String noticeId,String description,  Date datePosted) {
+    public Notice(String title, String noticeId,String description,Date datePosted) {
         this.title = title;
         this.noticeId = noticeId;
         this.description = description;
