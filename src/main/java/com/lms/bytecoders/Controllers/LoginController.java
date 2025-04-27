@@ -67,6 +67,11 @@ public class LoginController extends BaseController implements Initializable {
                     if (PasswordUtils.verifyPassword(password, db_hash)) {
                         BaseController.setUserId(db_uid);
                         BaseController.setDashboardName(db_role);
+
+//                        if ("Lecturer".equalsIgnoreCase(db_role)) {
+//                            com.lms.bytecoders.Controllers.Lecturer.LecAddMaterialController.setLoggedInLecturerId(db_uid);
+//                        }
+
                         loadDashboard(loginButton);
 
                     } else {

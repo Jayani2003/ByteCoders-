@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -22,60 +21,55 @@
                         <Image url="@../../Images/addMarksBG.jpg" />
                     </image>
                 </ImageView>
-            <DatePicker fx:id="date" layoutX="216.0" layoutY="254.0" prefHeight="25.0" prefWidth="152.0" />
+            <DatePicker fx:id="courseDate" layoutX="216.0" layoutY="441.0" prefHeight="25.0" prefWidth="152.0" />
             <Label layoutX="451.0" layoutY="38.0" text="Upload Lecture Materials">
                <font>
                   <Font name="Yu Gothic UI Semibold" size="23.0" />
                </font>
             </Label>
             <Button fx:id="btnDelete" layoutX="190.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Delete" />
-              <Button fx:id="btnAdd" layoutX="14.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Add" />
-              <Button fx:id="btnClear" layoutX="281.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Clear" />
+                <Button fx:id="btnAdd" layoutX="14.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Add" />
+                <Button fx:id="btnClear" layoutX="281.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Clear" />
             <Button fx:id="btnUpdate" layoutX="101.0" layoutY="534.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Update" />
-              <TextField fx:id="courseLecNoteTxt" layoutX="216.0" layoutY="293.0" prefHeight="27.0" prefWidth="152.0" />
-              <TextField fx:id="courseLabsheetTxt" layoutX="216.0" layoutY="343.0" prefHeight="27.0" prefWidth="152.0" />
-              <TextField fx:id="courseAssignmentTxt" layoutX="216.0" layoutY="392.0" prefHeight="27.0" prefWidth="152.0" />
-              <TextField fx:id="courseRefTxt" layoutX="216.0" layoutY="439.0" prefHeight="27.0" prefWidth="152.0" />
-            <ComboBox layoutX="217.0" layoutY="160.0" prefWidth="150.0" />
-              <Label layoutX="14.0" layoutY="159.0" text="Course Code">
+              <TextField fx:id="courseTtileTxt" layoutX="216.0" layoutY="293.0" prefHeight="27.0" prefWidth="152.0" />
+              <TextField fx:id="courseDescTxt" layoutX="216.0" layoutY="343.0" prefHeight="27.0" prefWidth="152.0" />
+              <TextField fx:id="courseLinkTxt" layoutX="216.0" layoutY="392.0" prefHeight="27.0" prefWidth="152.0" />
+              <Label layoutX="14.0" layoutY="179.0" text="Course Code">
+                  <font>
+                      <Font name="Yu Gothic UI Semibold" size="18.0" />
+                  </font>
+              </Label>
+            <Label fx:id="courseCodeLbl" layoutX="227.0" layoutY="175.0" text="#course code">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Label>
+              <Label layoutX="22.0" layoutY="440.0" text="Date">
                   <font>
                       <Font name="Yu Gothic UI Semibold" size="18.0" />
                   </font>
               </Label>
             </children>
         </Pane>
-        <TableView layoutX="394.0" layoutY="101.0" opacity="0.75" prefHeight="521.0" prefWidth="756.0">
+        <TableView fx:id="materialTable" layoutX="394.0" layoutY="101.0" opacity="0.75" prefHeight="521.0" prefWidth="756.0">
             <columns>
-                <TableColumn fx:id="courseCodeTbl" prefWidth="91.0" sortable="false" text="Course Code" />
-                <TableColumn fx:id="courseNameTbl" minWidth="0.0" prefWidth="116.0" text="Course Name" />
-                <TableColumn fx:id="date" prefWidth="93.0" text="Date" />
-                <TableColumn fx:id="courseLecNoteTbl" minWidth="3.0" prefWidth="122.0" text="Lecture Note" />
-                <TableColumn fx:id="courseLabsheet" minWidth="0.0" prefWidth="107.0" text="Labsheet" />
-                <TableColumn fx:id="midTTbl" prefWidth="117.0" text="Assignment" />
-                <TableColumn fx:id="midPTbl" prefWidth="109.0" text="References" />
+                <TableColumn fx:id="titleCol" minWidth="0.0" prefWidth="134.5" text="Title" />
+                <TableColumn fx:id="descriptionCol" prefWidth="240.5" text="Descrition" />
+                <TableColumn fx:id="linkCol" minWidth="3.0" prefWidth="167.0" text="Material Link" />
+                <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="122.0" text="Upload Date" />
             </columns>
         </TableView>
-        <Label layoutX="20.0" layoutY="248.0" text="Date">
+        <Label layoutX="20.0" layoutY="297.0" text="Title">
             <font>
                 <Font name="Yu Gothic UI Semibold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="20.0" layoutY="297.0" text="Lecture Note">
+        <Label layoutX="20.0" layoutY="347.0" text="Description">
             <font>
                 <Font name="Yu Gothic UI Semibold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="20.0" layoutY="347.0" text="Labsheet ">
-            <font>
-                <Font name="Yu Gothic UI Semibold" size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="20.0" layoutY="396.0" text="Assignment">
-            <font>
-                <Font name="Yu Gothic UI Semibold" size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="20.0" layoutY="443.0" text="References">
+        <Label layoutX="20.0" layoutY="396.0" text="Material Link">
             <font>
                 <Font name="Yu Gothic UI Semibold" size="18.0" />
             </font>
