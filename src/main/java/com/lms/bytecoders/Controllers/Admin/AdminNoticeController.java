@@ -113,16 +113,16 @@ public class AdminNoticeController extends BaseController implements Initializab
                     ps.setDate(3, Date.valueOf(LocalDate.now()));
                     int rowsAffected = ps.executeUpdate();
 
-                    // Check if rows were affected
+
                     if (rowsAffected > 0) {
                         System.out.println(rowsAffected + " row(s) inserted.");
-                        loadNoticesFromDB(); // Refresh TableView
+                        loadNoticesFromDB();
                     } else {
                         System.out.println("No rows affected.");
                         showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to add notice. Please try again later.");
                     }
                 } catch (SQLException e) {
-                    e.printStackTrace(); // Log the full stack trace for debugging
+                    e.printStackTrace();
                     showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to add notice. Please try again later.");
                 }
             } else {

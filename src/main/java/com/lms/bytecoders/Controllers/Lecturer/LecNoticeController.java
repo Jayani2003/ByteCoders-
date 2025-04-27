@@ -39,10 +39,7 @@ public class LecNoticeController extends BaseController implements Initializable
 
     private ObservableList<Notice> noticeList = FXCollections.observableArrayList();
 
-//    @FXML
-//    public void initialize() {
-//        loadNoticesFromDB();
-//    }
+
 
     public void loadNoticesFromDB() {
         try (Connection conn = Database.Conn()) {

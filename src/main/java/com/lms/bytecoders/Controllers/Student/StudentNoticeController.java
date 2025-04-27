@@ -39,10 +39,6 @@ public class StudentNoticeController extends BaseController implements Initializ
 
     private ObservableList<Notice> noticeList = FXCollections.observableArrayList();
 
-//    @FXML
-//    public void initialize() {
-//        loadNoticesFromDB();
-//    }
 
     public void loadNoticesFromDB() {
         try (Connection conn = Database.Conn()) {

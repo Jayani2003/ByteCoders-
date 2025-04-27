@@ -14,7 +14,7 @@
                 <Image url="@../../Images/tobackground.jpg" />
             </image>
         </ImageView>
-        <Pane fx:id="lectureCoursesPane" layoutX="401.0" layoutY="134.0" onMouseClicked="#navigateToLectureCourses" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureCoursesPane" layoutX="403.0" layoutY="79.0" onMouseClicked="#navigateToLectureCourses" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="47.0" layoutY="22.0" text="Courses">
                     <font>
@@ -28,7 +28,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureAttendancePane" layoutX="593.0" layoutY="134.0" onMouseClicked="#navigateToLectureAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureAttendancePane" layoutX="595.0" layoutY="79.0" onMouseClicked="#navigateToLectureAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="29.0" layoutY="22.0" text="Attendance">
                     <font>
@@ -42,7 +42,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureEligibilityPane" layoutX="786.0" layoutY="134.0" onMouseClicked="#navigateToLectureEligibility" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureEligibilityPane" layoutX="788.0" layoutY="79.0" onMouseClicked="#navigateToLectureEligibility" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="41.0" layoutY="25.0" text="Eligibility">
                     <font>
@@ -56,64 +56,64 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureGradesGPAPane" layoutX="401.0" layoutY="419.0" onMouseClicked="#navigateToLectureGPAGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureGradesPane" layoutX="403.0" layoutY="364.0" onMouseClicked="#navigateToLectureGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
-                <Label layoutX="24.0" layoutY="22.0" text="Grades/GPA">
+                <Label layoutX="52.0" layoutY="22.0" text="Grades">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="101.0" fitWidth="106.0" layoutX="31.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbGrades.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureTimeTablePane" layoutX="593.0" layoutY="419.0" onMouseClicked="#navigateToLectureTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureTimeTablePane" layoutX="595.0" layoutY="364.0" onMouseClicked="#navigateToLectureTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="32.0" layoutY="22.0" text="Time Table">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="111.0" fitWidth="106.0" layoutX="31.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbTimetable.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureNoticePane" layoutX="786.0" layoutY="419.0" onMouseClicked="#navigateToLectureNotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureNoticePane" layoutX="788.0" layoutY="364.0" onMouseClicked="#navigateToLectureNotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="54.0" layoutY="23.0" text="Notice">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="106.0" fitWidth="106.0" layoutX="34.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbNotice.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="40.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="42.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/dbImage1.jpg" />
             </image>
         </ImageView>
-        <Label layoutX="146.0" layoutY="198.0" text="Hello" textFill="WHITE">
+        <Label layoutX="141.0" layoutY="134.0" text="Hello" textFill="WHITE">
             <font>
                 <Font name="Forte" size="54.0" />
             </font>
         </Label>
-        <Label fx:id="userGreetLabel" layoutX="171.0" layoutY="262.0" text="Lecturer" textFill="WHITE">
+        <Label fx:id="userGreetLabel" layoutX="166.0" layoutY="195.0" text="Lecturer" textFill="WHITE">
             <font>
                 <Font name="Forte" size="29.0" />
             </font>
         </Label>
-        <Pane layoutX="40.0" layoutY="430.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
+        <Pane layoutX="42.0" layoutY="375.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
             <children>
                 <Label layoutX="31.0" layoutY="28.0" text="Learning Management System">
                     <font>
@@ -142,7 +142,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureStudentPane" layoutX="977.0" layoutY="137.0" onMouseClicked="#navigateToLectureStudent" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureStudentPane" layoutX="979.0" layoutY="82.0" onMouseClicked="#navigateToLectureStudent" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="47.0" layoutY="26.0" text="Student">
                     <font>
@@ -156,14 +156,14 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="lectureMarksPane" layoutX="977.0" layoutY="419.0" onMouseClicked="#navigateToLectureMarks" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="lectureMarksPane" layoutX="979.0" layoutY="364.0" onMouseClicked="#navigateToLectureMarks" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="56.0" layoutY="26.0" text="Marks">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="36.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="36.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbMarks.png" />
                     </image>
