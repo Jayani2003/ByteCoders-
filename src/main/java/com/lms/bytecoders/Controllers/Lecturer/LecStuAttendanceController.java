@@ -2,6 +2,7 @@ package com.lms.bytecoders.Controllers.Lecturer;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Models.Attendance;
+import com.lms.bytecoders.Models.StuAttendance;
 import com.lms.bytecoders.Models.StudentGPA;
 import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
@@ -30,7 +31,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
     private TableColumn<?, String> attPercentage;
 
     @FXML
-    private TableView<Attendance> attendanceTable;
+    private TableView<StuAttendance> attendanceTable;
 
     @FXML
     private TableColumn<?, String> courseCode;
@@ -56,7 +57,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
     }
 
     private void setTableData(int val) {
-        ObservableList<Attendance> tableData_ = FXCollections.observableArrayList();
+        ObservableList<StuAttendance> tableData_ = FXCollections.observableArrayList();
         double percentage = 0;
         try {
             conn = Database.Conn();
@@ -79,7 +80,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
                     percentage = getAttendanceWithoutMedical(studentId, courseId, conn);
                 }
                 String eligibility = percentage >= 80 ? "Eligible" : "Not Eligible";
-                tableData_.add(new Attendance(
+                tableData_.add(new StuAttendance(
                         eligibility,
                         Double.toString(percentage),
                         courseId,
@@ -100,7 +101,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
         setTable(tableData_);
     }
 
-    private void setTable(ObservableList<Attendance> data) {
+    private void setTable(ObservableList<StuAttendance> data) {
         attEligibility.setCellValueFactory(new PropertyValueFactory<>("eligibility"));
         attPercentage.setCellValueFactory(new PropertyValueFactory<>("attendancePercentage"));
         courseCode.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
@@ -109,7 +110,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
         attendanceTable.setItems(data);
 
         // filtered list
-        FilteredList<Attendance> filteredData = new FilteredList<>(attendanceTable.getItems(), e -> true);
+        FilteredList<StuAttendance> filteredData = new FilteredList<>(attendanceTable.getItems(), e -> true);
         searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(attendance -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -128,7 +129,7 @@ public class LecStuAttendanceController extends BaseController implements Initia
             });
         });
 
-        SortedList<Attendance> sortedData = new SortedList<>(filteredData);
+        SortedList<StuAttendance> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(attendanceTable.comparatorProperty());
         attendanceTable.setItems(sortedData);
     }

@@ -2,6 +2,7 @@ package com.lms.bytecoders.Controllers.Student;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
 import com.lms.bytecoders.Models.Attendance;
+import com.lms.bytecoders.Models.StuAttendance;
 import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,7 +37,7 @@ public class StudentAttendanceController extends BaseController implements Initi
     private TableColumn<?, String> attPercentage;
 
     @FXML
-    private TableView<Attendance> attendanceTable;
+    private TableView<StuAttendance> attendanceTable;
 
     @FXML
     private TableColumn<?, String> courseCode;
@@ -56,7 +57,7 @@ public class StudentAttendanceController extends BaseController implements Initi
     }
 
     private void setTableData(int val) {
-        ObservableList<Attendance> tableData_ = FXCollections.observableArrayList();
+        ObservableList<StuAttendance> tableData_ = FXCollections.observableArrayList();
         double percentage = 0;
         try {
             conn = Database.Conn();
@@ -79,7 +80,7 @@ public class StudentAttendanceController extends BaseController implements Initi
                     percentage = getAttendanceWithoutMedical(BaseController.getUserId(), courseId, conn);
                 }
                 String eligibility = percentage >= 80 ? "Eligible" : "Not Eligible";
-                tableData_.add(new Attendance(
+                tableData_.add(new StuAttendance(
                         eligibility,
                         Double.toString(percentage),
                         courseId,
@@ -100,7 +101,7 @@ public class StudentAttendanceController extends BaseController implements Initi
         setTable(tableData_);
     }
 
-    private void setTable(ObservableList<Attendance> data) {
+    private void setTable(ObservableList<StuAttendance> data) {
         attEligibility.setCellValueFactory(new PropertyValueFactory<>("eligibility"));
         attPercentage.setCellValueFactory(new PropertyValueFactory<>("attendancePercentage"));
         courseCode.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
