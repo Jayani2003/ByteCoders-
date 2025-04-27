@@ -20,12 +20,12 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f54cea27" height="645.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
       <AnchorPane layoutX="27.0" layoutY="80.0" prefHeight="540.0" prefWidth="1119.0" style="-fx-background-color: pink;">
          <children>
-            <TableView fx:id="timetableTO" layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView layoutX="6.0" prefHeight="540.0" prefWidth="1119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn fx:id="levelColumn" prefWidth="167.5" text="LEVEL" />
-                <TableColumn fx:id="semesterColumn" prefWidth="256.5" text="SEMESTER" />
-                  <TableColumn fx:id="departmentColumn" prefWidth="323.0" text="DEPARTMENT" />
-                  <TableColumn fx:id="timetableColumn" prefWidth="371.0" text="TIME TABLE" />
+                <TableColumn fx:id="to_level" prefWidth="167.5" text="LEVEL" />
+                <TableColumn fx:id="to_semester" prefWidth="256.5" text="SEMESTER" />
+                  <TableColumn fx:id="to_department" prefWidth="323.0" text="DEPARTMENT" />
+                  <TableColumn fx:id="to_tTable" prefWidth="371.0" text="TIME TABLE" />
               </columns>
             </TableView>
          </children>

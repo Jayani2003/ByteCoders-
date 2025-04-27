@@ -30,7 +30,7 @@ public class AdminTimeTableController extends BaseController implements Initiali
     @FXML
     private TextField fileTextField;
 
-    // Initialize ComboBox values
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> listlevel = FXCollections.observableArrayList("Level 1", "Level 2", "Level 3", "Level 4");
@@ -43,7 +43,7 @@ public class AdminTimeTableController extends BaseController implements Initiali
         combodepartment.setItems(listdepartment);
     }
 
-    // Add TimeTable to Database
+
     public void addTimeTableToDB() {
         try {
             String level = combolevel.getValue();
@@ -87,7 +87,7 @@ public class AdminTimeTableController extends BaseController implements Initiali
         clearFields();
     }
 
-    // Delete TimeTable from Database
+
     public void deleteTimeTableFromDB() {
         try {
             String level = combolevel.getValue();
@@ -130,7 +130,7 @@ public class AdminTimeTableController extends BaseController implements Initiali
         clearFields();
     }
 
-    // Update TimeTable in Database
+
     public void updateTimeTableInDB() {
         try {
             String level = combolevel.getValue();
@@ -186,7 +186,7 @@ public class AdminTimeTableController extends BaseController implements Initiali
     }
 
 
-    // Clear fields after operation
+
     private void clearFields() {
         combolevel.setValue(null);
         combosemester.setValue(null);

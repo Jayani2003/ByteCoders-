@@ -4,6 +4,7 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
@@ -13,8 +14,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminUserController">
    <children>
@@ -32,28 +35,19 @@
                         <Font name="Eras Bold ITC" size="27.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="profileImageView" fitHeight="150.0" fitWidth="200.0" layoutX="185.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/adduser.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="uploadButton" layoutX="223.0" layoutY="193.0" mnemonicParsing="false" text="user image" textFill="#c6316f" />
-                  <ComboBox fx:id="combo" layoutX="185.0" layoutY="236.0" prefWidth="150.0" promptText="User Type">
+<!--                  <ImageView fx:id="profileImageView" fitHeight="150.0" fitWidth="200.0" layoutX="185.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                     <image>-->
+<!--                        <Image url="@../../Images/adduser.png" />-->
+<!--                     </image>-->
+<!--                  </ImageView>-->
+                   <Circle fx:id="userImageCircle" fill="GRAY" layoutX="264.0" layoutY="107.0" radius="60.0" stroke="BLACK" />
+                  <Button fx:id="uploadButton" layoutX="223.0" layoutY="193.0" mnemonicParsing="false" onAction="#uploadImage" text="user image" textFill="#c6316f" />
+                  <ComboBox fx:id="combo" layoutX="185.0" layoutY="236.0" prefWidth="150.0" promptText="UserType">
                    <items>
                        <FXCollections fx:factory="observableArrayList">
                            <String fx:value="Student" />
                            <String fx:value="Technical Officer" />
                            <String fx:value="Lecturer" />
-                       </FXCollections>
-                   </items>
-                  </ComboBox>
-
-                  <ComboBox fx:id="combo2" layoutX="185.0" layoutY="285.0" prefWidth="150.0" promptText="Gender">
-                   <items>
-                       <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="Male" />
-                           <String fx:value="Female" />
-                           <String fx:value="Other" />
                        </FXCollections>
                    </items>
                   </ComboBox>
@@ -63,7 +57,7 @@
                   <TextField fx:id="password" layoutX="396.0" layoutY="273.0" prefHeight="25.0" prefWidth="156.0" promptText="PASSWORD" />
                   <TextField fx:id="email" layoutX="602.0" layoutY="94.0" promptText="EMAIL" />
                   <TextField fx:id="p_no" layoutX="605.0" layoutY="143.0" promptText="PHONE NUMBER" />
-                  <TextField fx:id="dob" layoutX="605.0" layoutY="206.0" promptText="DOB" />
+                  <DatePicker fx:id="dob" layoutX="605.0" layoutY="206.0" prefHeight="26.0" prefWidth="150.0" promptText="DOB" />
                   <TextField fx:id="address" layoutX="605.0" layoutY="273.0" promptText="ADDRESS" />
                   <Button fx:id="buttonAdd" layoutX="886.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: AC1754;" text="ADD" textFill="#f2efef">
                      <font>
@@ -84,27 +78,35 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <Text fill="WHITE" layoutX="128.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*For updating, Enter the User Id, New detail and click the Update button  ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="128.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*For deleting, Enter the User Id and click the Delete button  ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="1198.0">
                <children>
                   <ScrollPane prefHeight="258.0" prefWidth="1246.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="1500.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="1801.0">
                            <children>
-                              <TableView layoutX="-425.0" prefHeight="260.0" prefWidth="1500.0" style="-fx-background-color: F7A8C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="tableUsers" layoutX="-425.0" prefHeight="260.0" prefWidth="1806.0" style="-fx-background-color: F7A8C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="t_userId" prefWidth="96.5" text="USER ID" />
-                                  <TableColumn fx:id="t_combo" prefWidth="98.0" text="USER TYPE" />
-                                    <TableColumn fx:id="t_fname" minWidth="0.0" prefWidth="111.5" text="FIRST NAME" />
-                                    <TableColumn fx:id="t_lname" minWidth="0.0" prefWidth="109.0" text="LAST NAME" />
-                                    <TableColumn fx:id="t_email" minWidth="0.0" prefWidth="172.0" text="EMAIL" />
-                                    <TableColumn fx:id="t_pnumber" minWidth="0.0" prefWidth="140.5" text="PHONE NUMBER" />
-                                    <TableColumn fx:id="t_combo2" minWidth="0.0" prefWidth="107.5" text="GENDER" />
-                                    <TableColumn fx:id="t_dob" minWidth="0.0" prefWidth="117.5" text="DATE OF BIRTH" />
-                                    <TableColumn fx:id="t_password" minWidth="0.0" prefWidth="130.0" text="PASSWORD" />
-                                    <TableColumn fx:id="t_address" minWidth="0.0" prefWidth="217.0" text="ADDRESS" />
-                                    <TableColumn fx:id="t_userImage" prefWidth="164.5" text="USER IMAGE" />
+                                  <TableColumn fx:id="t_combo" prefWidth="149.60009765625" text="USER TYPE" />
+                                    <TableColumn fx:id="t_fname" minWidth="0.0" prefWidth="154.39993286132812" text="FIRST NAME" />
+                                    <TableColumn fx:id="t_lname" minWidth="0.0" prefWidth="237.599853515625" text="LAST NAME" />
+                                    <TableColumn fx:id="t_email" minWidth="0.0" prefWidth="220.0" text="EMAIL" />
+                                    <TableColumn fx:id="t_pnumber" minWidth="0.0" prefWidth="156.0" text="PHONE NUMBER" />
+                                    <TableColumn fx:id="t_dob" minWidth="0.0" prefWidth="162.3997802734375" text="DATE OF BIRTH" />
+                                    <TableColumn fx:id="t_password" minWidth="0.0" prefWidth="208.800048828125" text="PASSWORD" />
+                                    <TableColumn fx:id="t_address" minWidth="0.0" prefWidth="415.999755859375" text="ADDRESS" />
                                 </columns>
                               </TableView>
                            </children>

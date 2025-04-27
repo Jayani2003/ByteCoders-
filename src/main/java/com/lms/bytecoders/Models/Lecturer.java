@@ -8,10 +8,50 @@ public class Lecturer extends User {
     private LocalDate enrollmentDate;
     private String position;
 
-    public Lecturer(String userId, String lastName, String password, Role role, byte[] userImage, int age, String email, String address, String telephone, LocalDate dob, String firstName, Department department, LocalDate enrollmentDate, String position) {
-        super(userId, lastName, password, role, userImage, age, email, address, telephone, dob, firstName);
+    public Lecturer(
+            String userId,
+            String firstName,
+            String lastName,
+            String email,
+            String telephone,
+            Role role,
+            LocalDate dob,
+            String password,
+            String address,
+            int age,
+            Department department,
+            LocalDate enrollmentDate,
+            String position
+    ) {
+        super(userId, firstName, lastName, email, telephone, role.name(), dob, password, address,  age);
         this.department = department;
         this.enrollmentDate = enrollmentDate;
+        this.position = position;
+    }
+
+
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public LocalDate getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
         this.position = position;
     }
 }

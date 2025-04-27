@@ -2,14 +2,47 @@ package com.lms.bytecoders.Models;
 
 import java.time.LocalDate;
 
-public class TechnicalOfficer extends User{
+public class TechnicalOfficer extends User {
 
-    private LocalDate enrollmentDate;
-    private Department department;
+    private String department;
+    private LocalDate joiningDate;
 
-    public TechnicalOfficer(String userId, String lastName, String password, Role role, byte[] userImage, int age, String email, String address, String telephone, LocalDate dob, String firstName, LocalDate enrollmentDate, Department department) {
-        super(userId, lastName, password, role, userImage, age, email, address, telephone, dob, firstName);
-        this.enrollmentDate = enrollmentDate;
+    public TechnicalOfficer(
+            String userId,
+            String firstName,
+            String lastName,
+            String email,
+            String telephone,
+            String role,
+            LocalDate dob,
+            String password,
+            String address,
+
+
+            int age,
+            String department,
+            LocalDate joiningDate
+    ) {
+
+        super(userId, firstName, lastName, email, telephone, role, dob, password, address,  age);
         this.department = department;
+        this.joiningDate = joiningDate;
+    }
+
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public LocalDate getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(LocalDate joiningDate) {
+        this.joiningDate = joiningDate;
     }
 }

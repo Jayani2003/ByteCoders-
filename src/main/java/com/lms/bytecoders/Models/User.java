@@ -1,119 +1,67 @@
 package com.lms.bytecoders.Models;
+
 import java.time.LocalDate;
 
 public class User {
 
-    protected String userId;
-    protected String firstName;
-    protected String lastName;
-    protected LocalDate dob;
-    protected String telephone;
-    protected String address;
-    protected String email;
-    protected String password;
-    protected int age;
-    protected byte[] userImage; // BLOB
-    protected Role role;
+    private String userId;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String telephone;
 
-    public User(String userId, String lastName, String password, Role role, byte[] userImage, int age, String email, String address, String telephone, LocalDate dob, String firstName) {
+    private LocalDate dob;
+    private String password;
+    private String address;
+    private String userType;
+    private int age;
+
+
+    public User(String userId, String firstName, String lastName, String email,
+                String telephone, String userType, LocalDate dob,
+                String password, String address, int age) {
         this.userId = userId;
-        this.lastName = lastName;
-        this.password = password;
-        this.role = role;
-        this.userImage = userImage;
-        this.age = age;
-        this.email = email;
-        this.address = address;
-        this.telephone = telephone;
-        this.dob = dob;
         this.firstName = firstName;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+        this.telephone = telephone;
+        this.userType = userType;
+        this.dob = dob;
         this.password = password;
-    }
+        this.address = address;
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
         this.age = age;
     }
 
-    public byte[] getUserImage() {
-        return userImage;
-    }
 
-    public void setUserImage(byte[] userImage) {
-        this.userImage = userImage;
-    }
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
 
-    public Role getRole() {
-        return role;
-    }
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getTelephone() { return telephone; }
+    public void setTelephone(String telephone) { this.telephone = telephone; }
+
+
+    public LocalDate getDob() { return dob; }
+    public void setDob(LocalDate dob) { this.dob = dob; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public String getUserType() { return userType; }
+    public void setUserType(String userType) { this.userType = userType; }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
 }
