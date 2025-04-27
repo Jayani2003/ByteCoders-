@@ -1,15 +1,18 @@
 package com.lms.bytecoders.Controllers.TechnicalOfficer;
 
+import com.lms.bytecoders.Controllers.Base.BaseController;
+import com.lms.bytecoders.Services.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.lms.bytecoders.Models.Attendance;
+
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
-public class TOAttendanceController {
+public class TOAttendanceController extends BaseController {
 
     @FXML
     private TextField tec_StuId_txt;
@@ -47,9 +50,10 @@ public class TOAttendanceController {
     private void loadAttendanceData() {
         String query = "SELECT * FROM attendance";
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/teclms", "root", "1234");
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+        try {
+            conn = Database.Conn();
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
 
             attendanceList.clear();
 
@@ -69,6 +73,12 @@ public class TOAttendanceController {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println("Error in closing the Connection..." + e.getMessage());
+            }
         }
     }
 
@@ -139,7 +149,6 @@ public class TOAttendanceController {
 
 
         attendanceList.add(newAttendance);
-
 
 
         clearFields();
