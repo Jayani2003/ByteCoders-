@@ -22,7 +22,10 @@ public class StudentGradesController extends BaseController implements Initializ
     private AnchorPane MainPane;
 
     @FXML
-    private Label gpaLabel;
+    private Label sgpaLabel;
+
+    @FXML
+    private Label cgpaLabel;
 
     @FXML
     private FlowPane flowPaneGrades;
@@ -71,9 +74,14 @@ public class StudentGradesController extends BaseController implements Initializ
                 flowPaneGrades.getChildren().add(label);
             }
 
+            sgpaLabel.setText("SGPA : " + Double.toString(calcSGPA(BaseController.getUserId(), conn)));
+            cgpaLabel.setText("CGPA : " + Double.toString(calcSGPA(BaseController.getUserId(), conn)));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+
             try {
                 if (conn != null) conn.close();
             } catch (SQLException e) {

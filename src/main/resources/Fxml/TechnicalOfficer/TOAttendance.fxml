@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOAttendanceController">
    <children>
@@ -34,19 +35,19 @@
                                  </image>
                               </ImageView>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edeef036" height="326.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
-                              <Label layoutX="362.0" layoutY="14.0" text="TECHNICAL OFFICER ATTENDANCE" textFill="#ac1754">
+                              <Label layoutX="362.0" layoutY="8.0" text="TECHNICAL OFFICER ATTENDANCE" textFill="#ac1754">
                                  <font>
                                     <Font name="Cambria Bold" size="28.0" />
                                  </font>
                                  <padding>
                                     <Insets top="8.0" />
                                  </padding></Label>
-                              <Label fx:id="stu_id" layoutX="95.0" layoutY="66.0" prefHeight="19.0" prefWidth="97.0" text="student id" textFill="#2c2729">
+                              <Label fx:id="stu_id" layoutX="95.0" layoutY="59.0" prefHeight="19.0" prefWidth="97.0" text="student id" textFill="#2c2729">
                                  <font>
                                     <Font name="Algerian" size="16.0" />
                                  </font></Label>
-                              <TextField fx:id="tec_StuId_txt" layoutX="93.0" layoutY="103.0" prefHeight="25.0" prefWidth="260.0" />
-                              <Button fx:id="searchButton" layoutX="405.0" layoutY="103.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="SEARCH" textFill="#faf9f9">
+                              <TextField fx:id="tec_StuId_txt" layoutX="95.0" layoutY="88.0" prefHeight="25.0" prefWidth="260.0" />
+                              <Button fx:id="searchButton" layoutX="377.0" layoutY="87.0" mnemonicParsing="false" onAction="#searchAttendance" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="SEARCH" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font></Button>
@@ -85,17 +86,17 @@
                                <items>
 
                                    <FXCollections fx:factory="observableArrayList">
-                                       <String fx:value="YES" />
+                                       <String fx:value="" />
                                        <String fx:value="NO" />
                                    </FXCollections>
                                </items>
                                </ComboBox>
-                              <Button fx:id="buttonAdd" layoutX="642.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
+                              <Button fx:id="buttonAdd" layoutX="587.0" layoutY="224.0" mnemonicParsing="false" onAction="#addAttendance" prefHeight="28.0" prefWidth="121.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="buttonClear" layoutX="983.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
+                              <Button fx:id="buttonClear" layoutX="881.0" layoutY="226.0" mnemonicParsing="false" onAction="#clearAttendance" prefHeight="28.0" prefWidth="111.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
@@ -103,11 +104,21 @@
                               <DatePicker fx:id="tec_date" layoutX="772.0" layoutY="162.0" prefHeight="29.0" prefWidth="218.0" />
                               <TextField fx:id="tec_stuId2_txt" layoutX="310.0" layoutY="160.0" prefHeight="32.0" prefWidth="218.0" />
                               <TextField fx:id="tec_course_code" layoutX="772.0" layoutY="100.0" prefHeight="32.0" prefWidth="218.0" />
-                              <Button fx:id="buttonUpdate" layoutX="813.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
+                              <Button fx:id="buttonUpdate" layoutX="740.0" layoutY="226.0" mnemonicParsing="false" onAction="#updateAttendance" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
+                              <Button fx:id="buttonDelete" layoutX="1028.0" layoutY="226.0" mnemonicParsing="false" onAction="#deleteAttendance" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="DELETE" textFill="#faf9f9">
+                                 <font>
+                                    <Font name="Britannic Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="95.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Add Student ID for SEARCH (TG....)">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
 
                            </children>
                         </AnchorPane>
@@ -115,11 +126,11 @@
                            <children>
                               <TableView fx:id="table_lec_type" prefHeight="317.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn fx:id="table_stu_id" prefWidth="122.5" text="ID" />
-                                  <TableColumn fx:id="table_course_code" prefWidth="216.5" text="COURSE CODE" />
-                                    <TableColumn fx:id="table_atten_status" prefWidth="291.5" text="ATTENDANCE STATUS" />
-                                    <TableColumn fx:id="table_lec_type" prefWidth="269.5" text="TYPE" />
-                                    <TableColumn fx:id="table_date" prefWidth="273.5" text="DATE" />
+                                  <TableColumn fx:id="table_stu_id" prefWidth="188.0" text="STUDENT ID" />
+                                  <TableColumn fx:id="table_course_code" prefWidth="229.0" text="COURSE CODE" />
+                                    <TableColumn fx:id="table_atten_status" prefWidth="253.0" text="ATTENDANCE STATUS" />
+                                    <TableColumn fx:id="atten_type" prefWidth="248.0" text="ATTENDANCE TYPE" />
+                                    <TableColumn fx:id="table_date" prefWidth="255.5" text="DATE" />
                                 </columns>
                                  <padding>
                                     <Insets right="8.0" />

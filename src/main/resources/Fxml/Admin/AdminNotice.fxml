@@ -14,6 +14,11 @@
 
 <AnchorPane prefHeight="645.0" prefWidth="1176.0" style="-fx-background-color: #f2c9d8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Admin.AdminNoticeController">
    <children>
+      <ImageView fitHeight="483.0" fitWidth="531.0" layoutX="635.0" layoutY="78.0" opacity="0.89" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="635.0">
+         <image>
+            <Image url="@../../Images/Book.png" />
+         </image>
+      </ImageView>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Label text="NOTICES" textFill="#ac1754f0" BorderPane.alignment="CENTER">
@@ -26,12 +31,12 @@
             </Label>
          </top>
          <center>
-            <TableView prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="to_Table" opacity="0.94" prefHeight="466.0" prefWidth="1096.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="no" prefWidth="146.5" text="NO" />
-                <TableColumn fx:id="title" prefWidth="259.0" text="TITLE" />
-                  <TableColumn fx:id="description" prefWidth="473.5" text="DESCRIPTION" />
-                  <TableColumn fx:id="date" prefWidth="216.0" text="DATE" />
+                <TableColumn fx:id="to_No" prefWidth="146.5" text="NO" />
+                <TableColumn fx:id="to_Title" prefWidth="259.0" text="TITLE" />
+                  <TableColumn fx:id="to_Description" prefWidth="473.5" text="DESCRIPTION" />
+                  <TableColumn fx:id="to_Date" prefWidth="216.0" text="DATE" />
               </columns>
                <BorderPane.margin>
                   <Insets left="40.0" right="40.0" />
@@ -41,17 +46,17 @@
          <bottom>
             <Pane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="buttonAdd" layoutX="135.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="249.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="ADD" textFill="WHITE">
+                  <Button fx:id="buttonAdd" layoutX="135.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAddClicked" prefHeight="34.0" prefWidth="249.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="ADD" textFill="WHITE">
                      <font>
                         <Font name="Britannic Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonUpdate" layoutX="454.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: AC1754; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;" text="UPDATE" textFill="WHITE">
+                  <Button fx:id="buttonUpdate" layoutX="454.0" layoutY="14.0" mnemonicParsing="false" onAction="#onUpdateClicked" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: AC1754; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;" text="UPDATE" textFill="WHITE">
                      <font>
                         <Font name="Britannic Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonDelete" layoutX="800.0" layoutY="21.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="251.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="DELETE" textFill="WHITE">
+                  <Button fx:id="buttonDelete" layoutX="799.0" layoutY="14.0" mnemonicParsing="false" onAction="#onDeleteClicked" prefHeight="34.0" prefWidth="251.0" style="-fx-background-color: AC1754; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="DELETE" textFill="WHITE">
                      <font>
                         <Font name="Britannic Bold" size="17.0" />
                      </font>
@@ -59,10 +64,5 @@
                </children></Pane>
          </bottom>
       </BorderPane>
-      <ImageView fitHeight="483.0" fitWidth="531.0" layoutX="635.0" layoutY="78.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="635.0">
-         <image>
-            <Image url="@../../Images/Book.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

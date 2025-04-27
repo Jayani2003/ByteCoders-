@@ -14,7 +14,7 @@
                 <Image url="@../../Images/tobackground.jpg" />
             </image>
         </ImageView>
-        <Pane fx:id="coursesPane" layoutX="458.0" layoutY="134.0" onMouseClicked="#navigateToStuCourses" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="coursesPane" layoutX="460.0" layoutY="80.0" onMouseClicked="#navigateToStuCourses" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="47.0" layoutY="22.0" text="Courses">
                     <font>
@@ -28,7 +28,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="attendancePane" layoutX="707.0" layoutY="134.0" onMouseClicked="#navigateToStuAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="attendancePane" layoutX="709.0" layoutY="80.0" onMouseClicked="#navigateToStuAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="29.0" layoutY="22.0" text="Attendance">
                     <font>
@@ -42,7 +42,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="medicalPane" layoutX="946.0" layoutY="134.0" onMouseClicked="#navigateToStuMedical" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="medicalPane" layoutX="948.0" layoutY="80.0" onMouseClicked="#navigateToStuMedical" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="47.0" layoutY="24.0" text="Medical">
                     <font>
@@ -56,7 +56,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="gradesPane" layoutX="458.0" layoutY="418.0" onMouseClicked="#navigateToStuGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="gradesPane" layoutX="460.0" layoutY="364.0" onMouseClicked="#navigateToStuGrades" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="52.0" layoutY="22.0" text="Grades">
                     <font>
@@ -70,50 +70,50 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="timeTablePane" layoutX="707.0" layoutY="418.0" onMouseClicked="#navigateToStuTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="timeTablePane" layoutX="709.0" layoutY="365.0" onMouseClicked="#navigateToStuTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="32.0" layoutY="22.0" text="Time Table">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbTimetable.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="noticePane" layoutX="946.0" layoutY="418.0" onMouseClicked="#navigateToStuNotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="noticePane" layoutX="948.0" layoutY="364.0" onMouseClicked="#navigateToStuNotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="54.0" layoutY="23.0" text="Notice">
                     <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="31.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Images/dbNotice.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="47.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="49.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/dbImage1.jpg" />
             </image>
         </ImageView>
-        <Label layoutX="146.0" layoutY="198.0" text="Hello" textFill="WHITE">
+        <Label layoutX="139.0" layoutY="158.0" text="Hello" textFill="WHITE">
             <font>
                 <Font name="Forte" size="54.0" />
             </font>
         </Label>
-        <Label fx:id="userGreetLabel" layoutX="170.0" layoutY="259.0" text="Student" textFill="WHITE">
+        <Label fx:id="userGreetLabel" layoutX="163.0" layoutY="219.0" text="Student" textFill="WHITE">
             <font>
                 <Font name="Forte" size="29.0" />
             </font>
         </Label>
-        <Pane layoutX="47.0" layoutY="430.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
+        <Pane layoutX="49.0" layoutY="376.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
             <children>
                 <Label layoutX="31.0" layoutY="28.0" text="Learning Management System">
                     <font>

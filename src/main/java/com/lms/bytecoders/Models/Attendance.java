@@ -1,57 +1,34 @@
 package com.lms.bytecoders.Models;
 
+import java.sql.Date;
+
 public class Attendance {
-    private String eligibility;
-    private String attendancePercentage;
-    private String courseCode;
-    private String lecType;
     private String studentId;
+    private String courseId;
+    private String status;
+    private String type;
+    private Date date;
 
-    public Attendance(String eligibility, String attendancePercentage, String courseCode, String lecType, String studentId) {
-        this.eligibility = eligibility;
-        this.attendancePercentage = attendancePercentage;
-        this.courseCode = courseCode;
-        this.lecType = lecType;
+    public Attendance(String studentId, String courseId, String status, String type, String dateStr) {
         this.studentId = studentId;
+        this.courseId = courseId;
+        this.status = status;
+        this.type = type;
+        this.date = Date.valueOf(dateStr);
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
+    public Attendance(String studentId, String courseId, String status, String type, Date date) {
         this.studentId = studentId;
+        this.courseId = courseId;
+        this.status = status;
+        this.type = type;
+        this.date = date;
     }
 
-    public String getEligibility() {
-        return eligibility;
-    }
 
-    public void setEligibility(String eligibility) {
-        this.eligibility = eligibility;
-    }
-
-    public String getAttendancePercentage() {
-        return attendancePercentage;
-    }
-
-    public void setAttendancePercentage(String attendancePercentage) {
-        this.attendancePercentage = attendancePercentage;
-    }
-
-    public String getCourseCode() {
-        return courseCode;
-    }
-
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-
-    public String getLecType() {
-        return lecType;
-    }
-
-    public void setLecType(String lecType) {
-        this.lecType = lecType;
-    }
+    public String getStudentId() { return studentId; }
+    public String getCourseId() { return courseId; }
+    public String getStatus() { return status; }
+    public String getType() { return type; }
+    public Date getDate() { return date; }
 }
