@@ -17,8 +17,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOAttendanceController">
+<AnchorPane prefHeight="645.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.TechnicalOfficer.TOMedicalController">
     <children>
         <ScrollPane prefHeight="645.0" prefWidth="1176.0">
             <content>
@@ -45,24 +46,20 @@
                                             <font>
                                                 <Font name="Algerian" size="16.0" />
                                             </font></Label>
-                                        <TextField fx:id="tec_stuId_txt" layoutX="93.0" layoutY="103.0" prefHeight="25.0" prefWidth="260.0" />
-                                        <Button fx:id="searchButton" layoutX="405.0" layoutY="103.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="SEARCH" textFill="#faf9f9">
+                                        <TextField fx:id="tec_stuId" layoutX="94.0" layoutY="91.0" prefHeight="25.0" prefWidth="260.0" />
+                                        <Button fx:id="searchButton" layoutX="407.0" layoutY="91.0" mnemonicParsing="false" onAction="#searchStudentId" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="SEARCH" textFill="#faf9f9">
                                             <font>
                                                 <Font name="Britannic Bold" size="16.0" />
                                             </font></Button>
-                                        <Label layoutX="95.0" layoutY="167.0" text="MEDICAL ID" textFill="#2c2729">
+                                        <Label layoutX="612.0" layoutY="122.0" text="COURSE CODE" textFill="#2c2729">
                                             <font>
                                                 <Font name="Algerian" size="16.0" />
                                             </font></Label>
-                                        <Label layoutX="616.0" layoutY="106.0" text="COURSE CODE" textFill="#2c2729">
+                                        <Label layoutX="612.0" layoutY="184.0" text="DATE" textFill="#2c2729">
                                             <font>
                                                 <Font name="Algerian" size="16.0" />
                                             </font></Label>
-                                        <Label layoutX="646.0" layoutY="167.0" text="DATE" textFill="#2c2729">
-                                            <font>
-                                                <Font name="Algerian" size="16.0" />
-                                            </font></Label>
-                                        <ComboBox fx:id="comboBox1" layoutX="310.0" layoutY="213.0" prefHeight="32.0" prefWidth="218.0" promptText="choose " style="-fx-background-color: white;">
+                                        <ComboBox fx:id="comboBox1" layoutX="310.0" layoutY="177.0" prefHeight="32.0" prefWidth="218.0" promptText="choose " style="-fx-background-color: white;">
                                             <items>
 
                                                 <FXCollections fx:factory="observableArrayList">
@@ -73,58 +70,63 @@
 
                                             </items>
                                         </ComboBox>
-                                        <Label layoutX="95.0" layoutY="216.0" text="USER ID" textFill="#2c2729">
+                                        <Label layoutX="95.0" layoutY="184.0" text="LECTURE TYPE" textFill="#2c2729">
                                             <font>
                                                 <Font name="Algerian" size="16.0" />
                                             </font></Label>
-                                        <Label layoutX="95.0" layoutY="270.0" text="LECTURE TYPE" textFill="#2c2729">
+                                        <Label layoutX="95.0" layoutY="244.0" text="MEDICAL STATUS" textFill="#2c2729">
                                             <font>
                                                 <Font name="Algerian" size="16.0" />
                                             </font></Label>
-                                        <ComboBox fx:id="comboBox2" layoutX="310.0" layoutY="267.0" prefHeight="32.0" prefWidth="218.0" promptText="choose" style="-fx-background-color: white;">
+                                        <ComboBox fx:id="comboBox2" layoutX="310.0" layoutY="237.0" prefHeight="32.0" prefWidth="218.0" promptText="choose" style="-fx-background-color: white;">
                                             <items>
 
                                                 <FXCollections fx:factory="observableArrayList">
-                                                    <String fx:value="YES" />
-                                                    <String fx:value="NO" />
+                                                    <String fx:value="APPROVED" />
+                                                    <String fx:value="UNAPPROVED" />
                                                 </FXCollections>
                                             </items>
                                         </ComboBox>
-                                        <Button fx:id="buttonAdd" layoutX="583.0" layoutY="253.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="115.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
+                                        <Button fx:id="buttonAdd" layoutX="583.0" layoutY="253.0" mnemonicParsing="false" onAction="#addMedicalRecord" prefHeight="28.0" prefWidth="115.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="ADD" textFill="#faf9f9">
                                             <font>
                                                 <Font name="Britannic Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="buttonClear" layoutX="894.0" layoutY="253.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
+                                        <Button fx:id="buttonClear" layoutX="894.0" layoutY="253.0" mnemonicParsing="false" onAction="#clearMedicalRecord" prefHeight="28.0" prefWidth="104.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="CLEAR" textFill="#faf9f9">
                                             <font>
                                                 <Font name="Britannic Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <DatePicker fx:id="tecDate" layoutX="772.0" layoutY="162.0" prefHeight="29.0" prefWidth="218.0" />
-                                        <TextField fx:id="tec_medId_txt" layoutX="310.0" layoutY="160.0" prefHeight="32.0" prefWidth="218.0" />
-                                        <TextField fx:id="tec_courseCode_txt" layoutX="772.0" layoutY="100.0" prefHeight="32.0" prefWidth="218.0" />
-                              <Button fx:id="buttonUpdate" layoutX="742.0" layoutY="253.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
+                                        <DatePicker fx:id="tecDate" layoutX="772.0" layoutY="179.0" prefHeight="29.0" prefWidth="218.0" />
+                                        <TextField fx:id="tec_courseCode" layoutX="772.0" layoutY="116.0" prefHeight="32.0" prefWidth="218.0" />
+                              <Button fx:id="buttonUpdate" layoutX="742.0" layoutY="253.0" mnemonicParsing="false" onAction="#updateMedicalRecord" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="UPDATE" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="buttonDelete" layoutX="1034.0" layoutY="253.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="DELETE" textFill="#faf9f9">
+                              <Button fx:id="buttonDelete" layoutX="1034.0" layoutY="253.0" mnemonicParsing="false" onAction="#deleteMedicalRecord" prefHeight="28.0" prefWidth="104.0" style="-fx-background-color: AC1754; -fx-background-radius: 8;" text="DELETE" textFill="#faf9f9">
                                  <font>
                                     <Font name="Britannic Bold" size="16.0" />
                                  </font>
                               </Button>
+                              <Text layoutX="96.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Add Student_ID for SEARCH medical(TG....)">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
 
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="14.0" prefWidth="162.0">
                                     <children>
-                                        <TableView prefHeight="317.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <TableView fx:id="medicalTable" prefHeight="317.0" prefWidth="1174.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                                 <TableColumn fx:id="med_id" prefWidth="122.5" text="MEDICAL ID" />
-                                                <TableColumn fx:id="stu_id" prefWidth="216.5" text="STUDENT ID" />
-                                                <TableColumn fx:id="c_code" prefWidth="291.5" text="COURSE CODE" />
-                                                <TableColumn fx:id="l_type" prefWidth="269.5" text="TYPE" />
-                                                <TableColumn fx:id="t_date" prefWidth="273.5" text="DATE" />
+                                                <TableColumn fx:id="stu_id" prefWidth="161.5" text="STUDENT ID" />
+                                                <TableColumn fx:id="c_code" prefWidth="237.0" text="COURSE CODE" />
+                                                <TableColumn fx:id="l_type" prefWidth="153.5" text="TYPE" />
+                                                <TableColumn fx:id="t_date" minWidth="0.0" prefWidth="263.0" text="DATE" />
+                                    <TableColumn fx:id="t_approval" maxWidth="290.0" prefWidth="228.5" text="APPROVAL STATUS" />
                                             </columns>
                                             <padding>
                                                 <Insets right="8.0" />

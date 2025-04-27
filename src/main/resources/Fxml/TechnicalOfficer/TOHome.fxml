@@ -14,7 +14,7 @@
                 <Image url="@../../Images/tobackground.jpg" />
             </image>
         </ImageView>
-        <Pane fx:id="TOTimeTablePane" layoutX="858.0" layoutY="419.0" onMouseClicked="#navigateToTOTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="TOTimeTablePane" layoutX="861.0" layoutY="357.0" onMouseClicked="#navigateToTOTimeTable" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="32.0" layoutY="22.0" text="Time Table">
                     <font>
@@ -28,7 +28,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="TONoticePane" layoutX="557.0" layoutY="419.0" onMouseClicked="#navigateToTONotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+        <Pane fx:id="TONoticePane" layoutX="560.0" layoutY="357.0" onMouseClicked="#navigateToTONotice" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
             <children>
                 <Label layoutX="54.0" layoutY="23.0" text="Notice">
                     <font>
@@ -42,7 +42,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="47.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="231.0" fitWidth="340.0" layoutX="50.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/dbImage1.jpg" />
             </image>
@@ -57,7 +57,7 @@
                 <Font name="Forte" size="29.0" />
             </font>
         </Label>
-        <Pane layoutX="47.0" layoutY="430.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
+        <Pane layoutX="50.0" layoutY="368.0" prefHeight="226.0" prefWidth="340.0" style="-fx-border-color: #F37199; -fx-background-color: #ffffff; -fx-border-radius: 5; -fx-background-radius: 6; -fx-border-width: 3;">
             <children>
                 <Label layoutX="31.0" layoutY="28.0" text="Learning Management System">
                     <font>
@@ -86,7 +86,7 @@
                 </ImageView>
             </children>
         </Pane>
-      <Pane fx:id="TOAttendancePane" layoutX="557.0" layoutY="144.0" onMouseClicked="#navigateToTOAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+      <Pane fx:id="TOAttendancePane" layoutX="560.0" layoutY="82.0" onMouseClicked="#navigateToTOAttendance" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
          <children>
             <Label layoutX="29.0" layoutY="22.0" text="Attendance">
                <font>
@@ -100,7 +100,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="TOMedicalPane" layoutX="858.0" layoutY="137.0" onMouseClicked="#navigateToTOMedical" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
+      <Pane fx:id="TOMedicalPane" layoutX="861.0" layoutY="75.0" onMouseClicked="#navigateToTOMedical" prefHeight="249.0" prefWidth="173.0" style="-fx-background-color: #F37199; -fx-background-radius: 5;">
          <children>
             <Label layoutX="47.0" layoutY="24.0" text="Medical">
                <font>
