@@ -26,12 +26,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="655.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
             <Pane layoutX="173.0" layoutY="49.0" prefHeight="599.0" prefWidth="831.0">
                <children>
-                  <Button fx:id="filebutton" onAction="#handleFileButton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
+                  <Button fx:id="filebutton" layoutX="176.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleFileButton" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #d1bcc5;" text="File" textFill="#84144c">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addButton" onAction="#handleAddButton" layoutX="176.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="ADD" textFill="WHITE">
+                  <Button fx:id="addButton" layoutX="176.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="ADD" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -46,7 +46,7 @@
                         </FXCollections>
                      </items>
                   </ComboBox>
-                  <TextField fx:id="fileTextField" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Upload Image" />
+                  <TextField fx:id="fileTextField" layoutX="383.0" layoutY="368.0" prefHeight="39.0" prefWidth="197.0" promptText="Link" />
                   <Label layoutX="176.0" layoutY="181.0" text="Semester" textFill="#84144c">
                      <font>
                         <Font name="System Bold" size="22.0" />
@@ -84,16 +84,26 @@
                         <Font name="Eras Bold ITC" size="34.0" />
                      </font>
                   </Text>
-                  <Button fx:id="updateButton" onAction="#handleUpdateButton" layoutX="355.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="UPDATE" textFill="WHITE">
+                  <Button fx:id="updateButton" layoutX="355.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleUpdateButton" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="UPDATE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="deleteButton" onAction="#handleDeleteButton" layoutX="533.0" layoutY="481.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="DELETE" textFill="WHITE">
+                  <Button fx:id="deleteButton" layoutX="533.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #b91e54;" text="DELETE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
+                  <Text layoutX="157.0" layoutY="567.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*For updating, Enter the existing Level, Semester, Department and Put the new link and UPDATE ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="156.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*For deleting, Enter the existing Level, Semester, Department and Click the DELETE Button , ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </children>
