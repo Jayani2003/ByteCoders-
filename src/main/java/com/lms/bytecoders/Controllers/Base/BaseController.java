@@ -4,6 +4,7 @@ import com.lms.bytecoders.Services.Database;
 import com.lms.bytecoders.Utils.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -18,6 +19,8 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.*;
 
 public abstract class BaseController {
@@ -197,5 +200,171 @@ public abstract class BaseController {
             }
         }
     }
+
+    public double calcSGPA(String Student_Id, Connection conn) {
+        double totalCredits = 0;
+        double totalPoints = 0;
+        try {
+            sql = """
+                            SELECT
+                                c.Course_Id,
+                                c.Course_Name,
+                                m.Grade,
+                                c.Credits
+                            FROM mark m
+                                JOIN
+                            course c ON m.Course_Id = c.Course_Id
+                            WHERE m.Student_Id = ?;
+                    """;
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(1, Student_Id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String grade = rs.getString("Grade");
+                double point = getPoint(grade);
+                double credit = Double.parseDouble(rs.getString("Credits"));
+                totalCredits += credit;
+                totalPoints += (point * credit);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals(totalPoints / totalCredits);
+    }
+
+    public double getPoint(String grade) {
+        if (grade.equals("A+") || grade.equals("A")) {
+            return 4.0;
+        } else if (grade.equals("A-")) {
+            return 3.7;
+        } else if (grade.equals("B+")) {
+            return 3.3;
+        } else if (grade.equals("B")) {
+            return 3.0;
+        } else if (grade.equals("B-")) {
+            return 2.7;
+        } else if (grade.equals("C+")) {
+            return 2.3;
+        } else if (grade.equals("C")) {
+            return 2.0;
+        } else if (grade.equals("C-")) {
+            return 1.7;
+        } else if (grade.equals("D+")) {
+            return 1.3;
+        } else if (grade.equals("D")) {
+            return 1.0;
+        } else {
+            return 0.0;
+        }
+    }
+
+    public static double roundToTwoDecimals(double value) {
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+    
+    public double getAttendanceWithoutMedical(String uid, String cid, Connection conn){
+        ResultSet rs_, rs__ = null;
+        PreparedStatement ps_ = null;
+        float theory_count = 0;
+        float practical_count = 0;
+        float prt_hours = 0;
+        float p_hours = 0;
+        float t_hours = 0;
+        float max_hours = 0;
+        String attendanceType;
+        try {
+            sql = "SELECT P_Hours, T_Hours FROM course WHERE Course_Id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cid);
+            rs__ = ps.executeQuery();
+
+            if (rs__.next()) {
+                p_hours = rs__.getInt("P_Hours");
+                t_hours = rs__.getInt("T_Hours");
+                max_hours = (p_hours * 15) + (t_hours * 15);
+
+                try {
+                    sql = "SELECT * FROM attendance WHERE Student_Id = ? AND Course_Id = ? AND Status = ?";
+                    ps_ = conn.prepareStatement(sql);
+                    ps_.setString(1, uid);
+                    ps_.setString(2, cid);
+                    ps_.setString(3, "PRESENT");
+                    rs_ = ps_.executeQuery();
+
+                    while(rs_.next()) {
+                        attendanceType = rs_.getString("Type");
+                        if (attendanceType.equals("PRACTICAL")) {
+                            practical_count += 1;
+                        }else{
+                            theory_count += 1;
+                        }
+                    }
+                    prt_hours = (theory_count * t_hours) + (practical_count * p_hours);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals((prt_hours / max_hours) * 100);
+    }
+public double getAttendanceWithMedical(String uid, String cid, Connection conn){
+        ResultSet rs_, rs__ = null;
+        PreparedStatement ps_ = null;
+        float theory_count = 0;
+        float practical_count = 0;
+        float prt_hours = 0;
+        float p_hours = 0;
+        float t_hours = 0;
+        float max_hours = 0;
+        String attendanceType;
+        try {
+            sql = "SELECT P_Hours, T_Hours FROM course WHERE Course_Id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cid);
+            rs__ = ps.executeQuery();
+
+            if (rs__.next()) {
+                p_hours = rs__.getInt("P_Hours");
+                t_hours = rs__.getInt("T_Hours");
+                max_hours = (p_hours * 15) + (t_hours * 15);
+
+                try {
+                    sql = "SELECT * FROM attendance WHERE Student_Id = ? AND Course_Id = ? AND (Status = ? or Status = ?)";
+                    ps_ = conn.prepareStatement(sql);
+                    ps_.setString(1, uid);
+                    ps_.setString(2, cid);
+                    ps_.setString(3, "PRESENT");
+                    ps_.setString(4, "MC");
+                    rs_ = ps_.executeQuery();
+
+                    while(rs_.next()) {
+                        attendanceType = rs_.getString("Type");
+                        if (attendanceType.equals("PRACTICAL")) {
+                            practical_count += 1;
+                        }else{
+                            theory_count += 1;
+                        }
+                    }
+                    prt_hours = (theory_count * t_hours) + (practical_count * p_hours);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return roundToTwoDecimals((prt_hours / max_hours) * 100);
+    }
+
 
 }

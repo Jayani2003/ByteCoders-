@@ -56,7 +56,7 @@ public class LecStuDetailsController extends BaseController implements Initializ
     }
 
     private ObservableList<Student> getTableData() {
-        ObservableList<Student> timetable_ = FXCollections.observableArrayList();
+        ObservableList<Student> studentData = FXCollections.observableArrayList();
         sql = """
                     SELECT
                         u.User_Id,
@@ -85,7 +85,7 @@ public class LecStuDetailsController extends BaseController implements Initializ
                 stAddresses = rs.getString("Address");
                 stName = rs.getString("First_Name") + " " + rs.getString("Last_Name");
 
-                timetable_.add(new Student(stId, stName, stAddresses, stTelephone, stLevel, stDepartment));
+                studentData.add(new Student(stId, stName, stAddresses, stTelephone, stLevel, stDepartment));
             }
 
         } catch (SQLException e) {
@@ -98,7 +98,7 @@ public class LecStuDetailsController extends BaseController implements Initializ
             }
         }
 
-        return timetable_;
+        return studentData;
     }
 
     private void setTable() {

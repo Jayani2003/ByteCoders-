@@ -12,44 +12,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPane" prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: PINK;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecStuGradesController">
+<AnchorPane fx:id="MainPane" prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: PINK;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecStuGPAController">
     <children>
         <SplitPane dividerPositions="0.3405909797822706" orientation="VERTICAL" prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1161.0">
                     <children>
-                        <Label layoutX="330.0" layoutY="21.0" text="STUDENT GRADES DETAILS" textFill="#ac1754" AnchorPane.leftAnchor="388.0">
+                        <Label layoutX="330.0" layoutY="21.0" text="STUDENT GPA DETAILS" textFill="#ac1754" AnchorPane.leftAnchor="388.0">
                             <font>
                                 <Font name="Cambria Bold" size="33.0" />
                             </font>
                         </Label>
-                        <Label layoutX="63.0" layoutY="91.0" text="COURSE CODE">
-                            <font>
-                                <Font name="Impact" size="15.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="167.0" layoutY="92.0" text="/" />
                         <TextField fx:id="searchBox" layoutX="63.0" layoutY="129.0" prefHeight="25.0" prefWidth="189.0" />
-                        <Label layoutX="196.0" layoutY="91.0" text="STUDENT ID">
+                        <Label layoutX="63.0" layoutY="91.0" text="STUDENT ID">
                             <font>
                                 <Font name="Impact" size="15.0" />
                             </font>
                         </Label>
+                  <Button fx:id="backBtn" layoutX="13.0" layoutY="15.0" mnemonicParsing="false" onAction="#navigateBackLecGPAGrades" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #b91b53;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #f2c9d8;">
                     <children>
-                  <ScrollPane prefHeight="421.0" prefWidth="1164.0">
-                     <content>
-                              <TableView fx:id="studentGradesTable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
-                                  <columns>
-                                      <TableColumn fx:id="stuIdColumn" prefWidth="370.666646361351" text="STUDENT ID" />
-                                      <TableColumn fx:id="courseCodeColumn" prefWidth="386.0000915527344" text="COURSE CODE" />
-                                      <TableColumn fx:id="stuGradeColumn" prefWidth="405.9998779296875" text="GRADE" />
-                                  </columns>
-                              </TableView>
-                     </content>
-                  </ScrollPane>
+                        <ScrollPane prefHeight="421.0" prefWidth="1164.0">
+                            <content>
+                                <TableView fx:id="studentGPATable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
+                                    <columns>
+                                        <TableColumn fx:id="stuIdColumn" prefWidth="347.33333337306976" text="STUDENT ID" />
+                                        <TableColumn fx:id="stuSGPAColumn" minWidth="0.0" prefWidth="415.3334045410156" text="SGPA" />
+                                        <TableColumn fx:id="stuCGPAColumn" prefWidth="400.66650390625" text="CGPA" />
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
                     </children>
                 </AnchorPane>
             </items>
@@ -59,10 +58,5 @@
                 <Image url="@../../Images/Grades.png" />
             </image>
         </ImageView>
-      <Button fx:id="backBtn" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#navigateBackLecGPAGrades" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #b91b53;" text="Back" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

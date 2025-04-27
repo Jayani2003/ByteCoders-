@@ -1,4 +1,5 @@
-DROP DATABASE teclms;
+DROP
+DATABASE teclms;
 
 CREATE
 DATABASE teclms;
@@ -109,11 +110,11 @@ CREATE TABLE mark
 
 CREATE TABLE medical
 (
-    MedicalRecord_Id VARCHAR(20)  NOT NULL,
-    Student_Id       VARCHAR(20)  NOT NULL,
-    Course_Id        VARCHAR(20)  NOT NULL,
+    MedicalRecord_Id VARCHAR(20) NOT NULL,
+    Student_Id       VARCHAR(20) NOT NULL,
+    Course_Id        VARCHAR(20) NOT NULL,
     Approval_Status  ENUM('APPROVED','UNAPPROVED', 'PENDING') DEFAULT 'PENDING',
-    Submission_Date  DATE         NOT NULL,
+    Submission_Date  DATE        NOT NULL,
     Type             ENUM('PRACTICAL','THEORY') DEFAULT 'THEORY',
     PRIMARY KEY (MedicalRecord_Id),
     FOREIGN KEY (Student_Id) REFERENCES student (Student_Id) ON DELETE CASCADE,
@@ -138,12 +139,13 @@ CREATE TABLE stu_course
     FOREIGN KEY (Student_Id) REFERENCES student (Student_Id) ON DELETE CASCADE
 );
 
-CREATE TABLE lecture_course (
-                                Lecturer_Id VARCHAR(20) NOT NULL,
-                                Course_Id VARCHAR(20) NOT NULL,
-                                PRIMARY KEY (Lecturer_Id, Course_Id),
-                                FOREIGN KEY (Course_Id) REFERENCES course (Course_Id) ON DELETE CASCADE,
-                                FOREIGN KEY (Lecturer_Id) REFERENCES lecturer (Lecturer_Id) ON DELETE CASCADE
+CREATE TABLE lecture_course
+(
+    Lecturer_Id VARCHAR(20) NOT NULL,
+    Course_Id   VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Lecturer_Id, Course_Id),
+    FOREIGN KEY (Course_Id) REFERENCES course (Course_Id) ON DELETE CASCADE,
+    FOREIGN KEY (Lecturer_Id) REFERENCES lecturer (Lecturer_Id) ON DELETE CASCADE
 );
 
 CREATE TABLE tech_officer_medical
@@ -157,12 +159,12 @@ CREATE TABLE tech_officer_medical
 
 CREATE TABLE time_table
 (
-    TimeTable_Id VARCHAR(20) NOT NULL,
+    TimeTable_Id INT         NOT NULL AUTO_INCREMENT,
     Level        VARCHAR(10) NOT NULL,
     Semester     VARCHAR(20) NOT NULL,
     Timetable    VARCHAR(50) NOT NULL,
-    Date_Posted  DATE        NOT NULL DEFAULT NOW(),
-    Department   ENUM('ICT', 'BST', 'ET') DEFAULT 'ICT',
+    Date_Posted  DATE        NOT NULL,
+    Department   ENUM('ICT','BST','ET') DEFAULT 'ICT',
     PRIMARY KEY (TimeTable_Id)
 );
 
@@ -191,7 +193,8 @@ VALUES ('AD0001', 'Nimal', 'Perera', '1980-05-15', '0771234567', '123 Galle Road
        ('LE0003', 'Priyanka', 'Silva', '1985-11-25', '0754567890', '12 Negombo Road, Gampaha',
         'priyanka.silva@teclms.lk', '$2a$12$/fdo01d1vFqY32kKqyWUe.ZShGUx9rF/bNUlKuUnI1M3QL8pelwlW', 40, 'LECTURER'),
        ('LE0004', 'Samantha', 'Priyadarshana', '1983-10-25', '0752598134', '133 Kandy Road, Kadavatha',
-        'samantha.priyadarshana@teclms.lk', '$2a$12$/fdo01d1vFqY32kKqyWUe.ZShGUx9rF/bNUlKuUnI1M3QL8pelwlW', 55, 'LECTURER'),
+        'samantha.priyadarshana@teclms.lk', '$2a$12$/fdo01d1vFqY32kKqyWUe.ZShGUx9rF/bNUlKuUnI1M3QL8pelwlW', 55,
+        'LECTURER'),
        ('LE0005', 'Dinesha', 'Kulathunga', '1981-09-25', '0789531247', '14 Ja ala Road, Gampaha',
         'Dinesha.priyadarshana@teclms.lk', '$2a$12$/fdo01d1vFqY32kKqyWUe.ZShGUx9rF/bNUlKuUnI1M3QL8pelwlW', 44,
         'LECTURER'),
@@ -296,12 +299,11 @@ VALUES ('ICT2113', 'Data Structures and Algorithms', 'CREDIT', 3, 'PRACTICAL_THE
        ('ICT2142', 'Object Oriented Analysis and Design', 'CREDIT', 2, 'PRACTICAL', 0, 2);
 
 INSERT INTO lecture_course (Lecturer_Id, Course_Id)
-VALUES
-    ('LE0001', 'ICT2113'),
-    ('LE0002', 'ICT2133'),
-    ('LE0003', 'ICT2122'),
-    ('LE0004', 'ICT2152'),
-    ('LE0005', 'ICT2142');
+VALUES ('LE0001', 'ICT2113'),
+       ('LE0002', 'ICT2133'),
+       ('LE0003', 'ICT2122'),
+       ('LE0004', 'ICT2152'),
+       ('LE0005', 'ICT2142');
 
 INSERT INTO stu_course (Student_Id, Course_Id)
 VALUES ('TG1344', 'ICT2113'),
@@ -406,7 +408,8 @@ VALUES ('TG1344', 'ICT2113'),
        ('TG1363', 'ICT2152');
 
 -- For ICT2113
-INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Mid_Term, Final_Theory, Final_Practical, Grade, Course_Id,
+INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Mid_Term, Final_Theory, Final_Practical, Grade,
+                  Course_Id,
                   Student_Id)
 VALUES ('MR0001', "LE0001", 8, 7, 9, 18, 30, 28, 'A', 'ICT2113', 'TG1344'),
        ('MR0006', "LE0001", 5, 7, 6, 14, 26, 24, 'B+', 'ICT2113', 'TG1345'),
@@ -431,7 +434,8 @@ VALUES ('MR0001', "LE0001", 8, 7, 9, 18, 30, 28, 'A', 'ICT2113', 'TG1344'),
 
 
 -- For ICT2122
-INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Quiz_04, Assignment_01, Mid_Term, Final_Theory, Grade,
+INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Quiz_04, Assignment_01, Mid_Term, Final_Theory,
+                  Grade,
                   Course_Id, Student_Id)
 VALUES ('MR0002', "LE0002", 7, 8, 8, 9, 7, 14, 39, 'B', 'ICT2122', 'TG1344'),
        ('MR0007', "LE0002", 6, 6, 7, 6, 5, 19, 45, 'A-', 'ICT2122', 'TG1345'),
@@ -455,7 +459,8 @@ VALUES ('MR0002', "LE0002", 7, 8, 8, 9, 7, 14, 39, 'B', 'ICT2122', 'TG1344'),
        ('MR0097', "LE0002", 6, 7, 6, 7, 5, 13, 47, 'B+', 'ICT2122', 'TG1363');
 
 -- For ICT2133
-INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Assignment_01, Assignment_02, Final_Theory, Final_Practical,
+INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Assignment_01, Assignment_02, Final_Theory,
+                  Final_Practical,
                   Grade, Course_Id, Student_Id)
 VALUES ('MR0003', "LE0003", 6, 6, 7, 8, 6, 30, 28, 'B', 'ICT2133', 'TG1344'),
        ('MR0008', "LE0003", 8, 8, 7, 9, 8, 23, 29, 'A-', 'ICT2133', 'TG1345'),
@@ -503,7 +508,8 @@ VALUES ('MR0004', "LE0004", 19, 16, 39, 'B+', 'ICT2142', 'TG1344'),
        ('MR0099', "LE0004", 18, 17, 47, 'A', 'ICT2142', 'TG1363');
 
 -- For ICT2152
-INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Assignment_01, Assignment_02, Final_Theory, Grade,
+INSERT INTO mark (MarkRecord_Id, Lecture_Id, Quiz_01, Quiz_02, Quiz_03, Assignment_01, Assignment_02, Final_Theory,
+                  Grade,
                   Course_Id, Student_Id)
 VALUES ('MR0005', "LE0005", 7, 6, 6, 8, 5, 57, 'A+', 'ICT2152', 'TG1344'),
        ('MR0010', "LE0005", 5, 5, 6, 5, 2, 44, 'B+', 'ICT2152', 'TG1345'),
