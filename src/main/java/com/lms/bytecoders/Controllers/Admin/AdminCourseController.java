@@ -8,11 +8,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -31,11 +32,13 @@ public class AdminCourseController extends BaseController implements Initializab
     private TableView<Admin> admincourses;
 
     @FXML
-    private TableColumn<Admin, String> level, semester, department, c_code, c_name, c_type, c_lec, c_week, c_status_combo, credits, p_hours, t_hours;
+    private TableColumn<Admin, String> level, semester, department, c_code, c_name, c_type, c_lec, c_week, c_status_combo;
+
+    @FXML
+    private TableColumn<Admin, Integer> credits, p_hours, t_hours;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         admincourses.setOnMouseClicked(e -> {
             Admin selectedAdmin = admincourses.getSelectionModel().getSelectedItem();
             if (selectedAdmin != null) {
@@ -43,10 +46,10 @@ public class AdminCourseController extends BaseController implements Initializab
             }
         });
 
-        ObservableList<String> c1 = FXCollections.observableArrayList(" 1", " 2", " 3", " 4");
+        ObservableList<String> c1 = FXCollections.observableArrayList("LEVEL1", "LEVEL2", "LEVEL3", "LEVEL4");
         a_level.setItems(c1);
 
-        ObservableList<String> c2 = FXCollections.observableArrayList(" 1", " 2");
+        ObservableList<String> c2 = FXCollections.observableArrayList("SEMESTER1", "SEMESTER2");
         a_semester.setItems(c2);
 
         ObservableList<String> c3 = FXCollections.observableArrayList("ICT", "ET", "BST");
@@ -55,12 +58,11 @@ public class AdminCourseController extends BaseController implements Initializab
         ObservableList<String> c4 = FXCollections.observableArrayList("LE0001", "LE0002", "LE0003", "LE0004", "LE0005");
         a_lec.setItems(c4);
 
-        ObservableList<String> c5 = FXCollections.observableArrayList("CREDIT", "NON CREDIT");
+        ObservableList<String> c5 = FXCollections.observableArrayList("CREDIT", "NON-CREDIT");
         a_status.setItems(c5);
 
-        ObservableList<String> c6 = FXCollections.observableArrayList("THEORY", "PRACTICAL","THEORY_PRACTICAL");
+        ObservableList<String> c6 = FXCollections.observableArrayList("THEORY", "PRACTICAL", "THEORY_PRACTICAL");
         a_type.setItems(c6);
-
 
         setupTable();
         loadCourses();
@@ -82,8 +84,8 @@ public class AdminCourseController extends BaseController implements Initializab
         week.setText(admin.getWeek());
         a_status.setValue(admin.getCreditStatus());
         a_credits.setText(String.valueOf(admin.getCredits()));
-        a_p_hours.setText(admin.getPracticalHours());
-        a_t_hours.setText(admin.getTheoryHours());
+        a_p_hours.setText(String.valueOf(admin.getP_Hours()));
+        a_t_hours.setText(String.valueOf(admin.getT_Hours()));
     }
 
     private void setupTable() {
@@ -97,8 +99,8 @@ public class AdminCourseController extends BaseController implements Initializab
         c_week.setCellValueFactory(new PropertyValueFactory<>("week"));
         c_status_combo.setCellValueFactory(new PropertyValueFactory<>("creditStatus"));
         credits.setCellValueFactory(new PropertyValueFactory<>("credits"));
-        p_hours.setCellValueFactory(new PropertyValueFactory<>("practicalHours"));
-        t_hours.setCellValueFactory(new PropertyValueFactory<>("theoryHours"));
+        p_hours.setCellValueFactory(new PropertyValueFactory<>("P_Hours"));
+        t_hours.setCellValueFactory(new PropertyValueFactory<>("T_Hours"));
     }
 
     private void loadCourses() {
@@ -107,10 +109,9 @@ public class AdminCourseController extends BaseController implements Initializab
 
         String sql = "SELECT * FROM course";
 
-        try {
-            conn = Database.Conn();
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
+        try (Connection conn = Database.Conn();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 adminCourses.add(new Admin(
@@ -118,14 +119,14 @@ public class AdminCourseController extends BaseController implements Initializab
                         rs.getString("Semester"),
                         rs.getString("Department"),
                         rs.getString("Course_Id"),
-                        rs.getString("CourseName"),
-                        rs.getString("CourseType"),
+                        rs.getString("Course_Name"),
+                        rs.getString("Type"),
                         rs.getString("Lecturer_Id"),
                         rs.getString("Week"),
                         rs.getString("CreditStatus"),
                         rs.getInt("Credits"),
-                        rs.getString("PracticalHours"),
-                        rs.getString("TheoryHours")
+                        rs.getInt("P_Hours"),
+                        rs.getInt("T_Hours")
                 ));
             }
 
@@ -133,6 +134,7 @@ public class AdminCourseController extends BaseController implements Initializab
 
         } catch (SQLException e) {
             e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load courses.");
         }
     }
 
@@ -142,7 +144,7 @@ public class AdminCourseController extends BaseController implements Initializab
                 a_department.getValue() == null ||
                 code.getText().isEmpty() ||
                 a_c_name.getText().isEmpty() ||
-                a_type.getValue().isEmpty() ||
+                a_type.getValue() == null ||
                 a_lec.getValue() == null ||
                 week.getText().isEmpty() ||
                 a_status.getValue() == null ||
@@ -155,81 +157,126 @@ public class AdminCourseController extends BaseController implements Initializab
         }
 
         try {
-            conn = Database.Conn();
-            String sql = "INSERT INTO course (Level, Semester, Department, Course_Id, CourseName, CourseType, Lecturer_Id, Week, CreditStatus, Credits, PracticalHours, TheoryHours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            int credits = Integer.parseInt(a_credits.getText().trim());
+            int p_hours = Integer.parseInt(a_p_hours.getText().trim());
+            int t_hours = Integer.parseInt(a_t_hours.getText().trim());
 
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, a_level.getValue());
-            ps.setString(2, a_semester.getValue());
-            ps.setString(3, a_department.getValue());
-            ps.setString(4, code.getText());
-            ps.setString(5, a_c_name.getText());
-            ps.setString(6, a_type.getValue());
-            ps.setString(7, a_lec.getValue());
-            ps.setString(8, week.getText());
-            ps.setString(9, a_status.getValue());
-            ps.setInt(10, Integer.parseInt(a_credits.getText()));
-            ps.setString(11, a_p_hours.getText());
-            ps.setString(12, a_t_hours.getText());
-
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                showAlert(Alert.AlertType.INFORMATION, "Success", "Course added successfully!");
+            if (a_c_name.getText().length() > 100) {
+                showAlert(Alert.AlertType.WARNING, "Validation Error", "Course name must be 100 characters or less.");
+                return;
             }
-            loadCourses();
-            clearForm();
+            if (week.getText().length() > 10) {
+                showAlert(Alert.AlertType.WARNING, "Validation Error", "Week must be 10 characters or less.");
+                return;
+            }
+
+            try (Connection conn = Database.Conn();
+                 PreparedStatement ps = conn.prepareStatement(
+                         "INSERT INTO course (Level, Semester, Department, Course_Id, Course_Name, Type, Lecturer_Id, Week, CreditStatus, Credits, P_Hours, T_Hours) " +
+                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+
+                ps.setString(1, a_level.getValue());
+                ps.setString(2, a_semester.getValue());
+                ps.setString(3, a_department.getValue());
+                ps.setString(4, code.getText().trim());
+                ps.setString(5, a_c_name.getText().trim());
+                ps.setString(6, a_type.getValue());
+                ps.setString(7, a_lec.getValue());
+                ps.setString(8, week.getText().trim());
+                ps.setString(9, a_status.getValue());
+                ps.setInt(10, credits);
+                ps.setInt(11, p_hours);
+                ps.setInt(12, t_hours);
+
+                int rowsInserted = ps.executeUpdate();
+                if (rowsInserted > 0) {
+                    showAlert(Alert.AlertType.INFORMATION, "Success", "Course added successfully!");
+                    loadCourses();
+                    clearForm();
+                }
+            }
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "Credits, Practical Hours, and Theory Hours must be valid integers.");
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to add course.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to add course: " + e.getMessage());
         }
     }
 
     private void buttonUpdate() {
+        if (code.getText().isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "Course ID is required to update.");
+            return;
+        }
+
         try {
-            conn = Database.Conn();
-            String sql = "UPDATE course SET CourseName=?, CourseType=?, Lecturer_Id=?, Week=?, CreditStatus=?, Credits=?, PracticalHours=?, TheoryHours=? WHERE Course_Id=?";
+            int credits = Integer.parseInt(a_credits.getText().trim());
+            int p_hours = Integer.parseInt(a_p_hours.getText().trim());
+            int t_hours = Integer.parseInt(a_t_hours.getText().trim());
 
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, a_c_name.getText());
-            ps.setString(2, a_type.getValue());
-            ps.setString(3, a_lec.getValue());
-            ps.setString(4, week.getText());
-            ps.setString(5, a_status.getValue());
-            ps.setInt(6, Integer.parseInt(a_credits.getText()));
-            ps.setString(7, a_p_hours.getText());
-            ps.setString(8, a_t_hours.getText());
-            ps.setString(9, code.getText());
-
-            int rowsUpdated = ps.executeUpdate();
-            if (rowsUpdated > 0) {
-                showAlert(Alert.AlertType.INFORMATION, "Success", "Course updated successfully!");
+            if (a_c_name.getText().length() > 100) {
+                showAlert(Alert.AlertType.WARNING, "Validation Error", "Course name must be 100 characters or less.");
+                return;
             }
-            loadCourses();
-            clearForm();
+            if (week.getText().length() > 10) {
+                showAlert(Alert.AlertType.WARNING, "Validation Error", "Week must be 10 characters or less.");
+                return;
+            }
+
+            try (Connection conn = Database.Conn();
+                 PreparedStatement ps = conn.prepareStatement(
+                         "UPDATE course SET Course_Name=?, Type=?, Lecturer_Id=?, Week=?, CreditStatus=?, Credits=?, P_Hours=?, T_Hours=? " +
+                                 "WHERE Course_Id=?")) {
+
+                ps.setString(1, a_c_name.getText().trim());
+                ps.setString(2, a_type.getValue());
+                ps.setString(3, a_lec.getValue());
+                ps.setString(4, week.getText().trim());
+                ps.setString(5, a_status.getValue());
+                ps.setInt(6, credits);
+                ps.setInt(7, p_hours);
+                ps.setInt(8, t_hours);
+                ps.setString(9, code.getText().trim());
+
+                int rowsUpdated = ps.executeUpdate();
+                if (rowsUpdated > 0) {
+                    showAlert(Alert.AlertType.INFORMATION, "Success", "Course updated successfully!");
+                    loadCourses();
+                    clearForm();
+                } else {
+                    showAlert(Alert.AlertType.WARNING, "Warning", "No course found with the specified Course ID.");
+                }
+            }
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "Credits, Practical Hours, and Theory Hours must be valid integers.");
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to update course.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to update course: " + e.getMessage());
         }
     }
 
     private void buttonDelete() {
-        try {
-            conn = Database.Conn();
-            String sql = "DELETE FROM course WHERE Course_Id=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, code.getText());
+        if (code.getText().isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "Course ID is required to delete.");
+            return;
+        }
+
+        try (Connection conn = Database.Conn();
+             PreparedStatement ps = conn.prepareStatement("DELETE FROM course WHERE Course_Id=?")) {
+
+            ps.setString(1, code.getText().trim());
 
             int rowsDeleted = ps.executeUpdate();
             if (rowsDeleted > 0) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Course deleted successfully!");
+                loadCourses();
+                clearForm();
+            } else {
+                showAlert(Alert.AlertType.WARNING, "Warning", "No course found with the specified Course ID.");
             }
-            loadCourses();
-            clearForm();
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to delete course.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to delete course: " + e.getMessage());
         }
     }
 

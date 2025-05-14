@@ -39,8 +39,7 @@ public class LectureCoursesController extends BaseController implements Initiali
             String sql = """
                             SELECT c.Course_Id, c.Course_Name
                             FROM course c
-                            JOIN lecture_course lc ON c.Course_Id = lc.Course_Id
-                            WHERE lc.Lecturer_Id = ?;
+                            WHERE c.Lecturer_Id = ?;
                     """;
             ps = conn.prepareStatement(sql);
             ps.setString(1, BaseController.getUserId());

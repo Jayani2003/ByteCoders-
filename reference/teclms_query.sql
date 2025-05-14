@@ -60,18 +60,18 @@ CREATE TABLE course (
                         Level ENUM('LEVEL1', 'LEVEL2', 'LEVEL3', 'LEVEL4') NOT NULL,
                         Semester ENUM('SEMESTER1', 'SEMESTER2') NOT NULL,
                         Department ENUM('ICT', 'ET', 'BST') NOT NULL,
-                        Course_Id VARCHAR(20) NOT NULL,
-                        CourseName VARCHAR(100) NOT NULL,
-                        CourseType ENUM('THEORY', 'PRACTICAL','THEORY_PRACTICAL') NOT NULL,
-                        Lecturer_Id VARCHAR(20) NOT NULL,
-                        Week VARCHAR(10) NOT NULL,
-                        CreditStatus ENUM('CREDIT', 'NON-CREDIT') NOT NULL,
+                        Course_Id VARCHAR(10) NOT NULL, -- Reduced length to match data
+                        Course_Name VARCHAR(100) NOT NULL,
+                        Type ENUM('THEORY', 'PRACTICAL', 'THEORY_PRACTICAL') NOT NULL,
+                        Lecturer_Id VARCHAR(10) NOT NULL, -- Reduced length to match data
+                        Week VARCHAR(15) NOT NULL, -- Increased to accommodate longer ranges
+                        CreditStatus ENUM('CREDIT', 'NON_CREDIT') NOT NULL, -- Updated for consistency
                         Credits INT NOT NULL,
-                        PracticalHours VARCHAR(10) NOT NULL,
-                        TheoryHours VARCHAR(10) NOT NULL,
-                        PRIMARY KEY (Course_Id)
+                        P_Hours INT NOT NULL,
+                        T_Hours INT NOT NULL,
+                        PRIMARY KEY (Course_Id),
+                        FOREIGN KEY (Lecturer_Id) REFERENCES lecturer (Lecturer_Id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE attendance
 (
@@ -141,14 +141,6 @@ CREATE TABLE stu_course
     FOREIGN KEY (Student_Id) REFERENCES student (Student_Id) ON DELETE CASCADE
 );
 
-CREATE TABLE lecture_course (
-                                Lecturer_Id VARCHAR(20) NOT NULL,
-                                Course_Id VARCHAR(20) NOT NULL,
-                                PRIMARY KEY (Lecturer_Id, Course_Id),
-                                FOREIGN KEY (Course_Id) REFERENCES course (Course_Id) ON DELETE CASCADE,
-                                FOREIGN KEY (Lecturer_Id) REFERENCES lecturer (Lecturer_Id) ON DELETE CASCADE
-);
-
 CREATE TABLE tech_officer_medical
 (
     Technical_Id     VARCHAR(20) NOT NULL,
@@ -182,6 +174,3 @@ CREATE TABLE course_materials
     FOREIGN KEY (Course_Id) REFERENCES course (Course_Id),
     FOREIGN KEY (Lecturer_Id) REFERENCES lecturer (Lecturer_Id)
 );
-
-
-
