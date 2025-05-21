@@ -105,7 +105,6 @@ public class TOTimeTableController extends BaseController implements Initializab
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
         semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
         timetableColumn.setCellValueFactory(new PropertyValueFactory<>("timetable"));
-
         timetableTO.setItems(getTableData());
     }
 }

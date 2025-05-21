@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -39,17 +38,13 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #f2c9d8;">
                     <children>
-                  <ScrollPane prefHeight="421.0" prefWidth="1164.0">
-                     <content>
-                              <TableView fx:id="studentGradesTable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
-                                  <columns>
-                                      <TableColumn fx:id="stuIdColumn" prefWidth="370.666646361351" text="STUDENT ID" />
-                                      <TableColumn fx:id="courseCodeColumn" prefWidth="386.0000915527344" text="COURSE CODE" />
-                                      <TableColumn fx:id="stuGradeColumn" prefWidth="405.9998779296875" text="GRADE" />
-                                  </columns>
-                              </TableView>
-                     </content>
-                  </ScrollPane>
+                        <TableView fx:id="studentGradesTable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
+                            <columns>
+                                <TableColumn fx:id="stuIdColumn" prefWidth="370.666646361351" text="STUDENT ID" />
+                                <TableColumn fx:id="courseCodeColumn" prefWidth="386.0000915527344" text="COURSE CODE" />
+                                <TableColumn fx:id="stuGradeColumn" prefWidth="405.9998779296875" text="GRADE" />
+                            </columns>
+                        </TableView>
                     </children>
                 </AnchorPane>
             </items>

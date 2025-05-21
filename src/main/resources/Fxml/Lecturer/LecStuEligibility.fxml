@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -29,12 +28,7 @@
                             </font>
                         </Label>
                         <Label layoutX="167.0" layoutY="92.0" text="/" />
-                        <TextField fx:id="textLable" layoutX="63.0" layoutY="129.0" prefHeight="25.0" prefWidth="189.0" />
-                        <Button fx:id="searchButton" layoutX="282.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: AC1754;" text="SEARCH" textFill="#f3eff1">
-                            <font>
-                                <Font name="System Bold" size="12.0" />
-                            </font>
-                        </Button>
+                        <TextField fx:id="searchBox" layoutX="63.0" layoutY="129.0" prefHeight="25.0" prefWidth="189.0" />
                         <Label fx:id="studentId" layoutX="196.0" layoutY="91.0" text="STUDENT ID">
                             <font>
                                 <Font name="Impact" size="15.0" />
@@ -44,15 +38,12 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #f2c9d8;">
                     <children>
-                        <TableView prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="stuEligibilityTable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                        <TableColumn fx:id="stu_id" prefWidth="140.5" text="STUDENT ID" />
-                        <TableColumn fx:id="course_code" prefWidth="166.0" text="COURSE CODE" />
-                        <TableColumn fx:id="quizzes" prefWidth="169.0" text="QUIZZES" />
-                                <TableColumn fx:id="assignments" prefWidth="182.0" text="ASSIGNMENTS" />
-                                <TableColumn fx:id="mid_exam" minWidth="0.0" prefWidth="169.5" text="MID EXAMS" />
-                                <TableColumn fx:id="ca_marks" prefWidth="162.5" text="CA MARKS" />
-                                <TableColumn fx:id="eligibility" prefWidth="166.5" text="ELIGIBILITY" />
+                                <TableColumn fx:id="stu_id" prefWidth="290.0" text="STUDENT ID" />
+                                <TableColumn fx:id="course_code" prefWidth="290.0" text="COURSE CODE" />
+                                <TableColumn fx:id="ca_marks" prefWidth="291.0" text="CA MARKS" />
+                                <TableColumn fx:id="attendance" prefWidth="291.0" text="ATTENDANCE" />
                             </columns>
                             <padding>
                                 <Insets left="5.0" right="5.0" />

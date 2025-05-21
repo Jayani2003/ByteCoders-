@@ -49,8 +49,8 @@ public class StudentGradesController extends BaseController implements Initializ
                             SELECT
                                 c.Course_Id,
                                 c.Course_Name,
-                                m.Grade
-                            FROM mark m
+                                m.FULL_Marks
+                            FROM ca_final_marks m
                                 JOIN
                             course c ON m.Course_Id = c.Course_Id
                             WHERE m.Student_Id = ?;
@@ -62,7 +62,7 @@ public class StudentGradesController extends BaseController implements Initializ
 
             while (rs.next()) {
                 cid = rs.getString("Course_Id");
-                grade = rs.getString("Grade");
+                grade = getGrade(rs.getDouble("Full_Marks"));
                 cname = rs.getString("Course_Name");
                 content = cid + " " + cname + " : " + grade;
 
