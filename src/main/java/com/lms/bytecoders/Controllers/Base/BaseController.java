@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+
 import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
@@ -209,9 +210,9 @@ public abstract class BaseController {
                             SELECT
                                 c.Course_Id,
                                 c.Course_Name,
-                                m.Grade,
+                                m.FULL_Marks,
                                 c.Credits
-                            FROM mark m
+                            FROM ca_final_marks m
                                 JOIN
                             course c ON m.Course_Id = c.Course_Id
                             WHERE m.Student_Id = ?;
@@ -222,9 +223,9 @@ public abstract class BaseController {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                String grade = rs.getString("Grade");
+                String grade = getGrade(rs.getDouble("FULL_Marks"));
                 double point = getPoint(grade);
-                double credit = Double.parseDouble(rs.getString("Credits"));
+                double credit = rs.getDouble("Credits");
                 totalCredits += credit;
                 totalPoints += (point * credit);
             }
@@ -267,8 +268,8 @@ public abstract class BaseController {
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-    
-    public double getAttendanceWithoutMedical(String uid, String cid, Connection conn){
+
+    public double getAttendanceWithoutMedical(String uid, String cid, Connection conn) {
         ResultSet rs_, rs__ = null;
         PreparedStatement ps_ = null;
         float theory_count = 0;
@@ -297,11 +298,11 @@ public abstract class BaseController {
                     ps_.setString(3, "PRESENT");
                     rs_ = ps_.executeQuery();
 
-                    while(rs_.next()) {
+                    while (rs_.next()) {
                         attendanceType = rs_.getString("Type");
                         if (attendanceType.equals("PRACTICAL")) {
                             practical_count += 1;
-                        }else{
+                        } else {
                             theory_count += 1;
                         }
                     }
@@ -310,13 +311,14 @@ public abstract class BaseController {
                     e.printStackTrace();
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return roundToTwoDecimals((prt_hours / max_hours) * 100);
     }
-public double getAttendanceWithMedical(String uid, String cid, Connection conn){
+
+    public double getAttendanceWithMedical(String uid, String cid, Connection conn) {
         ResultSet rs_, rs__ = null;
         PreparedStatement ps_ = null;
         float theory_count = 0;
@@ -346,11 +348,11 @@ public double getAttendanceWithMedical(String uid, String cid, Connection conn){
                     ps_.setString(4, "MC");
                     rs_ = ps_.executeQuery();
 
-                    while(rs_.next()) {
+                    while (rs_.next()) {
                         attendanceType = rs_.getString("Type");
                         if (attendanceType.equals("PRACTICAL")) {
                             practical_count += 1;
-                        }else{
+                        } else {
                             theory_count += 1;
                         }
                     }
@@ -359,12 +361,59 @@ public double getAttendanceWithMedical(String uid, String cid, Connection conn){
                     e.printStackTrace();
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return roundToTwoDecimals((prt_hours / max_hours) * 100);
     }
 
+    public String getGrade(Double mark) {
+        if (mark >= 85 && mark <= 100) {
+            return "A+";
+        } else if (mark >= 80 && mark < 85) {
+            return "A";
+        } else if (mark >= 75 && mark < 80) {
+            return "A-";
+        } else if (mark >= 70 && mark < 75) {
+            return "B+";
+        } else if (mark >= 65 && mark < 70) {
+            return "B";
+        } else if (mark >= 60 && mark < 65) {
+            return "B-";
+        } else if (mark >= 55 && mark < 60) {
+            return "C+";
+        } else if (mark >= 50 && mark < 55) {
+            return "C";
+        } else if (mark >= 45 && mark < 50) {
+            return "C-";
+        } else if (mark >= 40 && mark < 45) {
+            return "D+";
+        } else if (mark >= 35 && mark < 40) {
+            return "D";
+        } else if (mark >= 0 && mark < 35) {
+            return "F";
+        } else {
+            return "Invalid";
+        }
+    }
+
+    public static String checkCAEligibility(String courseId, double caMarks) {
+        double threshold = 0.0;
+
+        switch (courseId) {
+            case "ICT2113":
+            case "ICT2133":
+            case "ICT2152":
+                threshold = 15.00;
+                break;
+            case "ICT2122":
+            case "ICT2142":
+                threshold = 20.00;
+                break;
+        }
+
+        return (caMarks > threshold) ? "Eligible" : "Not Eligible";
+    }
 
 }

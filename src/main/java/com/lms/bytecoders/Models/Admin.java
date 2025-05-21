@@ -12,11 +12,11 @@ public class Admin {
     private String week;
     private String creditStatus;
     private int credits;
-    private String practicalHours;
-    private String theoryHours;
+    private int P_Hours;
+    private int T_Hours;
 
     public Admin(String level, String semester, String department, String courseId, String courseName, String courseType,
-                 String lecturerId, String week, String creditStatus, int credits, String practicalHours, String theoryHours) {
+                 String lecturerId, String week, String creditStatus, int credits, int P_Hours, int T_Hours) {
         this.level = level;
         this.semester = semester;
         this.department = department;
@@ -27,11 +27,9 @@ public class Admin {
         this.week = week;
         this.creditStatus = creditStatus;
         this.credits = credits;
-        this.practicalHours = practicalHours;
-        this.theoryHours = theoryHours;
+        this.P_Hours = P_Hours;
+        this.T_Hours = T_Hours;
     }
-
-
 
     public String getLevel() {
         return level;
@@ -113,19 +111,19 @@ public class Admin {
         this.credits = credits;
     }
 
-    public String getPracticalHours() {
-        return practicalHours;
+    public int getP_Hours() {
+        return P_Hours;
     }
 
-    public void setPracticalHours(String practicalHours) {
-        this.practicalHours = practicalHours;
+    public void setP_Hours(int P_Hours) {
+        this.P_Hours = P_Hours;
     }
 
-    public String getTheoryHours() {
-        return theoryHours;
+    public int getT_Hours() {
+        return T_Hours;
     }
 
-    public void setTheoryHours(String theoryHours) {
-        this.theoryHours = theoryHours;
+    public void setT_Hours(int T_Hours) {
+        this.T_Hours = T_Hours;
     }
 }

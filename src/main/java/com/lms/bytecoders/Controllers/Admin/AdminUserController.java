@@ -165,7 +165,7 @@ private void addUser() {
 
     try {
         conn = Database.Conn();
-        String sql = "INSERT INTO user (User_Id, First_Name, Last_Name, DOB, Telephone, Address, Email, Password, Age, User_Image, Role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (User_Id, First_Name, Last_Name, DOB, Telephone, Address, Email, Password, Age, User_Image, Role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
