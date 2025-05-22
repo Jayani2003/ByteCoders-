@@ -1,8 +1,10 @@
 package com.lms.bytecoders.Controllers.Lecturer;
 
 import com.lms.bytecoders.Controllers.Base.BaseController;
+import com.lms.bytecoders.Controllers.Student.StudentSingleCourseViewController;
 import com.lms.bytecoders.Services.Database;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -46,13 +48,30 @@ public class LectureCoursesController extends BaseController implements Initiali
             rs = ps.executeQuery();
 
             while (rs.next()) {
-
                 Label courseLabel = new Label(rs.getString("Course_Name") + "\n" + rs.getString("Course_Id"));
                 courseLabel.getStyleClass().add("course-tab");
                 courseLabel.setWrapText(true);
+                String courseId = rs.getString("Course_Id");
 
                 courseLabel.setOnMouseClicked(event -> {
-                    navigate(MainPane, "/Fxml/Lecturer/LecAddMaterial.fxml");
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Lecturer/LecAddMaterial.fxml"));
+                        root = loader.load();
+
+                        LecAddMaterialController controller = loader.getController();
+                        controller.setCourseId(courseId);
+                        MainPane.getChildren().clear();
+                        MainPane.getChildren().add(root);
+
+                        if (MainPane instanceof AnchorPane) {
+                            AnchorPane.setTopAnchor(root, 0.0);
+                            AnchorPane.setRightAnchor(root, 0.0);
+                            AnchorPane.setBottomAnchor(root, 0.0);
+                            AnchorPane.setLeftAnchor(root, 0.0);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 });
 
                 coursesPane.getChildren().add(courseLabel);

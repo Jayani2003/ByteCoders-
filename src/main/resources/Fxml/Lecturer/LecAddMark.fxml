@@ -11,99 +11,166 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="LecMainPane" prefHeight="645.0" prefWidth="1164.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecAddMarkController">
+<AnchorPane fx:id="LecMainPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.bytecoders.Controllers.Lecturer.LecAddMarkController">
    <children>
-      <Pane prefHeight="645.0" prefWidth="1164.0" style="-fx-background-color: #f7c3d6;">
+      <Pane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f7c3d6;">
          <children>
-            <ImageView fitHeight="645.0" fitWidth="1176.0" layoutX="-7.0" opacity="0.4" pickOnBounds="true">
+            <ImageView fitHeight="600.0" fitWidth="1012.0" layoutX="-7.0" opacity="0.4" pickOnBounds="true">
                <image>
                   <Image url="@../../Images/addMarksBG.jpg" />
                </image>
             </ImageView>
+            <!-- Buttons (Right of Form) -->
+            <Button fx:id="btnAdd" layoutX="720.0" layoutY="154.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #AC1754; -fx-text-fill: #FFFFFF; -fx-font-family: 'Yu Gothic UI Semibold, sans-serif'; -fx-font-size: 14.0;" text="Add" />
+            <Button fx:id="btnUpdate" layoutX="820.0" layoutY="153.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #AC1754; -fx-text-fill: #FFFFFF; -fx-font-family: 'Yu Gothic UI Semibold, sans-serif'; -fx-font-size: 14.0;" text="Update" />
+            <Button fx:id="btnDelete" layoutX="720.0" layoutY="208.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #AC1754; -fx-text-fill: #FFFFFF; -fx-font-family: 'Yu Gothic UI Semibold, sans-serif'; -fx-font-size: 14.0;" text="Delete" />
+            <Button fx:id="btnClear" layoutX="820.0" layoutY="208.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #AC1754; -fx-text-fill: #FFFFFF; -fx-font-family: 'Yu Gothic UI Semibold, sans-serif'; -fx-font-size: 14.0;" text="Clear" />
+            <Label layoutX="417.0" layoutY="14.0" text="Add Marks" textFill="#ac1754">
+               <font>
+                  <Font name="Cambria Bold" size="33.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Label layoutX="22.0" layoutY="34.0" text="Student ID">
+      <!-- Search Bar -->
+      <Label layoutX="20.0" layoutY="59.0" text="Student ID">
          <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="stuIdSearch" layoutX="20.0" layoutY="65.0" prefHeight="33.0" prefWidth="182.0" />
-      <TableView layoutX="331.0" layoutY="34.0" opacity="0.75" prefHeight="578.0" prefWidth="819.0">
-        <columns>
-          <TableColumn fx:id="stuIdTbl" prefWidth="90.0" sortable="false" text="Student ID" />
-          <TableColumn fx:id="courseCodeTbl" minWidth="0.0" prefWidth="98.0" text="Course Code" />
-            <TableColumn fx:id="quiz1Tbl" prefWidth="60.5" text="Quiz 01" />
-            <TableColumn fx:id="quiz2Tbl" prefWidth="66.0" text="Quiz 02" />
-            <TableColumn fx:id="quiz3Tbl" prefWidth="63.0" text="Quiz 03" />
-            <TableColumn fx:id="midTTbl" prefWidth="91.5" text="Mid Theory" />
-            <TableColumn fx:id="midPTbl" prefWidth="86.5" text="Mid Practical" />
-            <TableColumn fx:id="endTTbl" prefWidth="85.0" text="End Theory" />
-            <TableColumn fx:id="endPTbl" prefWidth="89.0" text="End Practical" />
-            <TableColumn fx:id="assesmentTbl" prefWidth="88.5" text="Assesment" />
-        </columns>
+      <TextField fx:id="stuIdSearch" layoutX="20.0" layoutY="84.0" prefHeight="26.0" prefWidth="160.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnSearch" layoutX="200.0" layoutY="84.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #AC1754; -fx-text-fill: #FFFFFF; -fx-font-family: 'Yu Gothic UI Semibold, sans-serif'; -fx-font-size: 14.0;" text="Search" />
+      <!-- Input Form (Four-Column Grid) -->
+      <Label layoutX="20.0" layoutY="133.0" text="Stu ID">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="stuIdTxt" layoutX="20.0" layoutY="153.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="170.0" layoutY="133.0" text="Course ID">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="courseIdTxt" layoutX="170.0" layoutY="153.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="320.0" layoutY="133.0" text="Quiz 1">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quiz1Txt" layoutX="320.0" layoutY="153.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="470.0" layoutY="133.0" text="Quiz 2">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quiz2Txt" layoutX="470.0" layoutY="153.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="20.0" layoutY="189.0" text="Quiz 3">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quiz3Txt" layoutX="20.0" layoutY="212.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="170.0" layoutY="189.0" text="Quiz 4">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quiz4Txt" layoutX="170.0" layoutY="212.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="320.0" layoutY="189.0" text="Assignment 1">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="assignment1Txt" layoutX="320.0" layoutY="212.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="470.0" layoutY="189.0" text="Assignment 2">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="assignment2Txt" layoutX="470.0" layoutY="212.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="20.0" layoutY="247.0" text="M_Term">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="midTermTxt" layoutX="20.0" layoutY="273.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="170.0" layoutY="247.0" text="F_Theory">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="finalTheoryTxt" layoutX="170.0" layoutY="271.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="320.0" layoutY="247.0" text="F_Practical">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="finalPracticalTxt" layoutX="320.0" layoutY="271.0" prefHeight="26.0" prefWidth="130.0">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="14.0" />
+         </font>
+      </TextField>
+      <!-- TableView (Unchanged) -->
+      <TableView fx:id="stuMarks" layoutX="20.0" layoutY="330.0" opacity="0.75" prefHeight="260.0" prefWidth="960.0">
+         <columns>
+            <TableColumn fx:id="markRecordId" prefWidth="93.33334541320801" sortable="false" text="Mark ID" />
+            <TableColumn fx:id="stuId" prefWidth="73.33330535888672" sortable="false" text="Stu ID" />
+            <TableColumn fx:id="courseId" prefWidth="71.99998474121094" text="Course ID" />
+            <TableColumn fx:id="quiz1" prefWidth="64.0" text="Quiz 1" />
+            <TableColumn fx:id="quiz2" prefWidth="56.666656494140625" text="Quiz 2" />
+            <TableColumn fx:id="quiz3" prefWidth="53.333343505859375" text="Quiz 3" />
+            <TableColumn fx:id="quiz4" prefWidth="54.0" text="Quiz 4" />
+            <TableColumn fx:id="assignment1" prefWidth="125.33331298828125" text="Assignment 1" />
+            <TableColumn fx:id="assignment2" prefWidth="102.0" text="Assignment 2" />
+            <TableColumn fx:id="midTerm" prefWidth="71.33331298828125" text="M_Term" />
+            <TableColumn fx:id="finalTheory" prefWidth="87.33331298828125" text="F_Theory" />
+            <TableColumn fx:id="finalPractical" prefWidth="110.66668701171875" text="F_Practical" />
+         </columns>
       </TableView>
-      <Label layoutX="20.0" layoutY="160.0" text="Course Code">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="courseCodeTxt" layoutX="161.0" layoutY="160.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="209.0" text="Quiz 01">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnSearch" layoutX="232.0" layoutY="68.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Search" />
-      <TextField fx:id="quiz1Txt" layoutX="161.0" layoutY="209.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="259.0" text="Quiz 02">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="quiz2Txt" layoutX="161.0" layoutY="259.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="308.0" text="Quiz 03">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="quiz3Txt" layoutX="161.0" layoutY="308.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="355.0" text="Mid Theory">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="midTTxt" layoutX="161.0" layoutY="355.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="401.0" text="Mid Pracrical">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="midPTxt" layoutX="161.0" layoutY="401.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="444.0" text="End Theory">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="endTTxt" layoutX="161.0" layoutY="444.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="491.0" text="End Pracrical">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="endPTxt" layoutX="161.0" layoutY="491.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="535.0" text="Assesment">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="assesmentTxt" layoutX="161.0" layoutY="535.0" prefHeight="27.0" prefWidth="152.0" />
-      <Label layoutX="20.0" layoutY="118.0" text="Student ID">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="stuIdTxt" layoutX="161.0" layoutY="118.0" prefHeight="27.0" prefWidth="152.0" />
-      <Button fx:id="btnAdd" layoutX="41.0" layoutY="585.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Add" />
-      <Button fx:id="btnClear" layoutX="197.0" layoutY="585.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Clear" />
    </children>
 </AnchorPane>

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -38,17 +37,13 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #f2c9d8;">
                     <children>
-                        <ScrollPane prefHeight="421.0" prefWidth="1164.0">
-                            <content>
-                                <TableView fx:id="studentGPATable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
-                                    <columns>
-                                        <TableColumn fx:id="stuIdColumn" prefWidth="347.33333337306976" text="STUDENT ID" />
-                                        <TableColumn fx:id="stuSGPAColumn" minWidth="0.0" prefWidth="415.3334045410156" text="SGPA" />
-                                        <TableColumn fx:id="stuCGPAColumn" prefWidth="400.66650390625" text="CGPA" />
-                                    </columns>
-                                </TableView>
-                            </content>
-                        </ScrollPane>
+                          <TableView fx:id="studentGPATable" prefHeight="421.0" prefWidth="1162.0" style="-fx-background-color: #f2c9d8;">
+                              <columns>
+                                  <TableColumn fx:id="stuIdColumn" prefWidth="347.33333337306976" text="STUDENT ID" />
+                                  <TableColumn fx:id="stuSGPAColumn" minWidth="0.0" prefWidth="415.3334045410156" text="SGPA" />
+                                  <TableColumn fx:id="stuCGPAColumn" prefWidth="400.66650390625" text="CGPA" />
+                              </columns>
+                          </TableView>
                     </children>
                 </AnchorPane>
             </items>

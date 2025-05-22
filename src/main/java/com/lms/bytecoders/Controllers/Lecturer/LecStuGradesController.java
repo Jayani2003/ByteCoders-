@@ -60,12 +60,11 @@ public class LecStuGradesController extends BaseController implements Initializa
         sql = """
             SELECT
                 c.Course_Id,
-                m.Grade,
-                s.Student_Id,
+                m.FULL_Marks,
+                m.Student_Id,
                 c.Credits
-            FROM mark m
+            FROM ca_final_marks m
             JOIN course c ON m.Course_Id = c.Course_Id
-            JOIN student s ON m.Student_Id = s.Student_Id
         """;
 
         try {
@@ -76,7 +75,7 @@ public class LecStuGradesController extends BaseController implements Initializa
             while (rs_.next()) {
                 student_id = rs_.getString("Student_Id");
                 course_code = rs_.getString("Course_Id");
-                student_grade = rs_.getString("Grade");
+                student_grade = getGrade(rs_.getDouble("FULL_Marks"));
                 studentGradeData.add(new StudentGrade(student_id, course_code, student_grade));
             }
 
